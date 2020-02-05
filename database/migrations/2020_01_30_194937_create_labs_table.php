@@ -23,6 +23,7 @@ class CreateLabsTable extends Migration {
 			$table->string('roomNumber', 20);
 			$table->integer('instructorID')->index('fkIdx_169');
 			$table->integer('instructorID2')->nullable()->index('fkIdx_172');
+            $table->timestamps();
 		});
 	}
 

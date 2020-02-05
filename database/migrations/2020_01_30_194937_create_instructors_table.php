@@ -20,6 +20,7 @@ class CreateInstructorsTable extends Migration {
 			$table->string('phoneNumber', 20)->nullable();
 			$table->string('emailAddress', 45)->nullable();
 			$table->text('notes', 65535)->nullable();
+			$table->timestamps();
 		});
 	}
 

@@ -17,6 +17,7 @@ class CreateCoursesTable extends Migration {
 			$table->integer('courseID', true);
 			$table->string('CourseSection', 20);
 			$table->string('CourseName', 45);
+			$table->timestamps();
 		});
 	}
 

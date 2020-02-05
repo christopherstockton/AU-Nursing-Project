@@ -18,6 +18,7 @@ class CreateClinicalassignmentsTable extends Migration {
 			$table->integer('clinicalID')->index('fkIdx_178');
 			$table->integer('studentID')->index('fkIdx_181');
 			$table->boolean('status');
+			$table->timestamps();
 		});
 	}
 

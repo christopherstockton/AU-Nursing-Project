@@ -18,6 +18,7 @@ class CreateSitesTable extends Migration {
 			$table->integer('contactID')->index('fkIdx_291');
 			$table->text('address', 65535);
 			$table->string('unit', 45);
+            $table->timestamps();
 		});
 	}
 

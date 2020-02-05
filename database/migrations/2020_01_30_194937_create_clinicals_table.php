@@ -24,6 +24,7 @@ class CreateClinicalsTable extends Migration {
 			$table->integer('endTime');
 			$table->string('days', 45);
 			$table->boolean('capacity');
+			$table->timestamps();
 		});
 	}
 

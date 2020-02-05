@@ -25,3 +25,10 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/testPage');
 
+//students routes
+Route::get('/students',                   'StudentsController@list');
+Route::get('/students/create',            'StudentsController@create');
+Route::post('/students',                  'StudentsController@store');
+Route::get('/students/{student}',         'StudentsController@show');
+Route::get('/students/delete/{student}',  'StudentsController@delete');
+

@@ -18,6 +18,7 @@ class CreateLabassignmentsTable extends Migration {
 			$table->integer('labID')->index('fkIdx_184');
 			$table->integer('studentID')->index('fkIdx_187');
 			$table->boolean('status');
+			$table->timestamps();
 		});
 	}
 

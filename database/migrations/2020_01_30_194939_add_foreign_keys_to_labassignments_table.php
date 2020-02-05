@@ -15,7 +15,7 @@ class AddForeignKeysToLabassignmentsTable extends Migration {
 		Schema::table('labassignments', function(Blueprint $table)
 		{
 			$table->foreign('labID', 'FK_184')->references('labID')->on('labs')->onUpdate('NO ACTION')->onDelete('NO ACTION');
-			$table->foreign('studentID', 'FK_187')->references('studentID')->on('students')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+			$table->foreign('studentID', 'FK_187')->references('studentID')->on('students')->onUpdate('NO ACTION')->onDelete('cascade');
 		});
 	}
 
