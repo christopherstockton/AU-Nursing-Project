@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    TESTING!
+                    TESTING! HELP PLEASE
                     Hello Friend! You are logged in, {{ Auth::user()->name }}
                 </div>
             </div>

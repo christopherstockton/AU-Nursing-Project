@@ -4,8 +4,6 @@
     <list default="true" id="dfbe0364-913b-4a1e-9e7c-a61b2361aade" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../NursingInternship/resources/views/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../NursingInternship/resources/views/layout.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../NursingInternship/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../NursingInternship/resources/views/welcome.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -167,7 +165,7 @@
       <option name="presentableId" value="Default" />
       <updated>1581361934918</updated>
       <workItem from="1581361939168" duration="4018000" />
-      <workItem from="1581366945469" duration="3382000" />
+      <workItem from="1581366945469" duration="3984000" />
     </task>
     <servers />
   </component>
