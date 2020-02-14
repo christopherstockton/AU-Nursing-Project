@@ -17,7 +17,7 @@ class CreatePeopleTable extends Migration {
 			$table->integer('id', true);
 			$table->string('firstName', 45)->nullable();
 			$table->string('lastName', 45)->nullable();
-			$table->string('phoneNumber', 20)->nullable();
+			$table->string('phoneNumber', 25)->nullable();
 			$table->string('emailAddress', 45)->nullable();
 			$table->text('notes', 65535)->nullable();
 			$table->boolean('flag');
