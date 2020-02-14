@@ -18,3 +18,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/students',                  'PeopleController@listStudents');
+Route::get('/instructors',               'PeopleController@listInstructors');
+
+Route::get('/people/create',             'PeopleController@create');
+Route::post('/people',                   'PeopleController@store');
+Route::get('/people/{ID}',               'PeopleController@show');
+Route::get('/people/delete/{ID}',        'PeopleController@delete');
+Route::get('/people/{ID}/edit',          'PeopleController@edit');
+Route::put('/people/{ID}',               'PeopleController@update');

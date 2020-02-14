@@ -15,9 +15,9 @@ class CreateClinicalsTable extends Migration {
 		Schema::create('clinicals', function(Blueprint $table)
 		{
 			$table->integer('clinicalID', true);
-			$table->integer('courseID')->index('fkIdx_160');
+			$table->integer('courseID')->nullable()->index('fkIdx_160');
 			$table->integer('siteID')->nullable()->index('fkIdx_163');
-			$table->integer('instructorID')->index('fkIdx_157');
+			$table->integer('instructorID')->nullable()->index('fkIdx_157');
 			$table->integer('instructorID2')->nullable()->index('fkIdx_303');
 			$table->date('startDate');
 			$table->date('endDate');
@@ -27,6 +27,7 @@ class CreateClinicalsTable extends Migration {
 			$table->boolean('capacity');
 			$table->boolean('flag');
 			$table->integer('roomNumber')->nullable();
+			$table->timestamps();
 		});
 	}
 

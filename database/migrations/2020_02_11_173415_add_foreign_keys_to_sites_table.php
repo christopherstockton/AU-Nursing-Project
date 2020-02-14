@@ -14,7 +14,7 @@ class AddForeignKeysToSitesTable extends Migration {
 	{
 		Schema::table('sites', function(Blueprint $table)
 		{
-			$table->foreign('contactID', 'FK_291')->references('instructorID')->on('people')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+			$table->foreign('contactID', 'FK_291')->references('id')->on('people')->onUpdate('NO ACTION')->onDelete('set null');
 		});
 	}
 

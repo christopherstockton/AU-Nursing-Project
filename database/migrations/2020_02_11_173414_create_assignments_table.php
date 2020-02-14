@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateCoursesTable extends Migration {
+class CreateAssignmentsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,11 +12,11 @@ class CreateCoursesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('courses', function(Blueprint $table)
+		Schema::create('assignments', function(Blueprint $table)
 		{
-			$table->integer('courseID', true);
-			$table->string('CourseSection', 20);
-			$table->string('CourseName', 45);
+			$table->integer('id', true);
+			$table->integer('studentID')->index('fkIdx_298');
+			$table->integer('clinicalID')->index('fkIdx_306');
 		});
 	}
 
@@ -28,7 +28,7 @@ class CreateCoursesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('courses');
+		Schema::drop('assignments');
 	}
 
 }

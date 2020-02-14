@@ -15,9 +15,10 @@ class CreateSitesTable extends Migration {
 		Schema::create('sites', function(Blueprint $table)
 		{
 			$table->integer('siteID', true);
-			$table->integer('contactID')->index('fkIdx_291');
+			$table->integer('contactID')->nullable()->index('fkIdx_291');
 			$table->text('address', 65535);
 			$table->string('unit', 45);
+			$table->timestamps();
 		});
 	}
 
