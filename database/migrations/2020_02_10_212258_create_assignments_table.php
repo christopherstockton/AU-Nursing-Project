@@ -15,7 +15,7 @@ class CreateAssignmentsTable extends Migration {
 		Schema::create('assignments', function(Blueprint $table)
 		{
 			$table->integer('ID', true);
-			$table->integer('studentID')->index('fkIdx_298');
+			$table->integer('personID')->index('fkIdx_298');
 			$table->integer('clinicalID')->index('fkIdx_306');
 		});
 	}

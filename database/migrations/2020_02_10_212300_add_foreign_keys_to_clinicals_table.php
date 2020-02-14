@@ -14,10 +14,10 @@ class AddForeignKeysToClinicalsTable extends Migration {
 	{
 		Schema::table('clinicals', function(Blueprint $table)
 		{
-			$table->foreign('instructorID', 'FK_157')->references('instructorID')->on('people')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+			$table->foreign('personID', 'FK_157')->references('personID')->on('people')->onUpdate('NO ACTION')->onDelete('NO ACTION');
 			$table->foreign('courseID', 'FK_160')->references('courseID')->on('courses')->onUpdate('NO ACTION')->onDelete('NO ACTION');
 			$table->foreign('siteID', 'FK_163')->references('siteID')->on('sites')->onUpdate('NO ACTION')->onDelete('NO ACTION');
-			$table->foreign('instructorID2', 'FK_303')->references('instructorID')->on('people')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+			$table->foreign('personID2', 'FK_303')->references('personID')->on('people')->onUpdate('NO ACTION')->onDelete('NO ACTION');
 		});
 	}
 
