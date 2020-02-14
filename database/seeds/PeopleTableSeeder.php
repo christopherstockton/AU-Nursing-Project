@@ -13,7 +13,7 @@ class PeopleTableSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
-        foreach (range(1,100) as $index) {
+        foreach (range(1,200) as $index) {
             $flag = true;
             if (rand(1,100) < 6) {
                 $flag = false;
