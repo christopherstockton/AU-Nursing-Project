@@ -14,12 +14,16 @@ class PeopleTableSeeder extends Seeder
     {
         $faker = Faker::create();
         foreach (range(1,100) as $index) {
+            $flag = false;
+            if (rand(1,100) < 6) {
+                $flag = true;
+            }
             DB::table('people')->insert([
             'firstName' => $faker->firstName,
             'lastName' => $faker->lastName,
             'phoneNumber' => $faker->phoneNumber,
             'emailAddress' => $faker->email,
-            'flag' => false,
+            'flag' => $flag,
         ]);
             }
     }

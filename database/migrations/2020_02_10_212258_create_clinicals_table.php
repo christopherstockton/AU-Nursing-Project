@@ -17,8 +17,8 @@ class CreateClinicalsTable extends Migration {
 			$table->integer('clinicalID', true);
 			$table->integer('courseID')->index('fkIdx_160');
 			$table->integer('siteID')->nullable()->index('fkIdx_163');
-			$table->integer('instructorID')->index('fkIdx_157');
-			$table->integer('instructorID2')->nullable()->index('fkIdx_303');
+			$table->integer('personID')->index('fkIdx_157');
+			$table->integer('personID2')->nullable()->index('fkIdx_303');
 			$table->date('startDate');
 			$table->date('endDate');
 			$table->integer('startTime');
