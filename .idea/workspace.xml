@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dfbe0364-913b-4a1e-9e7c-a61b2361aade" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="dfbe0364-913b-4a1e-9e7c-a61b2361aade" name="Default Changelist" comment="Layouts combined">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/mail.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/mail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/people/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/people/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,8 +177,16 @@
       <workItem from="1581366945469" duration="4680000" />
       <workItem from="1581523596729" duration="843000" />
       <workItem from="1581694765430" duration="2411000" />
-      <workItem from="1581699468118" duration="1773000" />
+      <workItem from="1581699468118" duration="4470000" />
     </task>
+    <task id="LOCAL-00001" summary="password reset function">
+      <created>1581701654025</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1581701654025</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -187,8 +196,16 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/../NursingInternship" />
     </ignored-roots>
+    <MESSAGE value="password reset function" />
+    <MESSAGE value="Layouts combined" />
+    <option name="LAST_COMMIT_MESSAGE" value="Layouts combined" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="293" y="36" key="CommitChangelistDialog2" timestamp="1581704374178">
+      <screen x="0" y="23" width="1440" height="816" />
+    </state>
+    <state x="293" y="36" key="CommitChangelistDialog2/0.23.1440.816@0.23.1440.816" timestamp="1581704374178" />
+    <state x="293" y="36" key="CommitChangelistDialog2/0.23.1440.821@0.23.1440.821" timestamp="1581701653769" />
     <state x="463" y="120" key="FileChooserDialogImpl" timestamp="1581366960688">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -221,10 +238,14 @@
       <screen x="0" y="23" width="1440" height="816" />
     </state>
     <state x="221" y="72" key="SettingsEditor/0.23.1440.816@0.23.1440.816" timestamp="1581523613689" />
-    <state x="503" y="357" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1581700488722">
+    <state x="310" y="173" key="Vcs.Push.Dialog.v2" timestamp="1581701679036">
+      <screen x="0" y="23" width="1440" height="821" />
+    </state>
+    <state x="310" y="173" key="Vcs.Push.Dialog.v2/0.23.1440.821@0.23.1440.821" timestamp="1581701679036" />
+    <state x="503" y="357" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1581703433818">
       <screen x="0" y="23" width="1440" height="816" />
     </state>
-    <state x="503" y="357" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.816@0.23.1440.816" timestamp="1581700488722" />
+    <state x="503" y="357" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.816@0.23.1440.816" timestamp="1581703433818" />
     <state x="365" y="78" width="709" height="760" key="search.everywhere.popup" timestamp="1581696460426">
       <screen x="0" y="23" width="1440" height="816" />
     </state>
