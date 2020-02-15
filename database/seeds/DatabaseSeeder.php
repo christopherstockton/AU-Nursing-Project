@@ -30,22 +30,36 @@ class DatabaseSeeder extends Seeder
             if (rand(1,100) <= INSTRUCTOR_PCT) {
                 $flag = false;
             }
+            if (!$flag) {
+                $phoneNumber = $faker->phoneNumber;
+                $emailAddress = $faker->email;
+            } else {
+                $phoneNumber = NULL;
+                $emailAddress = NULL;
+            }
             DB::table('people')->insert([
             'firstName' => $faker->firstName,
             'lastName' => $faker->lastName,
-            'phoneNumber' => $faker->phoneNumber,
-            'emailAddress' => $faker->email,
+            'phoneNumber' => $phoneNumber,
+            'emailAddress' => $emailAddress,
             'flag' => $flag,
             ]);
         }
 
-        // Generate array of instructor ids for next seeders
+        // Splits instructors and student ids for next seeders
         $instructors =  DB::table('people')->where('flag', 0)->get();
         $instructor_ids = array();
         foreach ($instructors as $instructor) {
             $instructor_ids[] = $instructor->id;
         }
         $instructor_qty = count($instructor_ids);
+
+        $students =  DB::table('people')->where('flag', 1)->get();
+        $student_ids = array();
+        foreach ($students as $student) {
+            $student_ids[] = $student->id;
+        }
+        $student_qty = count($student_ids);
 
         // Sites Seeder
         foreach (range(1,SITE_COUNT) as $index) {
@@ -111,5 +125,11 @@ class DatabaseSeeder extends Seeder
         }
 
         // Assignments Seeder
+        foreach(range(0,ASSIGNMENT_COUNT) as $index) {
+            DB::table('assignments')->insert([
+                'studentID' => $student_ids[rand(0, $student_qty-1)],
+                'clinicalID' => rand(1, CLINICAL_COUNT),
+            ]);
+        }
     }
 }
