@@ -5,9 +5,9 @@
   <div class="container">
     <div class="mb-4 col-md-12">
     @if ($flag == 1)
-      <a class="btn btn-primary" href="/people/create">New Instructor</a>
+      <a class="btn btn-primary" href="/people/create">New Lab</a>
     @else
-      <a class="btn btn-primary" href="/people/create">New Student</a>
+      <a class="btn btn-primary" href="/people/create">New Clinical</a>
     @endif
     </div>
     <div class="row">
@@ -22,13 +22,13 @@
         </thead>
         <tbody>
 
-            @foreach ( $people as $person)
+            @foreach ( $clinicals as $clinical)
 
             <tr>
-              <th scope="row"> {{ $person->id }} </th>
-              <td>{{ $person->firstName }}</td>
-              <td>{{ $person->lastName }}</td>
-              <td><a class="btn btn-primary" href="/people/{{ $person->id }}" role="button">View</a>
+              <th scope="row"> {{ $clinical->id }} </th>
+              <td>{{ $clinical->courseID}}</td>
+              <td>{{ $clinical->siteID}}</td>
+              <td><a class="btn btn-primary" href="/people/{{ $clinical->id }}" role="button">View</a>
             </tr>
 
             @endforeach

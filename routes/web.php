@@ -27,3 +27,10 @@ Route::get('/people/{ID}',               'PeopleController@show');
 Route::get('/people/delete/{ID}',        'PeopleController@delete');
 Route::get('/people/{ID}/edit',          'PeopleController@edit');
 Route::put('/people/{ID}',               'PeopleController@update');
+
+Route::get('/clinicals/create',             'ClinicalController@create');
+Route::post('/clinicals',                   'ClinicalController@store');
+Route::get('/clinicals/{ID}',               'ClinicalController@show');
+Route::get('/clinicals/delete/{ID}',        'ClinicalController@delete');
+Route::get('/clinicals/{ID}/edit',          'ClinicalController@edit');
+Route::put('/clinicals/{ID}',               'ClinicalController@update');
