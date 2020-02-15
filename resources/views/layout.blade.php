@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Bare - Start Bootstrap Template</title>
+  <title>AU Nursing Clinicals</title>
 
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -23,22 +23,30 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top mb-5">
     <div class="container">
-      <a class="navbar-brand" href="#">AU Nursing</a>
+      <a class="navbar-brand" href="/">AU Nursing</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Students
+          <li class="nav-item">
+            <a class="nav-link" href="/students/">Students
               <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Labs</a>
+            <a class="nav-link" href="/instructors/">Instructors
+              <span class="sr-only">(current)</span>
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Clinicals</a>
+            <a class="nav-link" href="/labs/">Labs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/clinicals/">Clinicals</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/schedule/">Schedule</a>
           </li>
         </ul>
       </div>

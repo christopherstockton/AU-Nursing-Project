@@ -16,7 +16,11 @@
                             </div>
                             <div class="userData ml-3">
                                 <h2 class="d-block" style="font-size: 1.5rem; font-weight: bold">{{$people->firstName}} {{$people->lastName}}</h2>
-                                <h6 class="d-block">Type: <span class="flag">{{$people->flag}}</span></h6>
+                                @if ($people->flag == 0)
+                                <h6 class="d-block">Type: <span class="flag">Instructor</span></h6>
+                                @else
+                                <h6 class="d-block">Type: <span class="flag">Student</span></h6>
+                                @endif
                                 <h6 class="d-block">ID: {{$people->id}}</h6>
                                 <h6 class="d-block">Created: {{$people->created_at}}</h6>
                                 <h6 class="d-block">Updated: {{$people->updated_at}}</h6>
@@ -31,54 +35,27 @@
                         <div class="col-12">
 
 
+                                @if ($people->flag == 0)
                                     <div class="row">
                                         <div class="col-sm-3 col-md-2 col-5">
-                                            <label style="font-weight:bold;">Something</label>
+                                            <label style="font-weight:bold;">Email</label>
                                         </div>
                                         <div class="col-md-8 col-6">
-                                            Something
+                                            {{ $people->emailAddress }}
                                         </div>
                                     </div>
                                     <hr />
 
                                     <div class="row">
                                         <div class="col-sm-3 col-md-2 col-5">
-                                            <label style="font-weight:bold;">Something</label>
+                                            <label style="font-weight:bold;">Phone</label>
                                         </div>
                                         <div class="col-md-8 col-6">
-                                            Something
+                                            {{ $people->phoneNumber }}
                                         </div>
                                     </div>
                                     <hr />
-
-
-                                    <div class="row">
-                                        <div class="col-sm-3 col-md-2 col-5">
-                                            <label style="font-weight:bold;">Something</label>
-                                        </div>
-                                        <div class="col-md-8 col-6">
-                                            Something
-                                        </div>
-                                    </div>
-                                    <hr />
-                                    <div class="row">
-                                        <div class="col-sm-3 col-md-2 col-5">
-                                            <label style="font-weight:bold;">Something</label>
-                                        </div>
-                                        <div class="col-md-8 col-6">
-                                            Something
-                                        </div>
-                                    </div>
-                                    <hr />
-                                    <div class="row">
-                                        <div class="col-sm-3 col-md-2 col-5">
-                                            <label style="font-weight:bold;">Something</label>
-                                        </div>
-                                        <div class="col-md-8 col-6">
-                                            Something
-                                        </div>
-                                    </div>
-                                    <hr />
+                                @endif
 
                                 </div>
                                 <div class="tab-pane fade" id="connectedServices" role="tabpanel" aria-labelledby="ConnectedServices-tab">
