@@ -15,9 +15,14 @@
         <thead>
           <tr>
             <th scope="col">ID</th>
-            <th scope="col">firstName</th>
-            <th scope="col">lastName</th>
-            <th scope="col">view</th>
+            <th scope="col">Course Section</th>
+            <th scope="col">Course Name</th>
+            <th scope="col">Instructor</th>
+            <th scope="col">Site Address</th>
+            <th scope="col">Room Number</th>
+            <th scope="col">Capacity</th>
+            <th scope="col">Time</th>
+            <th scope="col">Dates</th>
           </tr>
         </thead>
         <tbody>
@@ -25,10 +30,16 @@
             @foreach ( $clinicals as $clinical)
 
             <tr>
-              <th scope="row"> {{ $clinical->id }} </th>
-              <td>{{ $clinical->courseID}}</td>
-              <td>{{ $clinical->siteID}}</td>
-              <td><a class="btn btn-primary" href="/people/{{ $clinical->id }}" role="button">View</a>
+              <th scope="row"> {{ $clinical->clinicalID }} </th>
+              <td>{{ $clinical->CourseSection}}</td>
+              <td>{{ $clinical->CourseName}}</td>
+              <td>{{ $clinical->firstName}} {{ $clinical->lastName}}</td>
+              <td>{{ $clinical->address}}</td>
+              <td>{{ $clinical->roomNumber}}</td>
+              <td>{{ $clinical->capacity}}</td>
+              <td>{{ $clinical->startTime}} - {{ $clinical->endTime}}</td>
+              <td>{{ $clinical->startDate}} - {{ $clinical->endDate}}</td>
+              <td><a class="btn btn-primary" href="/people/{{ $clinical->clinicalID }}" role="button">View</a>
             </tr>
 
             @endforeach

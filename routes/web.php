@@ -20,6 +20,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/students',                  'PeopleController@listStudents');
 Route::get('/instructors',               'PeopleController@listInstructors');
+Route::get('/clinicals',                 'ClinicalController@listClinicals');
 
 Route::get('/people/create',             'PeopleController@create');
 Route::post('/people',                   'PeopleController@store');
@@ -28,9 +29,9 @@ Route::get('/people/delete/{ID}',        'PeopleController@delete');
 Route::get('/people/{ID}/edit',          'PeopleController@edit');
 Route::put('/people/{ID}',               'PeopleController@update');
 
-Route::get('/clinicals/create',             'ClinicalController@create');
-Route::post('/clinicals',                   'ClinicalController@store');
-Route::get('/clinicals/{ID}',               'ClinicalController@show');
-Route::get('/clinicals/delete/{ID}',        'ClinicalController@delete');
-Route::get('/clinicals/{ID}/edit',          'ClinicalController@edit');
-Route::put('/clinicals/{ID}',               'ClinicalController@update');
+Route::get('/clinicals/create',          'ClinicalController@create');
+Route::post('/clinicals',                'ClinicalController@store');
+Route::get('/clinicals/{ID}',            'ClinicalController@show');
+Route::get('/clinicals/delete/{ID}',     'ClinicalController@delete');
+Route::get('/clinicals/{ID}/edit',       'ClinicalController@edit');
+Route::put('/clinicals/{ID}',            'ClinicalController@update');
