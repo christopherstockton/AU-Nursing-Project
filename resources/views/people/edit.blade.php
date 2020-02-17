@@ -37,6 +37,7 @@
 
         <div class="form-group">
           <label>Type</label>
+          <!--This text field is currently set to 'read only' as it pertains to the status flag-->
           <input type="text" class="form-control" name="flag" id="flag" value="{{$person->flag}}" readonly>
         </div>
 
