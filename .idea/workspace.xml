@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dfbe0364-913b-4a1e-9e7c-a61b2361aade" name="Default Changelist" comment="Layouts combined">
+    <list default="true" id="83cdc6e5-16c3-4758-a570-58ab228bb558" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/people/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/people/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/people/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/people/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/people/view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/people/view.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -185,7 +183,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581701654025</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Merge branch 'master' into thomas">
+      <created>1581955897051</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1581955897051</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -197,13 +202,14 @@
     </ignored-roots>
     <MESSAGE value="password reset function" />
     <MESSAGE value="Layouts combined" />
-    <option name="LAST_COMMIT_MESSAGE" value="Layouts combined" />
+    <MESSAGE value="Merge branch 'master' into thomas" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' into thomas" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="293" y="36" key="CommitChangelistDialog2" timestamp="1581704374178">
+    <state x="293" y="36" key="CommitChangelistDialog2" timestamp="1581955896906">
       <screen x="0" y="23" width="1440" height="816" />
     </state>
-    <state x="293" y="36" key="CommitChangelistDialog2/0.23.1440.816@0.23.1440.816" timestamp="1581704374178" />
+    <state x="293" y="36" key="CommitChangelistDialog2/0.23.1440.816@0.23.1440.816" timestamp="1581955896906" />
     <state x="293" y="36" key="CommitChangelistDialog2/0.23.1440.821@0.23.1440.821" timestamp="1581701653769" />
     <state x="463" y="120" key="FileChooserDialogImpl" timestamp="1581366960688">
       <screen x="0" y="0" width="1366" height="728" />
@@ -249,14 +255,19 @@
       <screen x="0" y="23" width="1440" height="816" />
     </state>
     <state x="221" y="72" key="SettingsEditor/0.23.1440.816@0.23.1440.816" timestamp="1581523613689" />
-    <state x="310" y="173" key="Vcs.Push.Dialog.v2" timestamp="1581701679036">
-      <screen x="0" y="23" width="1440" height="821" />
-    </state>
-    <state x="310" y="173" key="Vcs.Push.Dialog.v2/0.23.1440.821@0.23.1440.821" timestamp="1581701679036" />
-    <state x="503" y="357" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1581954549638">
+    <state x="310" y="172" key="Vcs.Push.Dialog.v2" timestamp="1581955915780">
       <screen x="0" y="23" width="1440" height="816" />
     </state>
-    <state x="503" y="357" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.816@0.23.1440.816" timestamp="1581954549638" />
+    <state x="310" y="172" key="Vcs.Push.Dialog.v2/0.23.1440.816@0.23.1440.816" timestamp="1581955915780" />
+    <state x="310" y="173" key="Vcs.Push.Dialog.v2/0.23.1440.821@0.23.1440.821" timestamp="1581701679036" />
+    <state x="503" y="357" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1581961811464">
+      <screen x="0" y="23" width="1440" height="816" />
+    </state>
+    <state x="503" y="357" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.816@0.23.1440.816" timestamp="1581961811464" />
+    <state x="469" y="217" key="git4idea.merge.GitMergeDialog" timestamp="1581961832897">
+      <screen x="0" y="23" width="1440" height="816" />
+    </state>
+    <state x="469" y="217" key="git4idea.merge.GitMergeDialog/0.23.1440.816@0.23.1440.816" timestamp="1581961832897" />
     <state x="349" y="217" key="git4idea.merge.GitPullDialog" timestamp="1581954344152">
       <screen x="0" y="23" width="1440" height="816" />
     </state>
