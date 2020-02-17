@@ -3,6 +3,13 @@
 @section('content')
 
   <div class="container">
+    <div class="mb-4 col-md-12">
+    @if ($flag == 1)
+      <a class="btn btn-primary" href="/people/create">New Instructor</a>
+    @else
+      <a class="btn btn-primary" href="/people/create">New Student</a>
+    @endif
+    </div>
     <div class="row">
       <table class="table table-striped table-hover">
         <thead>
