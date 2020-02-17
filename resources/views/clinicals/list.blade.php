@@ -5,9 +5,9 @@
   <div class="container">
     <div class="mb-4 col-md-12">
     @if ($flag == 1)
-      <a class="btn btn-primary" href="/people/create">New Lab</a>
+      <a class="btn btn-primary" href="/clinicals/create">New Lab</a>
     @else
-      <a class="btn btn-primary" href="/people/create">New Clinical</a>
+      <a class="btn btn-primary" href="/clinicals/create">New Clinical</a>
     @endif
     </div>
     <div class="row">

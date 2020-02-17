@@ -5,41 +5,78 @@
 <div class="container">
   <div class=row>
     <div class="col-lg-6">
-      <h2 class="mb-3">New Person</h2>
-      <form method='post' action='/people'>
+      <h2 class="mb-3">New Clinical</h2>
+      <form method='post' action='/clinicals'>
         @csrf
 
         <div class="form-group">
           <label>Select Type:</label>
             <select class="form-control" name="flag" id="flag">
-              <option class="flag" value="0">Instructor</option>
-              <option class="flag" value="1">Student</option>
+              <option class="flag" value="0">Lab</option>
+              <option class="flag" value="1" selected>Clinical</option>
             </select>
         </div>
 
         <div class="form-group">
-          <label>First Name</label>
-          <input type="text" class="form-control" name="firstName">
+          <label>Course</label>
+          <select class="form-control" name="courseID" id="courseID">
+          @foreach ($courses as $course)
+            <option class="courseID" value={{ $course->courseID }}>{{ $course->CourseSection }} - {{ $course->CourseName }}</option>
+          @endforeach
+          </select>
         </div>
 
         <div class="form-group">
-          <label>Last Name</label>
-          <input type="text" class="form-control" name="lastName">
-        </div>
-
-        <div class="form-group instructor">
-          <label>Phone Number</label>
-          <input type="text" class="form-control" name="phoneNumber">
-        </div>
-
-        <div class="form-group instructor">
-          <label>Email Address</label>
-          <input type="text" class="form-control" name="emailAddress">
+          <label>Site</label>
+          <select class="form-control" name="siteID" id="siteID">
+          @foreach ($sites as $site)
+            <option class="siteID" value={{ $site->siteID }}>{{ $site->address }}</option>
+          @endforeach
+          </select>
         </div>
 
         <div class="form-group">
-          <label>Notes</label>
-          <textarea type="text" class="form-control" name="notes"></textarea>
+          <label>Instructor</label>
+          <select class="form-control" name="instructorID" id="instructorID">
+          @foreach ($instructors as $instructor)
+            <option class="instructorID" value={{ $instructor->id }}>{{ $instructor->firstName }} {{ $instructor->lastName }}</option>
+          @endforeach
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Room Number</label>
+          <input type="text" class="form-control" name="roomNumber">
+        </div>
+
+        <div class="form-group instructor">
+          <label>Capacity</label>
+          <input type="text" class="form-control" name="capacity">
+        </div>
+
+        <div class="form-group instructor">
+          <label>Days</label>
+          <input type="text" class="form-control" name="days" value="0">
+        </div>
+
+        <div class="form-group instructor">
+          <label>Start Time</label>
+          <input type="text" class="form-control" name="startTime" value="10:00:00">
+        </div>
+
+        <div class="form-group instructor">
+          <label>End Time</label>
+          <input type="text" class="form-control" name="endTime" value="14:00:00">
+        </div>
+
+        <div class="form-group instructor">
+          <label>Start Date</label>
+          <input type="text" class="form-control" name="startDate" value="2020-01-06">
+        </div>
+
+        <div class="form-group instructor">
+          <label>End Date</label>
+          <input type="text" class="form-control" name="endDate" value="2020-04-27">
         </div>
 
         <button type="submit" class="btn btn-primary mb-2">Submit</button>
