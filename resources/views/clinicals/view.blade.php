@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('layout')
 
 @section('content')
 
@@ -84,9 +84,7 @@
         </div>
 
 <script>
-/*This will check the 'flag span' at that top of the view page and
-mark the 'people' as either a student or instructor based on their flag.
-*/
+
   $(document).ready(function(){
     if ( ($(".flag").text()) === "1") {
       $(".flag").text("Student");
