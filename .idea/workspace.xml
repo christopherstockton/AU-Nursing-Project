@@ -3,10 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="dfbe0364-913b-4a1e-9e7c-a61b2361aade" name="Default Changelist" comment="Layouts combined">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/people/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/people/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/people/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/people/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/people/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/people/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/people/view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/people/view.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -234,6 +233,18 @@
     <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1581362507375" />
     <state width="1378" height="198" key="GridCell.Tab.0.right/0.23.1440.816@0.23.1440.816" timestamp="1581700513799" />
     <state width="1358" height="198" key="GridCell.Tab.0.right/0.23.1440.821@0.23.1440.821" timestamp="1581543322956" />
+    <state x="147" y="82" key="MergeDialog" timestamp="1581954402539">
+      <screen x="0" y="23" width="1440" height="816" />
+    </state>
+    <state x="147" y="82" key="MergeDialog/0.23.1440.816@0.23.1440.816" timestamp="1581954402539" />
+    <state x="434" y="142" key="MultipleFileMergeDialog" timestamp="1581954413146">
+      <screen x="0" y="23" width="1440" height="816" />
+    </state>
+    <state x="434" y="142" key="MultipleFileMergeDialog/0.23.1440.816@0.23.1440.816" timestamp="1581954413146" />
+    <state x="422" y="148" key="RollbackChangesDialog" timestamp="1581954317120">
+      <screen x="0" y="23" width="1440" height="816" />
+    </state>
+    <state x="422" y="148" key="RollbackChangesDialog/0.23.1440.816@0.23.1440.816" timestamp="1581954317119" />
     <state x="221" y="72" key="SettingsEditor" timestamp="1581523613689">
       <screen x="0" y="23" width="1440" height="816" />
     </state>
@@ -242,10 +253,14 @@
       <screen x="0" y="23" width="1440" height="821" />
     </state>
     <state x="310" y="173" key="Vcs.Push.Dialog.v2/0.23.1440.821@0.23.1440.821" timestamp="1581701679036" />
-    <state x="503" y="357" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1581703433818">
+    <state x="503" y="357" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1581954549638">
       <screen x="0" y="23" width="1440" height="816" />
     </state>
-    <state x="503" y="357" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.816@0.23.1440.816" timestamp="1581703433818" />
+    <state x="503" y="357" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.816@0.23.1440.816" timestamp="1581954549638" />
+    <state x="349" y="217" key="git4idea.merge.GitPullDialog" timestamp="1581954344152">
+      <screen x="0" y="23" width="1440" height="816" />
+    </state>
+    <state x="349" y="217" key="git4idea.merge.GitPullDialog/0.23.1440.816@0.23.1440.816" timestamp="1581954344152" />
     <state x="365" y="78" width="709" height="760" key="search.everywhere.popup" timestamp="1581696460426">
       <screen x="0" y="23" width="1440" height="816" />
     </state>
