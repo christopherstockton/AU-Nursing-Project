@@ -9,6 +9,7 @@ use App\People;
 class PeopleController extends Controller
 {
 
+  //List all 'people' this includes students and instructors
   public function show($id) {
 
     $people = People::find($id);
@@ -17,6 +18,7 @@ class PeopleController extends Controller
 
   }
 
+  //Listing all students
   public function listStudents() {
 
   $people = \DB::table('people')->where('flag', 1)->get();
@@ -28,6 +30,7 @@ class PeopleController extends Controller
 
 }
 
+  //List all instructors
   public function listInstructors() {
 
     $people = \DB::table('people')->where('flag', 0)->get();
@@ -39,6 +42,7 @@ class PeopleController extends Controller
 
   }
 
+  //Delete the specififed id number. This can be student/instructor
   public function delete($id) {
 
     DB::table('people')->where('id', $id)->delete();
@@ -49,13 +53,14 @@ class PeopleController extends Controller
 
   }
 
-
+    //function that present the users with the people creation page 
     public function create() {
 
       return view('people.create');
 
     }
-
+    
+    //Creates a new people object using this function. 
     public function store() {
 
       $people = new People();
@@ -72,6 +77,7 @@ class PeopleController extends Controller
       return redirect('/students');
     }
 
+    //Find the 'people' with the specified id and open that data into the edit page
     public function edit($id) {
 
       $person = People::find($id);
@@ -79,6 +85,7 @@ class PeopleController extends Controller
       return view('people.edit', compact('person'));
     }
 
+    //Upon updating, grab the data again and "re-store" into the DB. Then reload the /people page
     public function update($id) {
 
       $person = People::find($id);
