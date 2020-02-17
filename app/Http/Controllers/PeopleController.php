@@ -25,7 +25,8 @@ class PeopleController extends Controller
   //dd($students);
 
   return view('people.list', [
-    'people' => $people
+    'people' => $people,
+    'flag' => 0,
   ]);
 
 }
@@ -37,7 +38,8 @@ class PeopleController extends Controller
     //dd($students);
 
     return view('people.list', [
-      'people' => $people
+      'people' => $people,
+      'flag' => 1,
     ]);
 
   }
@@ -45,11 +47,15 @@ class PeopleController extends Controller
   //Delete the specififed id number. This can be student/instructor
   public function delete($id) {
 
+    $person = DB::table('people')->where('id',$id)->get();
+    $flag = request('flag');
     DB::table('people')->where('id', $id)->delete();
 
-
-    //TODO - redirect to list page depending on type of person deleted
-    return redirect('/students');
+    if ($flag == 0) {
+      return redirect('/instructors');
+    } else {
+      return redirect('/students');
+    }
 
   }
 
