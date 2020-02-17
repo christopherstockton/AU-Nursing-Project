@@ -89,14 +89,11 @@
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">LINK 1</a>
-                    <a href="https://laracasts.com">LINK 2</a>
-                    <a href="https://laravel-news.com">LINK 3</a>
-                    <a href="https://blog.laravel.com">LINK 4</a>
-                    <a href="https://nova.laravel.com">LINK 5</a>
-                    <a href="https://forge.laravel.com">LINK 6</a>
-                    <a href="https://vapor.laravel.com">LINK 7</a>
-                    <a href="https://github.com/laravel/laravel">LINK 7</a>
+                    <a href="/students/">Students</a>
+                    <a href="/instructors/">Instructors</a>
+                    <a href="/labs/">Labs</a>
+                    <a href="/clinicals/">Clinicals</a>
+                    <a href="/schedule/">Schedule</a>
                 </div>
             </div>
         </div>

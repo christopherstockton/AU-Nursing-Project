@@ -21,8 +21,8 @@ class CreateClinicalsTable extends Migration {
 			$table->integer('instructorID2')->nullable()->index('fkIdx_303');
 			$table->date('startDate');
 			$table->date('endDate');
-			$table->integer('startTime');
-			$table->integer('endTime');
+			$table->time('startTime');
+			$table->time('endTime');
 			$table->string('days', 45);
 			$table->boolean('capacity');
 			$table->boolean('flag');
