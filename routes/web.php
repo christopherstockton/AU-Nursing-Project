@@ -24,6 +24,7 @@ Route::get('/welcome', function () {
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/students',                  'PeopleController@listStudents')->middleware('auth');
 Route::get('/instructors',               'PeopleController@listInstructors')->middleware('auth');
+Route::get('/labs',                      'ClinicalController@listLabs')->middleware('auth');
 Route::get('/clinicals',                 'ClinicalController@listClinicals')->middleware('auth');
 
 Route::get('/people/create',             'PeopleController@create')->middleware('auth');
