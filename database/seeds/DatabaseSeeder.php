@@ -134,5 +134,12 @@ class DatabaseSeeder extends Seeder
                 'clinicalID' => rand(1, CLINICAL_COUNT),
             ]);
         }
+
+        // Users Seeder
+        DB::table('users')->insert([
+            'name' => 'Nursing',
+            'email' => 'nursing@au.edu',
+            'password' => '$2y$10$r/4q9NolT5YUM3eviTVizeMCiwXoUEN3x4tWVc7/8b/O.nWNkWhT.',
+        ]);
     }
 }
