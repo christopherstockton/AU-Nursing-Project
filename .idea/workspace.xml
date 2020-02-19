@@ -2,20 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dfbe0364-913b-4a1e-9e7c-a61b2361aade" name="Default Changelist" comment="Layouts combined">
-      <change afterPath="$PROJECT_DIR$/app/Courses.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/CoursesController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/courses/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/courses/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/courses/list.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/courses/view.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_11_173414_create_courses_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_02_11_173414_create_courses_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_11_173415_add_foreign_keys_to_clinicals_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_02_11_173415_add_foreign_keys_to_clinicals_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/clinicals/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/clinicals/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/clinicals/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/clinicals/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/clinicals/view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/clinicals/view.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/people/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/people/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/people/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/people/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,12 +178,6 @@
       <workItem from="1581523596729" duration="843000" />
       <workItem from="1581694765430" duration="2411000" />
       <workItem from="1581699468118" duration="4470000" />
-      <workItem from="1581962406359" duration="784000" />
-      <workItem from="1582057345189" duration="232000" />
-      <workItem from="1582058537234" duration="426000" />
-      <workItem from="1582125510231" duration="3778000" />
-      <workItem from="1582139901084" duration="3010000" />
-      <workItem from="1582148013259" duration="225000" />
     </task>
     <task id="LOCAL-00001" summary="password reset function">
       <created>1581701654025</created>
@@ -216,18 +201,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="Layouts combined" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="323" y="84" key="#Notifications" timestamp="1582125639167">
+    <state x="293" y="36" key="CommitChangelistDialog2" timestamp="1581955024703">
       <screen x="0" y="23" width="1440" height="816" />
     </state>
-    <state x="323" y="84" key="#Notifications/0.23.1440.816@0.23.1440.816" timestamp="1582125639167" />
-    <state x="461" y="181" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1582142824353">
-      <screen x="0" y="23" width="1440" height="816" />
-    </state>
-    <state x="461" y="181" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.816@0.23.1440.816" timestamp="1582142824353" />
-    <state x="293" y="36" key="CommitChangelistDialog2" timestamp="1582148490806">
-      <screen x="0" y="23" width="1440" height="816" />
-    </state>
-    <state x="293" y="36" key="CommitChangelistDialog2/0.23.1440.816@0.23.1440.816" timestamp="1582148490806" />
+    <state x="293" y="36" key="CommitChangelistDialog2/0.23.1440.816@0.23.1440.816" timestamp="1581955024703" />
     <state x="293" y="36" key="CommitChangelistDialog2/0.23.1440.821@0.23.1440.821" timestamp="1581701653769" />
     <state x="463" y="120" key="FileChooserDialogImpl" timestamp="1581366960688">
       <screen x="0" y="0" width="1366" height="728" />
@@ -294,10 +271,10 @@
       <screen x="0" y="23" width="1440" height="816" />
     </state>
     <state x="349" y="217" key="git4idea.merge.GitPullDialog/0.23.1440.816@0.23.1440.816" timestamp="1581954344152" />
-    <state x="365" y="78" width="709" height="760" key="search.everywhere.popup" timestamp="1582140235515">
+    <state x="365" y="78" width="709" height="760" key="search.everywhere.popup" timestamp="1581696460426">
       <screen x="0" y="23" width="1440" height="816" />
     </state>
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1581367473088" />
-    <state x="365" y="78" width="709" height="760" key="search.everywhere.popup/0.23.1440.816@0.23.1440.816" timestamp="1582140235515" />
+    <state x="365" y="78" width="709" height="760" key="search.everywhere.popup/0.23.1440.816@0.23.1440.816" timestamp="1581696460426" />
   </component>
 </project>
