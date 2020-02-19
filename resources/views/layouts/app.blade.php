@@ -175,6 +175,9 @@
                     <a class="nav-link" href="#">Labs</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="/courses">Courses</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="/clinicals">Clinicals</a>
                 </li>
                 <li class="nav-item">
