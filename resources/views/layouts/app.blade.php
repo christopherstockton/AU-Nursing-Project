@@ -178,6 +178,9 @@
                     <a class="nav-link" href="/clinicals">Clinicals</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="/sites">Sites</a>
+                </li>
+                <li class="nav-item">
                 @guest
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
