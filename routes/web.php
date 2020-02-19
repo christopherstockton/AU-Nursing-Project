@@ -26,6 +26,7 @@ Route::get('/students',                  'PeopleController@listStudents')->middl
 Route::get('/instructors',               'PeopleController@listInstructors')->middleware('auth');
 Route::get('/labs',                      'ClinicalController@listLabs')->middleware('auth');
 Route::get('/clinicals',                 'ClinicalController@listClinicals')->middleware('auth');
+Route::get('/courses',                   'CoursesController@listCourses')->middleware('auth');
 
 Route::get('/people/create',             'PeopleController@create')->middleware('auth');
 Route::post('/people',                   'PeopleController@store')->middleware('auth');
@@ -40,3 +41,10 @@ Route::get('/clinicals/{ID}',            'ClinicalController@show')->middleware(
 Route::get('/clinicals/delete/{ID}',     'ClinicalController@delete')->middleware('auth');
 Route::get('/clinicals/{ID}/edit',       'ClinicalController@edit')->middleware('auth');
 Route::put('/clinicals/{ID}',            'ClinicalController@update')->middleware('auth');
+
+Route::get('/courses/create',          'CoursesController@create')->middleware('auth');
+Route::post('/courses',                'CoursesController@store')->middleware('auth');
+Route::get('/courses/{ID}',            'CoursesController@show')->middleware('auth');
+Route::get('/courses/delete/{ID}',     'CoursesController@delete')->middleware('auth');
+Route::get('/courses/{ID}/edit',       'CoursesController@edit')->middleware('auth');
+Route::put('/courses/{ID}',            'CoursesController@update')->middleware('auth');

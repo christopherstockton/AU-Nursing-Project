@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
         define("CLINICAL_COUNT",    60);
         define("CLINIC_DOUBLE_PCT", 50);
         define("ASSIGNMENT_COUNT",  120);
-        $faker = Faker::create(); 
+        $faker = Faker::create();
 
         $courseNum = array("NUR3065", "NUR3028", "NUR3125", "NUR3145", "NUR3445", "NUR3165", "NUR4535", "NUR4637", "NUR4257");
         $courseNames = array('Health Assessment', 'Nursing Practice', 'Pathophysiology', 'Pharmacology', 'Nursing Care of Families', 'Nursing Research', 'Psychiatric Mental Health', 'Public and Community Health Nursing', 'Critical Care Nursing');
