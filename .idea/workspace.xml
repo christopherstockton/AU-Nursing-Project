@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dfbe0364-913b-4a1e-9e7c-a61b2361aade" name="Default Changelist" comment="Layouts combined">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/clinicals/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/clinicals/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/clinicals/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/clinicals/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/clinicals/view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/clinicals/view.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-    </list>
+    <list default="true" id="dfbe0364-913b-4a1e-9e7c-a61b2361aade" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,7 +16,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="thomas" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -186,7 +180,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581701654025</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Layouts combined">
+      <created>1582149073628</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1582149073628</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,10 +202,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="Layouts combined" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="293" y="36" key="CommitChangelistDialog2" timestamp="1581955024703">
+    <state x="293" y="36" key="CommitChangelistDialog2" timestamp="1582149073497">
       <screen x="0" y="23" width="1440" height="816" />
     </state>
-    <state x="293" y="36" key="CommitChangelistDialog2/0.23.1440.816@0.23.1440.816" timestamp="1581955024703" />
+    <state x="293" y="36" key="CommitChangelistDialog2/0.23.1440.816@0.23.1440.816" timestamp="1582149073497" />
     <state x="293" y="36" key="CommitChangelistDialog2/0.23.1440.821@0.23.1440.821" timestamp="1581701653769" />
     <state x="463" y="120" key="FileChooserDialogImpl" timestamp="1581366960688">
       <screen x="0" y="0" width="1366" height="728" />
@@ -250,10 +251,10 @@
       <screen x="0" y="23" width="1440" height="816" />
     </state>
     <state x="221" y="72" key="SettingsEditor/0.23.1440.816@0.23.1440.816" timestamp="1581523613689" />
-    <state x="310" y="172" key="Vcs.Push.Dialog.v2" timestamp="1581955035732">
+    <state x="310" y="172" key="Vcs.Push.Dialog.v2" timestamp="1582149084598">
       <screen x="0" y="23" width="1440" height="816" />
     </state>
-    <state x="310" y="172" key="Vcs.Push.Dialog.v2/0.23.1440.816@0.23.1440.816" timestamp="1581955035732" />
+    <state x="310" y="172" key="Vcs.Push.Dialog.v2/0.23.1440.816@0.23.1440.816" timestamp="1582149084598" />
     <state x="310" y="173" key="Vcs.Push.Dialog.v2/0.23.1440.821@0.23.1440.821" timestamp="1581701679036" />
     <state x="113" y="129" width="1220" height="580" key="com.intellij.dvcs.ui.CompareBranchesDialog" timestamp="1581955173115">
       <screen x="0" y="23" width="1440" height="816" />
@@ -267,6 +268,10 @@
       <screen x="0" y="23" width="1440" height="816" />
     </state>
     <state x="469" y="139" key="git4idea.branch.GitSmartOperationDialog/0.23.1440.816@0.23.1440.816" timestamp="1581955158788" />
+    <state x="469" y="217" key="git4idea.merge.GitMergeDialog" timestamp="1582149124306">
+      <screen x="0" y="23" width="1440" height="816" />
+    </state>
+    <state x="469" y="217" key="git4idea.merge.GitMergeDialog/0.23.1440.816@0.23.1440.816" timestamp="1582149124306" />
     <state x="349" y="217" key="git4idea.merge.GitPullDialog" timestamp="1581954344152">
       <screen x="0" y="23" width="1440" height="816" />
     </state>

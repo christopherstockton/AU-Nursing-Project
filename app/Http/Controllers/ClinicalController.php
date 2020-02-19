@@ -16,7 +16,7 @@ class ClinicalController extends Controller
       ->join('sites', 'clinicals.siteID', '=', 'sites.siteID')
       ->join('people', 'clinicals.instructorID', '=', 'people.id')
       ->select('clinicals.*', 'courses.CourseName', 'courses.CourseSection', 'sites.address', 'people.firstName', 'people.lastName')
-      ->where('clinicals.flag', 1)
+      ->where('clinicals.flag', 0)
       ->orderBy('clinicalID')
       ->get();
 
@@ -27,6 +27,26 @@ class ClinicalController extends Controller
 
 
   }
+
+  public function listLabs() {
+
+    $clinicals = \DB::table('clinicals')
+      ->join('courses', 'clinicals.courseID', '=', 'courses.courseID')
+      ->join('sites', 'clinicals.siteID', '=', 'sites.siteID')
+      ->join('people', 'clinicals.instructorID', '=', 'people.id')
+      ->select('clinicals.*', 'courses.CourseName', 'courses.CourseSection', 'sites.address', 'people.firstName', 'people.lastName')
+      ->where('clinicals.flag', 1)
+      ->orderBy('clinicalID')
+      ->get();
+
+    return view('clinicals.list', [
+      'clinicals' => $clinicals,
+      'flag' => 1,
+    ]);
+
+
+  }  
+  
   public function create() {
     $courses = \DB::table('courses')->get();
     $sites = \DB::table('sites')->get();
@@ -66,12 +86,31 @@ class ClinicalController extends Controller
     $instructors = \DB::table('people')->where('flag', 0)->get();
     $clinical = Clinical::find($id);
 
-    return view('clinicals.edit', compact('person'));
+    return view('clinicals.edit', [
+      'courses' => $courses,
+      'sites' => $sites,
+      'instructors' => $instructors,
+      'clinicals' => $clinical,
+    ]);
+  }
+
+  public function show($id) {
+    $clinicals = \DB::table('clinicals')
+      ->join('courses', 'clinicals.courseID', '=', 'courses.courseID')
+      ->join('sites', 'clinicals.siteID', '=', 'sites.siteID')
+      ->join('people', 'clinicals.instructorID', '=', 'people.id')
+      ->select('clinicals.*', 'courses.CourseName', 'courses.CourseSection', 'sites.address', 'people.firstName', 'people.lastName')
+      ->where('clinicals.clinicalID', $id)
+      ->orderBy('clinicalID')
+      ->first();
+    //$clinicals = Clinical::find($id);
+
+    return view('clinicals.view', ['clinicals' => $clinicals]);
   }
 
   public function update($id) {
 
-    $clinical = People::find($id);
+    $clinical = Clinical::find($id);
 
     $clinical->flag= request('flag');
     $clinical->courseID= request('courseID');

@@ -24,16 +24,18 @@ Route::get('/welcome', function () {
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/students',                  'PeopleController@listStudents')->middleware('auth');
 Route::get('/instructors',               'PeopleController@listInstructors')->middleware('auth');
+Route::get('/labs',                      'ClinicalController@listLabs')->middleware('auth');
 Route::get('/clinicals',                 'ClinicalController@listClinicals')->middleware('auth');
-Route::get('/sites',                  'SitesController@listSites');
+Route::get('/sites',                  'SitesController@listSites')->middleware('auth');
+Route::get('/courses',                   'CoursesController@listCourses')->middleware('auth');
 
 //Sites Routes
-Route::get('/sites/create',             'SitesController@create');
-Route::post('/sites',                   'SitesController@store');
-Route::get('/sites/{ID}',               'SitesController@show');
-Route::get('/sites/delete/{ID}',        'SitesController@delete');
-Route::get('/sites/{ID}/edit',          'SitesController@edit');
-Route::put('/sites/{ID}',               'SitesController@update');
+Route::get('/sites/create',             'SitesController@create')->middleware('auth');
+Route::post('/sites',                   'SitesController@store')->middleware('auth');
+Route::get('/sites/{ID}',               'SitesController@show')->middleware('auth');
+Route::get('/sites/delete/{ID}',        'SitesController@delete')->middleware('auth');
+Route::get('/sites/{ID}/edit',          'SitesController@edit')->middleware('auth');
+Route::put('/sites/{ID}',               'SitesController@update')->middleware('auth');
 
 
 //People Routes
@@ -51,3 +53,10 @@ Route::get('/clinicals/{ID}',            'ClinicalController@show')->middleware(
 Route::get('/clinicals/delete/{ID}',     'ClinicalController@delete')->middleware('auth');
 Route::get('/clinicals/{ID}/edit',       'ClinicalController@edit')->middleware('auth');
 Route::put('/clinicals/{ID}',            'ClinicalController@update')->middleware('auth');
+
+Route::get('/courses/create',          'CoursesController@create')->middleware('auth');
+Route::post('/courses',                'CoursesController@store')->middleware('auth');
+Route::get('/courses/{ID}',            'CoursesController@show')->middleware('auth');
+Route::get('/courses/delete/{ID}',     'CoursesController@delete')->middleware('auth');
+Route::get('/courses/{ID}/edit',       'CoursesController@edit')->middleware('auth');
+Route::put('/courses/{ID}',            'CoursesController@update')->middleware('auth');

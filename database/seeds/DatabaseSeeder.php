@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
         define("CLINICAL_COUNT",    60);
         define("CLINIC_DOUBLE_PCT", 50);
         define("ASSIGNMENT_COUNT",  120);
-        $faker = Faker::create(); 
+        $faker = Faker::create();
 
         $courseNum = array("NUR3065", "NUR3028", "NUR3125", "NUR3145", "NUR3445", "NUR3165", "NUR4535", "NUR4637", "NUR4257");
         $courseNames = array('Health Assessment', 'Nursing Practice', 'Pathophysiology', 'Pharmacology', 'Nursing Care of Families', 'Nursing Research', 'Psychiatric Mental Health', 'Public and Community Health Nursing', 'Critical Care Nursing');
@@ -120,7 +120,7 @@ class DatabaseSeeder extends Seeder
                 'endTime' => $endtime,
                 'days' => $days,
                 'capacity' => rand(8,15),
-                'flag' => true,
+                'flag' => rand(0, 1),
                 'roomNumber' => rand(100,150),
                 'created_at' => $created_date,
                 'updated_at' => $created_date,
@@ -134,5 +134,12 @@ class DatabaseSeeder extends Seeder
                 'clinicalID' => rand(1, CLINICAL_COUNT),
             ]);
         }
+
+        // Users Seeder
+        DB::table('users')->insert([
+            'name' => 'Nursing',
+            'email' => 'nursing@au.edu',
+            'password' => '$2y$10$r/4q9NolT5YUM3eviTVizeMCiwXoUEN3x4tWVc7/8b/O.nWNkWhT.',
+        ]);
     }
 }

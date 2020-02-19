@@ -20,6 +20,7 @@ class CreatePeopleTable extends Migration {
 			$table->string('phoneNumber', 25)->nullable();
 			$table->string('emailAddress', 45)->nullable();
 			$table->text('notes', 65535)->nullable();
+			// Flag: 0 = Instructor, 1 = Student
 			$table->boolean('flag');
 			$table->timestamps();
 		});
