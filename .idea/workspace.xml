@@ -16,7 +16,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="thomas" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -260,18 +260,18 @@
       <screen x="0" y="23" width="1440" height="816" />
     </state>
     <state x="113" y="129" width="1220" height="580" key="com.intellij.dvcs.ui.CompareBranchesDialog/0.23.1440.816@0.23.1440.816" timestamp="1581955173115" />
-    <state x="503" y="357" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1581955629033">
+    <state x="503" y="357" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1582151348861">
       <screen x="0" y="23" width="1440" height="816" />
     </state>
-    <state x="503" y="357" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.816@0.23.1440.816" timestamp="1581955629033" />
-    <state x="469" y="139" key="git4idea.branch.GitSmartOperationDialog" timestamp="1581955158788">
+    <state x="503" y="357" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.816@0.23.1440.816" timestamp="1582151348861" />
+    <state x="469" y="139" key="git4idea.branch.GitSmartOperationDialog" timestamp="1582151339357">
       <screen x="0" y="23" width="1440" height="816" />
     </state>
-    <state x="469" y="139" key="git4idea.branch.GitSmartOperationDialog/0.23.1440.816@0.23.1440.816" timestamp="1581955158788" />
-    <state x="469" y="217" key="git4idea.merge.GitMergeDialog" timestamp="1582149124306">
+    <state x="469" y="139" key="git4idea.branch.GitSmartOperationDialog/0.23.1440.816@0.23.1440.816" timestamp="1582151339357" />
+    <state x="469" y="217" key="git4idea.merge.GitMergeDialog" timestamp="1582151279631">
       <screen x="0" y="23" width="1440" height="816" />
     </state>
-    <state x="469" y="217" key="git4idea.merge.GitMergeDialog/0.23.1440.816@0.23.1440.816" timestamp="1582149124306" />
+    <state x="469" y="217" key="git4idea.merge.GitMergeDialog/0.23.1440.816@0.23.1440.816" timestamp="1582151279631" />
     <state x="349" y="217" key="git4idea.merge.GitPullDialog" timestamp="1581954344152">
       <screen x="0" y="23" width="1440" height="816" />
     </state>
