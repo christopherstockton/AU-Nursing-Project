@@ -39,7 +39,7 @@
               <td>{{ $clinical->capacity}}</td>
               <td>{{ $clinical->startTime}} - {{ $clinical->endTime}}</td>
               <td>{{ $clinical->startDate}} - {{ $clinical->endDate}}</td>
-              <td><a class="btn btn-primary" href="/people/{{ $clinical->clinicalID }}" role="button">View</a>
+              <td><a class="btn btn-primary" href="/clinicals/{{ $clinical->clinicalID }}" role="button">View</a>
             </tr>
 
             @endforeach

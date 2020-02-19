@@ -9,63 +9,87 @@
                 <div class="card-body">
                     <div class="card-title mb-4">
                         <div class="d-flex justify-content-start">
-                            <div class="image-container">
-                                <img src="http://placehold.it/150x150" id="imgProfile" style="width: 150px; height: 150px" class="img-thumbnail" />
-                                <div class="middle">
-                                </div>
-                            </div>
                             <div class="userData ml-3">
-                                <h2 class="d-block" style="font-size: 1.5rem; font-weight: bold">{{$people->firstName}} {{$people->lastName}}</h2>
-                                @if ($people->flag == 0)
-                                <h6 class="d-block">Type: <span class="flag">Instructor</span></h6>
+                                @if ($clinicals->flag == 0)
+                                <h6 class="d-block">Type: <span class="flag">Clinical</span></h6>
                                 @else
-                                <h6 class="d-block">Type: <span class="flag">Student</span></h6>
+                                <h6 class="d-block">Type: <span class="flag">Lab</span></h6>
                                 @endif
-                                <h6 class="d-block">ID: {{$people->id}}</h6>
-                                <h6 class="d-block">Created: {{$people->created_at}}</h6>
-                                <h6 class="d-block">Updated: {{$people->updated_at}}</h6>
+                                <h6 class="d-block">ID: {{$clinicals->clinicalID}}</h6>
+                                <h6 class="d-block">Created: {{$clinicals->created_at}}</h6>
+                                <h6 class="d-block">Updated: {{$clinicals->updated_at}}</h6>
                             </div>
                         </div>
                     </div>
 
-                    <a class="btn btn-danger" href="/people/delete/{{$people->id}}">DELETE</a>
-                    <a class="btn btn-primary" href="/people/{{$people->id}}/edit">EDIT</a>
+                    <a class="btn btn-danger" href="/clinicals/delete/{{$clinicals->clinicalID}}">DELETE</a>
+                    <a class="btn btn-primary" href="/clinicals/{{$clinicals->clinicalID}}/edit">EDIT</a>
+                    <a class="btn btn-primary" href="/clinicals/">BACK</a>
 
                     <div class="row mt-3">
                         <div class="col-12">
-
-
-                                @if ($people->flag == 0)
                                     <div class="row">
                                         <div class="col-sm-3 col-md-2 col-5">
-                                            <label style="font-weight:bold;">Email</label>
+                                            <label style="font-weight:bold;">Course</label>
                                         </div>
                                         <div class="col-md-8 col-6">
-                                            {{ $people->emailAddress }}
+                                        {{ $clinicals->CourseSection}} - {{ $clinicals->CourseName }}
                                         </div>
                                     </div>
-                                    <hr />
-
                                     <div class="row">
                                         <div class="col-sm-3 col-md-2 col-5">
-                                            <label style="font-weight:bold;">Phone</label>
+                                            <label style="font-weight:bold;">Instructor</label>
                                         </div>
                                         <div class="col-md-8 col-6">
-                                            {{ $people->phoneNumber }}
+                                        {{ $clinicals->firstName }} {{ $clinicals->lastName}}
                                         </div>
                                     </div>
-                                    <hr />
-                                @endif
                                     <div class="row">
                                         <div class="col-sm-3 col-md-2 col-5">
-                                            <label style="font-weight:bold;">Notes</label>
+                                            <label style="font-weight:bold;">Site Address</label>
                                         </div>
                                         <div class="col-md-8 col-6">
-                                        @if ($people->notes == NULL)
-                                        N/A
-                                        @else
-                                            {{ $people->notes}}
-                                        @endif
+                                        {{ $clinicals->address}}
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-2 col-5">
+                                            <label style="font-weight:bold;">Room Number</label>
+                                        </div>
+                                        <div class="col-md-8 col-6">
+                                        {{ $clinicals->roomNumber }}
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-2 col-5">
+                                            <label style="font-weight:bold;">Capacity</label>
+                                        </div>
+                                        <div class="col-md-8 col-6">
+                                        {{ $clinicals->capacity }}
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-2 col-5">
+                                            <label style="font-weight:bold;">Day</label>
+                                        </div>
+                                        <div class="col-md-8 col-6">
+                                        {{ $clinicals->days }}
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-2 col-5">
+                                            <label style="font-weight:bold;">Times</label>
+                                        </div>
+                                        <div class="col-md-8 col-6">
+                                        {{ $clinicals->startTime}} - {{ $clinicals->endTime}}
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-2 col-5">
+                                            <label style="font-weight:bold;">Dates</label>
+                                        </div>
+                                        <div class="col-md-8 col-6">
+                                        {{ $clinicals->startDate}} - {{ $clinicals->endDate}}
                                         </div>
                                     </div>
 
@@ -82,18 +106,5 @@
 
             </div>
         </div>
-
-<script>
-
-  $(document).ready(function(){
-    if ( ($(".flag").text()) === "1") {
-      $(".flag").text("Student");
-    }
-    else if ( ($(".flag").text()) === "0") {
-      $(".flag").text("Instructor");
-    }
-  });
-</script>
-
 
 @endsection
