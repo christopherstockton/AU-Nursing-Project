@@ -20,6 +20,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/students',                  'PeopleController@listStudents');
 Route::get('/instructors',               'PeopleController@listInstructors');
+Route::get('/labs',                 'ClinicalController@listLabs');
 Route::get('/clinicals',                 'ClinicalController@listClinicals');
 
 Route::get('/people/create',             'PeopleController@create');

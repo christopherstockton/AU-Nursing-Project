@@ -18,8 +18,12 @@
             <th scope="col">Course Section</th>
             <th scope="col">Course Name</th>
             <th scope="col">Instructor</th>
+            @if ($flag == 0)
             <th scope="col">Site Address</th>
+            @endif
+            @if ($flag == 1)
             <th scope="col">Room Number</th>
+            @endif
             <th scope="col">Capacity</th>
             <th scope="col">Time</th>
             <th scope="col">Dates</th>
@@ -34,8 +38,12 @@
               <td>{{ $clinical->CourseSection}}</td>
               <td>{{ $clinical->CourseName}}</td>
               <td>{{ $clinical->firstName}} {{ $clinical->lastName}}</td>
+            @if ($flag == 0)
               <td>{{ $clinical->address}}</td>
+            @endif
+            @if ($flag == 1)
               <td>{{ $clinical->roomNumber}}</td>
+            @endif
               <td>{{ $clinical->capacity}}</td>
               <td>{{ $clinical->startTime}} - {{ $clinical->endTime}}</td>
               <td>{{ $clinical->startDate}} - {{ $clinical->endDate}}</td>

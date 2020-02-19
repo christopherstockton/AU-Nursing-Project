@@ -120,7 +120,7 @@ class DatabaseSeeder extends Seeder
                 'endTime' => $endtime,
                 'days' => $days,
                 'capacity' => rand(8,15),
-                'flag' => true,
+                'flag' => rand(0, 1),
                 'roomNumber' => rand(100,150),
                 'created_at' => $created_date,
                 'updated_at' => $created_date,

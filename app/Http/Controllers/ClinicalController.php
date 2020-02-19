@@ -16,7 +16,7 @@ class ClinicalController extends Controller
       ->join('sites', 'clinicals.siteID', '=', 'sites.siteID')
       ->join('people', 'clinicals.instructorID', '=', 'people.id')
       ->select('clinicals.*', 'courses.CourseName', 'courses.CourseSection', 'sites.address', 'people.firstName', 'people.lastName')
-      ->where('clinicals.flag', 1)
+      ->where('clinicals.flag', 0)
       ->orderBy('clinicalID')
       ->get();
 
@@ -27,6 +27,26 @@ class ClinicalController extends Controller
 
 
   }
+
+  public function listLabs() {
+
+    $clinicals = \DB::table('clinicals')
+      ->join('courses', 'clinicals.courseID', '=', 'courses.courseID')
+      ->join('sites', 'clinicals.siteID', '=', 'sites.siteID')
+      ->join('people', 'clinicals.instructorID', '=', 'people.id')
+      ->select('clinicals.*', 'courses.CourseName', 'courses.CourseSection', 'sites.address', 'people.firstName', 'people.lastName')
+      ->where('clinicals.flag', 1)
+      ->orderBy('clinicalID')
+      ->get();
+
+    return view('clinicals.list', [
+      'clinicals' => $clinicals,
+      'flag' => 1,
+    ]);
+
+
+  }  
+  
   public function create() {
     $courses = \DB::table('courses')->get();
     $sites = \DB::table('sites')->get();

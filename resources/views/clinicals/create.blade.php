@@ -12,8 +12,8 @@
         <div class="form-group">
           <label>Select Type:</label>
             <select class="form-control" name="flag" id="flag">
-              <option class="flag" value="0">Lab</option>
-              <option class="flag" value="1" selected>Clinical</option>
+              <option class="flag" value="0">Clinical</option>
+              <option class="flag" value="1">Lab</option>
             </select>
         </div>
 
