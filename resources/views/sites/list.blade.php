@@ -10,7 +10,7 @@
       <table class="table table-striped table-hover">
         <thead>
           <tr>
-            <th scope="col">SITE ID</th>
+            <th scope="col">SITE ID - TEST</th>
             <th scope="col">INSTRUCTOR</th>
             <th scope="col">SITE NAME</th>
             <th scope="col">ADDRESS</th>
