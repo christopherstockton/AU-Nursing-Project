@@ -34,7 +34,7 @@
             @foreach ( $clinicals as $clinical)
 
             <tr>
-              <th scope="row"> {{ $clinical->clinicalID }} </th>
+              <th scope="row"> {{ $clinical->id}} </th>
               <td>{{ $clinical->CourseSection}}</td>
               <td>{{ $clinical->CourseName}}</td>
               <td>{{ $clinical->firstName}} {{ $clinical->lastName}}</td>
@@ -47,7 +47,7 @@
               <td>{{ $clinical->capacity}}</td>
               <td>{{ $clinical->startTime}} - {{ $clinical->endTime}}</td>
               <td>{{ $clinical->startDate}} - {{ $clinical->endDate}}</td>
-              <td><a class="btn btn-primary" href="/clinicals/{{ $clinical->clinicalID }}" role="button">View</a>
+              <td><a class="btn btn-primary" href="/clinicals/{{ $clinical->id}}" role="button">View</a>
             </tr>
 
             @endforeach

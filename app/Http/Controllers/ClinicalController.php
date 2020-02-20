@@ -12,12 +12,12 @@ class ClinicalController extends Controller
   public function listClinicals() {
 
     $clinicals = \DB::table('clinicals')
-      ->join('courses', 'clinicals.courseID', '=', 'courses.courseID')
-      ->join('sites', 'clinicals.siteID', '=', 'sites.siteID')
+      ->join('courses', 'clinicals.courseID', '=', 'courses.id')
+      ->join('sites', 'clinicals.siteID', '=', 'sites.id')
       ->join('people', 'clinicals.instructorID', '=', 'people.id')
       ->select('clinicals.*', 'courses.CourseName', 'courses.CourseSection', 'sites.address', 'people.firstName', 'people.lastName')
       ->where('clinicals.flag', 0)
-      ->orderBy('clinicalID')
+      ->orderBy('id')
       ->get();
 
     return view('clinicals.list', [
@@ -31,12 +31,12 @@ class ClinicalController extends Controller
   public function listLabs() {
 
     $clinicals = \DB::table('clinicals')
-      ->join('courses', 'clinicals.courseID', '=', 'courses.courseID')
-      ->join('sites', 'clinicals.siteID', '=', 'sites.siteID')
+      ->join('courses', 'clinicals.courseID', '=', 'courses.id')
+      ->join('sites', 'clinicals.siteID', '=', 'sites.id')
       ->join('people', 'clinicals.instructorID', '=', 'people.id')
       ->select('clinicals.*', 'courses.CourseName', 'courses.CourseSection', 'sites.address', 'people.firstName', 'people.lastName')
       ->where('clinicals.flag', 1)
-      ->orderBy('clinicalID')
+      ->orderBy('id')
       ->get();
 
     return view('clinicals.list', [
@@ -96,12 +96,12 @@ class ClinicalController extends Controller
 
   public function show($id) {
     $clinicals = \DB::table('clinicals')
-      ->join('courses', 'clinicals.courseID', '=', 'courses.courseID')
-      ->join('sites', 'clinicals.siteID', '=', 'sites.siteID')
+      ->join('courses', 'clinicals.courseID', '=', 'courses.id')
+      ->join('sites', 'clinicals.siteID', '=', 'sites.id')
       ->join('people', 'clinicals.instructorID', '=', 'people.id')
       ->select('clinicals.*', 'courses.CourseName', 'courses.CourseSection', 'sites.address', 'people.firstName', 'people.lastName')
-      ->where('clinicals.clinicalID', $id)
-      ->orderBy('clinicalID')
+      ->where('clinicals.id', $id)
+      ->orderBy('id')
       ->first();
     //$clinicals = Clinical::find($id);
 

@@ -15,15 +15,15 @@
                                 @else
                                 <h6 class="d-block">Type: <span class="flag">Lab</span></h6>
                                 @endif
-                                <h6 class="d-block">ID: {{$clinicals->clinicalID}}</h6>
+                                <h6 class="d-block">ID: {{$clinicals->id}}</h6>
                                 <h6 class="d-block">Created: {{$clinicals->created_at}}</h6>
                                 <h6 class="d-block">Updated: {{$clinicals->updated_at}}</h6>
                             </div>
                         </div>
                     </div>
 
-                    <a class="btn btn-danger" href="/clinicals/delete/{{$clinicals->clinicalID}}">DELETE</a>
-                    <a class="btn btn-primary" href="/clinicals/{{$clinicals->clinicalID}}/edit">EDIT</a>
+                    <a class="btn btn-danger" href="/clinicals/delete/{{$clinicals->id}}">DELETE</a>
+                    <a class="btn btn-primary" href="/clinicals/{{$clinicals->id}}/edit">EDIT</a>
                     <a class="btn btn-primary" href="/clinicals/">BACK</a>
 
                     <div class="row mt-3">

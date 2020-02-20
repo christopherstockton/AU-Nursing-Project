@@ -6,7 +6,7 @@
   <div class=row>
     <div class="col-lg-6">
       <h2 class="mb-3">New Clinical</h2>
-      <form method='post' action='/clinicals/{{$clinicals->clinicalID}}'>
+      <form method='post' action='/clinicals/{{$clinicals->id}}'>
         @csrf
         @method('PUT')
 
@@ -22,7 +22,7 @@
           <label>Course</label>
           <select class="form-control" name="courseID" id="courseID">
           @foreach ($courses as $course)
-            <option class="courseID" value={{ $course->courseID }} @if ($clinicals->courseID == $course->courseID) selected @endif >{{ $course->CourseSection }} - {{ $course->CourseName }}</option>
+            <option class="courseID" value={{ $course->id}} @if ($clinicals->courseID == $course->id) selected @endif >{{ $course->CourseSection }} - {{ $course->CourseName }}</option>
           @endforeach
           </select>
         </div>
@@ -31,7 +31,7 @@
           <label>Site</label>
           <select class="form-control" name="siteID" id="siteID">
           @foreach ($sites as $site)
-            <option class="siteID" value={{ $site->siteID }} @if ($clinicals->siteID == $site->siteID) selected @endif >{{ $site->address }}</option>
+            <option class="siteID" value={{ $site->id}} @if ($clinicals->siteID == $site->id) selected @endif >{{ $site->address }}</option>
           @endforeach
           </select>
         </div>
@@ -81,7 +81,7 @@
         </div>
 
         <button type="submit" class="btn btn-primary mb-2">Submit</button>
-        <a href="/clinicals/{{$clinicals->clinicalID}}" class="btn btn-primary mb-2">Back</a>
+        <a href="/clinicals/{{$clinicals->id}}" class="btn btn-primary mb-2">Back</a>
 
       </form>
     </div>
