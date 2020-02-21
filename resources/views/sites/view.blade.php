@@ -25,17 +25,7 @@
 
                     <a class="btn btn-danger" href="/sites/delete/{{$sites->id}}">DELETE</a>
                     <a class="btn btn-primary" href="/sites/{{$sites->id}}/edit">EDIT</a>
-
-                    <div class="row mt-3">
-                        <div class="col-12">                                
-                                </div>
-                                <div class="tab-pane fade" id="connectedServices" role="tabpanel" aria-labelledby="ConnectedServices-tab">
-                                    Facebook, Google, Twitter Account that are connected to this account
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                    <a class="btn btn-primary" href="/sites/">BACK</a>
 
                 </div>
 

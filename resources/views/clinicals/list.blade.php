@@ -19,7 +19,7 @@
             <th scope="col">Course Name</th>
             <th scope="col">Instructor</th>
             @if ($flag == 0)
-            <th scope="col">Site Address</th>
+            <th scope="col">Site Name</th>
             @endif
             @if ($flag == 1)
             <th scope="col">Room Number</th>
@@ -39,7 +39,7 @@
               <td>{{ $clinical->CourseName}}</td>
               <td>{{ $clinical->firstName}} {{ $clinical->lastName}}</td>
             @if ($flag == 0)
-              <td>{{ $clinical->address}}</td>
+              <td>{{ $clinical->siteName}}</td>
             @endif
             @if ($flag == 1)
               <td>{{ $clinical->roomNumber}}</td>

@@ -166,22 +166,30 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="{{ url('/students') }}">Students
-                        <span class="sr-only">(current)</span>
-                    </a>
+                <li class="nav-item">
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            People<span class="caret"></span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/students">Students</a>
+                            <a class="dropdown-item" href="/instructors">Instructors</a>
+                        </div>
+                    </li>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/instructors">Instructors</a>
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            Assignments <span class="caret"></span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/labs">Labs</a>
+                            <a class="dropdown-item" href="/clinicals">Clinicals</a>
+                        </div>
+                    </li>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/courses">Courses</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/labs">Labs</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/clinicals">Clinicals</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/sites">Sites</a>

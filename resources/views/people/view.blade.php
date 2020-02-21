@@ -30,6 +30,11 @@
 
                     <a class="btn btn-danger" href="/people/delete/{{$people->id}}">DELETE</a>
                     <a class="btn btn-primary" href="/people/{{$people->id}}/edit">EDIT</a>
+                    @if ($people->flag == 0)
+                    <a class="btn btn-primary" href="/instructors/">BACK</a>
+                    @else
+                    <a class="btn btn-primary" href="/students/">BACK</a>
+                    @endif
 
                     <div class="row mt-3">
                         <div class="col-12">
@@ -90,20 +95,5 @@
                 </div>
             </div>
         </div>
-
-<script>
-/*This will check the 'flag span' at that top of the view page and
-mark the 'people' as either a student or instructor based on their flag.
-*/
-  $(document).ready(function(){
-    if ( ($(".flag").text()) === "1") {
-      $(".flag").text("Student");
-    }
-    else if ( ($(".flag").text()) === "0") {
-      $(".flag").text("Instructor");
-    }
-  });
-</script>
-
 
 @endsection

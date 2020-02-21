@@ -21,6 +21,7 @@
 
                         <a class="btn btn-danger" href="/courses/delete/{{$courses->id}}">DELETE</a>
                         <a class="btn btn-primary" href="/courses/{{$courses->id}}/edit">EDIT</a>
+                        <a class="btn btn-primary" href="/courses/">BACK</a>
                     </div>
                 </div>
 

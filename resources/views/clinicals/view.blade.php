@@ -46,10 +46,10 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-3 col-md-2 col-5">
-                                            <label style="font-weight:bold;">Site Address</label>
+                                            <label style="font-weight:bold;">Site Name</label>
                                         </div>
                                         <div class="col-md-8 col-6">
-                                        {{ $clinicals->address}}
+                                        {{ $clinicals->siteName}}
                                         </div>
                                     </div>
                                     <div class="row">
@@ -103,9 +103,6 @@
                                         </div>
                                     </div>
 
-                                </div>
-                                <div class="tab-pane fade" id="connectedServices" role="tabpanel" aria-labelledby="ConnectedServices-tab">
-                                    Facebook, Google, Twitter Account that are connected to this account
                                 </div>
                             </div>
                         </div>

@@ -27,22 +27,4 @@
         </div>
     </div>
 
-    <script>
-
-        $(document).ready(function(){
-
-
-            if ( $("#flag").val()  == 1) {
-                $(".flag").text("Edit Student");
-                $(".instructor").hide(1000);
-            }
-            else if ( $("#flag").val()  == 0) {
-                $(".flag").text("Edit Instructor");
-                $(".instructor").show(1000);
-            }
-
-        });
-
-    </script>
-
 @endsection

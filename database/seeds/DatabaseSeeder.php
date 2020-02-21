@@ -21,7 +21,9 @@ class DatabaseSeeder extends Seeder
         $faker = Faker::create();
 
         $courseNum = array("NUR3065", "NUR3028", "NUR3125", "NUR3145", "NUR3445", "NUR3165", "NUR4535", "NUR4637", "NUR4257");
-        $courseNames = array('Health Assessment', 'Nursing Practice', 'Pathophysiology', 'Pharmacology', 'Nursing Care of Families', 'Nursing Research', 'Psychiatric Mental Health', 'Public and Community Health Nursing', 'Critical Care Nursing');
+        $courseNames = array('Health Assessment', 'Nursing Practice', 'Pathophysiology', 
+        'Pharmacology', 'Nursing Care of Families', 'Nursing Research', 'Psychiatric Mental Health', 
+        'Public and Community Health Nursing', 'Critical Care Nursing');
         $courseCount = count($courseNum);
 
         // People Seeder
@@ -67,6 +69,7 @@ class DatabaseSeeder extends Seeder
         // Sites Seeder
         foreach (range(1,SITE_COUNT) as $index) {
             DB::table('sites')->insert([
+                'siteName' => $faker->lastName." Hospital",
                 'contactID' => $instructor_ids[rand(0, $instructor_qty - 1)],
                 'address' => $faker->address,
                 'unit' => rand(100,400),
@@ -137,7 +140,7 @@ class DatabaseSeeder extends Seeder
 
         // Users Seeder
         DB::table('users')->insert([
-            'name' => 'Nursing',
+            'name' => 'Test Account',
             'email' => 'nursing@au.edu',
             'password' => '$2y$10$r/4q9NolT5YUM3eviTVizeMCiwXoUEN3x4tWVc7/8b/O.nWNkWhT.',
         ]);

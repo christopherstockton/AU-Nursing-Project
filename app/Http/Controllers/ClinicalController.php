@@ -16,7 +16,7 @@ class ClinicalController extends Controller
       ->join('courses', 'clinicals.courseID', '=', 'courses.id')
       ->join('sites', 'clinicals.siteID', '=', 'sites.id')
       ->join('people', 'clinicals.instructorID', '=', 'people.id')
-      ->select('clinicals.*', 'courses.CourseName', 'courses.CourseSection', 'sites.address', 'people.firstName', 'people.lastName')
+      ->select('clinicals.*', 'courses.CourseName', 'courses.CourseSection', 'sites.siteName', 'people.firstName', 'people.lastName')
       ->where('clinicals.flag', 0)
       ->orderBy('id')
       ->get();
@@ -35,7 +35,7 @@ class ClinicalController extends Controller
       ->join('courses', 'clinicals.courseID', '=', 'courses.id')
       ->join('sites', 'clinicals.siteID', '=', 'sites.id')
       ->join('people', 'clinicals.instructorID', '=', 'people.id')
-      ->select('clinicals.*', 'courses.CourseName', 'courses.CourseSection', 'sites.address', 'people.firstName', 'people.lastName')
+      ->select('clinicals.*', 'courses.CourseName', 'courses.CourseSection', 'sites.siteName', 'people.firstName', 'people.lastName')
       ->where('clinicals.flag', 1)
       ->orderBy('id')
       ->get();
@@ -100,7 +100,7 @@ class ClinicalController extends Controller
       ->join('courses', 'clinicals.courseID', '=', 'courses.id')
       ->join('sites', 'clinicals.siteID', '=', 'sites.id')
       ->join('people', 'clinicals.instructorID', '=', 'people.id')
-      ->select('clinicals.*', 'courses.CourseName', 'courses.CourseSection', 'sites.address', 'people.firstName', 'people.lastName')
+      ->select('clinicals.*', 'courses.CourseName', 'courses.CourseSection', 'sites.siteName', 'people.firstName', 'people.lastName')
       ->where('clinicals.id', $id)
       ->orderBy('id')
       ->first();
