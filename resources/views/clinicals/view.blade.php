@@ -92,6 +92,16 @@
                                         {{ $clinicals->startDate}} - {{ $clinicals->endDate}}
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-2 col-5">
+                                            <label style="font-weight:bold;">Registered Students</label>
+                                        </div>
+                                        <div class="col-md-8 col-6">
+                                        @foreach ($assignments->retrieveStudents($clinicals->id) as $assignment)
+                                        <a href ="../people/{{$assignment->Studentid}}"> {{$assignment->firstName}} {{$assignment->lastName}} </a> <br>
+                                        @endforeach
+                                        </div>
+                                    </div>
 
                                 </div>
                                 <div class="tab-pane fade" id="connectedServices" role="tabpanel" aria-labelledby="ConnectedServices-tab">

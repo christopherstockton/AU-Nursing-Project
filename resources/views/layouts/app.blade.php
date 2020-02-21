@@ -172,6 +172,9 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="/instructors">Instructors</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="/courses">Courses</a>
                 </li>
                 <li class="nav-item">

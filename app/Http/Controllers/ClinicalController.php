@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Clinical;
+use App\Assignment;
 
 class ClinicalController extends Controller
 {
@@ -103,9 +104,12 @@ class ClinicalController extends Controller
       ->where('clinicals.id', $id)
       ->orderBy('id')
       ->first();
+
+    $assignments = new Assignment;
+
     //$clinicals = Clinical::find($id);
 
-    return view('clinicals.view', ['clinicals' => $clinicals]);
+    return view('clinicals.view', compact('clinicals', 'assignments'));
   }
 
   public function update($id) {
