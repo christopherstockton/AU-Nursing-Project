@@ -21,7 +21,7 @@
           <label>Course</label>
           <select class="form-control" name="courseID" id="courseID">
           @foreach ($courses as $course)
-            <option class="courseID" value={{ $course->courseID }}>{{ $course->CourseSection }} - {{ $course->CourseName }}</option>
+            <option class="courseID" value={{ $course->id }}>{{ $course->CourseSection }} - {{ $course->CourseName }}</option>
           @endforeach
           </select>
         </div>
@@ -30,7 +30,7 @@
           <label>Site</label>
           <select class="form-control" name="siteID" id="siteID">
           @foreach ($sites as $site)
-            <option class="siteID" value={{ $site->siteID }}>{{ $site->address }}</option>
+            <option class="siteID" value={{ $site->id }}>{{ $site->address }}</option>
           @endforeach
           </select>
         </div>

@@ -47,6 +47,19 @@ class ClinicalController extends Controller
 
 
   }  
+  public function delete($id) {
+
+    $clinical = Clinical::find($id);
+    $flag = request('flag');
+    $clinical->delete();
+
+    if ($flag == 1) {
+      return redirect('/labs');
+    } else {
+      return redirect('/clinicals');
+    }
+
+  }
   
   public function create() {
     $courses = \DB::table('courses')->get();
