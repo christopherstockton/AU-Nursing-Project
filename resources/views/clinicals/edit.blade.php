@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('content')
 
@@ -87,22 +87,5 @@
     </div>
   </div>
 </div>
-
-<script>
-
-  $( "#flag" ).change(function() {
-    console.log($('#flag').val());
-
-    if ( ($('#flag').val()) == 1 ) {
-      $(".instructor").hide(1000);
-    }
-    else if ( ($('#flag').val()) == 0 ) {
-      $(".instructor").show(1000);
-    }
-
-
-  });
-
-</script>
 
 @endsection
