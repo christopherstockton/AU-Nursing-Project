@@ -99,12 +99,12 @@ class ClinicalController extends Controller
     $sites = \DB::table('sites')->get();
     $instructors = \DB::table('people')->where('flag', 0)->get();
     $clinical = Clinical::find($id);
-
+    
     return view('clinicals.edit', [
       'courses' => $courses,
       'sites' => $sites,
       'instructors' => $instructors,
-      'clinicals' => $clinical,
+      'clinicals' => $clinical
     ]);
   }
 
