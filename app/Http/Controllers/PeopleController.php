@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\People;
+use App\Assignment;
 
 class PeopleController extends Controller
 {
@@ -13,20 +14,20 @@ class PeopleController extends Controller
   public function show($id) {
 
     $people = People::find($id);
+    $assignments = new Assignment;
 
-    return view('people.view', ['people' => $people]);
+    return view('people.view', compact('people', 'assignments'));
 
   }
 
   //Listing all students
   public function listStudents() {
 
-  $people = \DB::table('people')->where('flag', 1)->get();
-  //dd($students);
+  $people = new People;
 
   return view('people.list', [
     'people' => $people,
-    'flag' => 0,
+    'flag' => 1,
   ]);
 
 }
@@ -34,12 +35,11 @@ class PeopleController extends Controller
   //List all instructors
   public function listInstructors() {
 
-    $people = \DB::table('people')->where('flag', 0)->get();
-    //dd($students);
+    $people = new People;
 
     return view('people.list', [
       'people' => $people,
-      'flag' => 1,
+      'flag' => 0,
     ]);
 
   }
@@ -47,11 +47,11 @@ class PeopleController extends Controller
   //Delete the specififed id number. This can be student/instructor
   public function delete($id) {
 
-    $person = DB::table('people')->where('id',$id)->get();
+    $person = People::find($id);
     $flag = request('flag');
-    DB::table('people')->where('id', $id)->delete();
+    $person->delete();
 
-    if ($flag == 0) {
+    if ($flag == 1) {
       return redirect('/instructors');
     } else {
       return redirect('/students');
@@ -78,9 +78,15 @@ class PeopleController extends Controller
       $people->notes = request('notes');
       $people->flag = request('flag');
 
+      $flag = request('flag');
+
       $people->save();
 
-      return redirect('/students');
+      if ($flag == 0) {
+        return redirect('/instructors');
+      } else {
+        return redirect('/students');
+      }
     }
 
     //Find the 'people' with the specified id and open that data into the edit page
@@ -102,8 +108,6 @@ class PeopleController extends Controller
       $person->emailAddress = request('emailAddress');
       $person->notes = request('notes');
       $person->flag = request('flag');
-
-      //dd($person);
 
       $person->save();
 

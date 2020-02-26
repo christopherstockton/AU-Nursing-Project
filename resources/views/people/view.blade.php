@@ -30,11 +30,14 @@
 
                     <a class="btn btn-danger" href="/people/delete/{{$people->id}}">DELETE</a>
                     <a class="btn btn-primary" href="/people/{{$people->id}}/edit">EDIT</a>
+                    @if ($people->flag == 0)
+                    <a class="btn btn-primary" href="/instructors/">BACK</a>
+                    @else
+                    <a class="btn btn-primary" href="/students/">BACK</a>
+                    @endif
 
                     <div class="row mt-3">
                         <div class="col-12">
-
-
                                 @if ($people->flag == 0)
                                     <div class="row">
                                         <div class="col-sm-3 col-md-2 col-5">
@@ -68,34 +71,29 @@
                                         @endif
                                         </div>
                                     </div>
-
-                                </div>
-                                <div class="tab-pane fade" id="connectedServices" role="tabpanel" aria-labelledby="ConnectedServices-tab">
-                                    Facebook, Google, Twitter Account that are connected to this account
+                                    @if ($people->flag == 1)
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-2 col-5">
+                                            <label style="font-weight:bold;">Registered Clinicals</label>
+                                        </div>
+                                        <div class="col-md-8 col-6">
+                                        @if ($assignments->isEmpty($people->id) == true)
+                                        N/A
+                                        @else
+                                        @foreach ($assignments->retrieve($people->id) as $assignment)
+                                            <a href="../clinicals/{{$assignment->id}}">{{$assignment->courseName}}</a>
+                                            <br>
+                                        @endforeach
+                                        @endif
+                                        </div>
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-
                 </div>
-
             </div>
         </div>
-
-<script>
-/*This will check the 'flag span' at that top of the view page and
-mark the 'people' as either a student or instructor based on their flag.
-*/
-  $(document).ready(function(){
-    if ( ($(".flag").text()) === "1") {
-      $(".flag").text("Student");
-    }
-    else if ( ($(".flag").text()) === "0") {
-      $(".flag").text("Instructor");
-    }
-  });
-</script>
-
 
 @endsection

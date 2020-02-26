@@ -4,7 +4,7 @@
 
   <div class="container">
     <div class="mb-4 col-md-12">
-    @if ($flag == 1)
+    @if ($flag == 0)
       <a class="btn btn-primary" href="/people/create">New Instructor</a>
     @else
       <a class="btn btn-primary" href="/people/create">New Student</a>
@@ -22,7 +22,7 @@
         </thead>
         <tbody>
 
-            @foreach ( $people as $person)
+            @foreach ( $people->getList($flag) as $person)
 
             <tr>
               <th scope="row"> {{ $person->id }} </th>

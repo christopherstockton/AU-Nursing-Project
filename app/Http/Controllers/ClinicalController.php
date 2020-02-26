@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Clinical;
+use App\Assignment;
 
 class ClinicalController extends Controller
 {
@@ -15,7 +16,7 @@ class ClinicalController extends Controller
       ->join('courses', 'clinicals.courseID', '=', 'courses.id')
       ->join('sites', 'clinicals.siteID', '=', 'sites.id')
       ->join('people', 'clinicals.instructorID', '=', 'people.id')
-      ->select('clinicals.*', 'courses.CourseName', 'courses.CourseSection', 'sites.address', 'people.firstName', 'people.lastName')
+      ->select('clinicals.*', 'courses.CourseName', 'courses.CourseSection', 'sites.siteName', 'people.firstName', 'people.lastName')
       ->where('clinicals.flag', 0)
       ->orderBy('id')
       ->get();
@@ -34,7 +35,7 @@ class ClinicalController extends Controller
       ->join('courses', 'clinicals.courseID', '=', 'courses.id')
       ->join('sites', 'clinicals.siteID', '=', 'sites.id')
       ->join('people', 'clinicals.instructorID', '=', 'people.id')
-      ->select('clinicals.*', 'courses.CourseName', 'courses.CourseSection', 'sites.address', 'people.firstName', 'people.lastName')
+      ->select('clinicals.*', 'courses.CourseName', 'courses.CourseSection', 'sites.siteName', 'people.firstName', 'people.lastName')
       ->where('clinicals.flag', 1)
       ->orderBy('id')
       ->get();
@@ -46,6 +47,19 @@ class ClinicalController extends Controller
 
 
   }  
+  public function delete($id) {
+
+    $clinical = Clinical::find($id);
+    $flag = request('flag');
+    $clinical->delete();
+
+    if ($flag == 1) {
+      return redirect('/labs');
+    } else {
+      return redirect('/clinicals');
+    }
+
+  }
   
   public function create() {
     $courses = \DB::table('courses')->get();
@@ -85,12 +99,12 @@ class ClinicalController extends Controller
     $sites = \DB::table('sites')->get();
     $instructors = \DB::table('people')->where('flag', 0)->get();
     $clinical = Clinical::find($id);
-
+    
     return view('clinicals.edit', [
       'courses' => $courses,
       'sites' => $sites,
       'instructors' => $instructors,
-      'clinicals' => $clinical,
+      'clinicals' => $clinical
     ]);
   }
 
@@ -99,13 +113,16 @@ class ClinicalController extends Controller
       ->join('courses', 'clinicals.courseID', '=', 'courses.id')
       ->join('sites', 'clinicals.siteID', '=', 'sites.id')
       ->join('people', 'clinicals.instructorID', '=', 'people.id')
-      ->select('clinicals.*', 'courses.CourseName', 'courses.CourseSection', 'sites.address', 'people.firstName', 'people.lastName')
+      ->select('clinicals.*', 'courses.CourseName', 'courses.CourseSection', 'sites.siteName', 'people.firstName', 'people.lastName')
       ->where('clinicals.id', $id)
       ->orderBy('id')
       ->first();
+
+    $assignments = new Assignment;
+
     //$clinicals = Clinical::find($id);
 
-    return view('clinicals.view', ['clinicals' => $clinicals]);
+    return view('clinicals.view', compact('clinicals', 'assignments'));
   }
 
   public function update($id) {

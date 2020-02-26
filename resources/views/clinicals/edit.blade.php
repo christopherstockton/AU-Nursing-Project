@@ -1,22 +1,29 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('content')
+
 
 <div class="container">
   <div class=row>
     <div class="col-lg-6">
-      <h2 class="mb-3">New Clinical</h2>
+      @if ($clinicals->flag == 0)
+      <h2 class="mb-3">Edit Clinical</h2>
+      @else
+      <h2 class="mb-3">Edit Lab</h2>
+      @endif
       <form method='post' action='/clinicals/{{$clinicals->id}}'>
         @csrf
         @method('PUT')
 
+        
         <div class="form-group">
           <label>Select Type:</label>
-            <select class="form-control" name="flag" id="flag">
+            <select class="form-control" name="flag" id="flag" readonly>
               <option class="flag" value="0"@if ($clinicals->flag == 0) selected @endif >Clinical</option>
               <option class="flag" value="1"@if ($clinicals->flag == 1) selected @endif >Lab</option>
             </select>
         </div>
+        
 
         <div class="form-group">
           <label>Course</label>
@@ -27,6 +34,8 @@
           </select>
         </div>
 
+
+        @if ($clinicals->flag == 0)
         <div class="form-group">
           <label>Site</label>
           <select class="form-control" name="siteID" id="siteID">
@@ -35,6 +44,7 @@
           @endforeach
           </select>
         </div>
+        @endif
 
         <div class="form-group">
           <label>Instructor</label>
@@ -45,10 +55,12 @@
           </select>
         </div>
 
+        @if ($clinicals->flag == 1)
         <div class="form-group">
           <label>Room Number</label>
           <input type="text" class="form-control" name="roomNumber" value="{{ $clinicals->roomNumber }}">
         </div>
+        @endif
 
         <div class="form-group instructor">
           <label>Capacity</label>
@@ -87,22 +99,5 @@
     </div>
   </div>
 </div>
-
-<script>
-
-  $( "#flag" ).change(function() {
-    console.log($('#flag').val());
-
-    if ( ($('#flag').val()) == 1 ) {
-      $(".instructor").hide(1000);
-    }
-    else if ( ($('#flag').val()) == 0 ) {
-      $(".instructor").show(1000);
-    }
-
-
-  });
-
-</script>
 
 @endsection
