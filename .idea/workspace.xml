@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dfbe0364-913b-4a1e-9e7c-a61b2361aade" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/people/bulk.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PeopleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PeopleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/people/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/people/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,6 +125,11 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
       <path value="$PROJECT_DIR$/vendor/oscarafdev/migrations-generator" />
       <path value="$PROJECT_DIR$/vendor/oscarafdev/laravel-4-generators" />
+      <path value="$PROJECT_DIR$/vendor/phpoffice/phpspreadsheet" />
+      <path value="$PROJECT_DIR$/vendor/markbaker/matrix" />
+      <path value="$PROJECT_DIR$/vendor/markbaker/complex" />
+      <path value="$PROJECT_DIR$/vendor/krlove/eloquent-model-generator" />
+      <path value="$PROJECT_DIR$/vendor/krlove/code-generator" />
     </include_path>
   </component>
   <component name="ProjectId" id="1Xd32F3iwYV3pyF7phPFOAIOclz" />
@@ -175,6 +186,9 @@
       <workItem from="1581694765430" duration="2411000" />
       <workItem from="1581699468118" duration="4470000" />
       <workItem from="1582154660419" duration="90000" />
+      <workItem from="1582745095143" duration="93000" />
+      <workItem from="1582745293027" duration="32000" />
+      <workItem from="1582903762339" duration="1640000" />
     </task>
     <task id="LOCAL-00001" summary="password reset function">
       <created>1581701654025</created>
@@ -243,10 +257,14 @@
       <screen x="0" y="23" width="1440" height="816" />
     </state>
     <state x="147" y="82" key="MergeDialog/0.23.1440.816@0.23.1440.816" timestamp="1581954402539" />
-    <state x="434" y="142" key="MultipleFileMergeDialog" timestamp="1581955605918">
+    <state x="434" y="142" key="MultipleFileMergeDialog" timestamp="1582744987968">
       <screen x="0" y="23" width="1440" height="816" />
     </state>
-    <state x="434" y="142" key="MultipleFileMergeDialog/0.23.1440.816@0.23.1440.816" timestamp="1581955605918" />
+    <state x="434" y="142" key="MultipleFileMergeDialog/0.23.1440.816@0.23.1440.816" timestamp="1582744987968" />
+    <state x="539" y="349" key="NewPhpFileDialog" timestamp="1582904178047">
+      <screen x="0" y="23" width="1440" height="816" />
+    </state>
+    <state x="539" y="349" key="NewPhpFileDialog/0.23.1440.816@0.23.1440.816" timestamp="1582904178047" />
     <state x="422" y="148" key="RollbackChangesDialog" timestamp="1581954317120">
       <screen x="0" y="23" width="1440" height="816" />
     </state>
@@ -280,10 +298,10 @@
       <screen x="0" y="23" width="1440" height="816" />
     </state>
     <state x="349" y="217" key="git4idea.merge.GitPullDialog/0.23.1440.816@0.23.1440.816" timestamp="1581954344152" />
-    <state x="365" y="78" width="709" height="760" key="search.everywhere.popup" timestamp="1581696460426">
+    <state x="365" y="78" width="709" height="760" key="search.everywhere.popup" timestamp="1582904443317">
       <screen x="0" y="23" width="1440" height="816" />
     </state>
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1581367473088" />
-    <state x="365" y="78" width="709" height="760" key="search.everywhere.popup/0.23.1440.816@0.23.1440.816" timestamp="1581696460426" />
+    <state x="365" y="78" width="709" height="760" key="search.everywhere.popup/0.23.1440.816@0.23.1440.816" timestamp="1582904443317" />
   </component>
 </project>

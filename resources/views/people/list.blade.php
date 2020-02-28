@@ -8,6 +8,15 @@
       <a class="btn btn-primary" href="/people/create">New Instructor</a>
     @else
       <a class="btn btn-primary" href="/people/create">New Student</a>
+{{--      <a class="btn btn-primary" href="/people/bulk">Bulk Students</a>--}}
+            <div class="border-dark">
+                <form action='/people/bulk' enctype="multipart/form-data" method="post">
+                    {{ csrf_field() }}
+                    <input type='file' name='bulkData' id="bulkData" />
+
+                    <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                </form>
+            </div>
     @endif
     </div>
     <div class="row">

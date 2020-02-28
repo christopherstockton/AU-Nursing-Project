@@ -59,14 +59,31 @@ class PeopleController extends Controller
 
   }
 
-    //function that present the users with the people creation page 
+    //function that present the users with the people creation page
     public function create() {
 
       return view('people.create');
 
     }
-    
-    //Creates a new people object using this function. 
+
+    public function bulk(Request $request) {
+        $filename = $request->file('bulkData')->getClientOriginalName();
+        $file = $request->file('bulkData')->storeAs('people', $filename);
+        $fileLocation = storage_path('app/people/student_list-computer_science (1).xlsx');
+
+        $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+        $reader->setReadDataOnly(true);
+        $spreadsheet = $reader->load($fileLocation);
+
+        $worksheet = $spreadsheet->getActiveSheet();
+        $rows = $worksheet->toArray();
+
+      return view('people.bulk', [
+          'rows' => $rows
+      ]);
+    }
+
+    //Creates a new people object using this function.
     public function store() {
 
       $people = new People();
