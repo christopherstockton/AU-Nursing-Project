@@ -15,6 +15,7 @@ class CreateClinicalsTable extends Migration {
 		Schema::create('clinicals', function(Blueprint $table)
 		{
 			$table->integer('id', true);
+			$table->boolean('section')->nullable();
 			$table->integer('courseID')->nullable()->index('fkIdx_160');
 			$table->integer('siteID')->nullable()->index('fkIdx_163');
 			$table->integer('instructorID')->nullable()->index('fkIdx_157');
