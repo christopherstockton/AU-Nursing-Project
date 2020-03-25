@@ -138,6 +138,14 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
+        // Course Assignments Seeder
+        foreach(range(0,ASSIGNMENT_COUNT) as $index) {
+            DB::table('courseAssignments')->insert([
+                'studentID' => $student_ids[rand(0, $student_qty-1)],
+                'courseCount' => rand(1, $courseCount),
+            ]);
+        }
+
         // Users Seeder
         DB::table('users')->insert([
             'name' => 'Test Account',
