@@ -28,6 +28,7 @@ Route::get('/labs',                      'ClinicalController@listLabs')->middlew
 Route::get('/clinicals',                 'ClinicalController@listClinicals')->middleware('auth');
 Route::get('/sites',                  'SitesController@listSites')->middleware('auth');
 Route::get('/courses',                   'CoursesController@listCourses')->middleware('auth');
+Route::get('/schedule',                   'ScheduleController@listSchedule')->middleware('auth');
 
 //Sites Routes
 Route::get('/sites/create',             'SitesController@create')->middleware('auth');
@@ -61,3 +62,5 @@ Route::get('/courses/{ID}',            'CoursesController@show')->middleware('au
 Route::get('/courses/delete/{ID}',     'CoursesController@delete')->middleware('auth');
 Route::get('/courses/{ID}/edit',       'CoursesController@edit')->middleware('auth');
 Route::put('/courses/{ID}',            'CoursesController@update')->middleware('auth');
+
+//Schedule Route

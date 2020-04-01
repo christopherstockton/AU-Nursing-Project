@@ -11,7 +11,17 @@ class CoursesController extends Controller
 
         $courses = Courses::find($id);
 
-        return view('courses.view', ['courses' => $courses]);
+        $courseStudents = \DB::table('assignments')
+          ->join('clinicals', 'assignments.clinicalID', '=', 'clinicals.id')
+          ->join('people', 'assignments.studentID', '=', 'people.id')
+          ->where('courseID', $id)
+          ->orderBy('section')
+          ->get();
+
+        //dd($courses);
+
+        return view('courses.view', ['courses' => $courses,
+        'courseStudents' => $courseStudents,]);
 
     }
     public function listCourses() {
