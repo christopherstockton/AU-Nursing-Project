@@ -14,7 +14,11 @@
                                     <h2 class="d-block" style="font-size: 1.5rem; font-weight: bold">{{$courses->CourseSection}}</h2>
                                     <h6 class="d-block">ID: {{$courses->CourseName}}</h6>
                                     <h6 class="d-block">Created: {{$courses->created_at}}</h6>
-                                    <h6 class="d-block">Updated: {{$courses->updated_at}}</h6>
+                                    <h6 class="d-block">Updated: {{$courses->updated_at}}</h6><br/>
+                                    <h5 class="d-block">Registered Students</h5>
+                                    @foreach ($courseStudents as $student)
+                                    <h6 class="d-block"><a href="/clinicals/{{ $student->clinicalID }}">Unit {{ $student->section }}</a> - <a href="/people/{{ $student->studentID }}">{{ $student->firstName }} {{ $student->lastName }}</a></h6>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>

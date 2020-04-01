@@ -127,6 +127,7 @@ class DatabaseSeeder extends Seeder
                 'roomNumber' => rand(100,150),
                 'created_at' => $created_date,
                 'updated_at' => $created_date,
+                'section' => rand(1, 4),
             ]);
         }
 
