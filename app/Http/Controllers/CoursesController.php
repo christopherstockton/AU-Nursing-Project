@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Courses;
 use Illuminate\Http\Request;
+use \DateTime;
 
 class CoursesController extends Controller
 {
@@ -18,10 +19,19 @@ class CoursesController extends Controller
           ->orderBy('section')
           ->get();
 
+        $units = \DB::table('clinicals')
+          ->select('clinicals.id', 'clinicals.section', 'people.firstName', 'people.lastName', 'sites.siteName', 'clinicals.startTime', 'clinicals.endTime', 'clinicals.days')
+          ->join('sites', 'clinicals.siteID', '=', 'sites.id')
+          ->join('people', 'clinicals.instructorID', '=', 'people.id')
+          ->where('courseID', $id)
+          ->get();
+
         //dd($courses);
 
         return view('courses.view', ['courses' => $courses,
-        'courseStudents' => $courseStudents,]);
+        'courseStudents' => $courseStudents,
+        'units' => $units,
+        ]);
 
     }
     public function listCourses() {
@@ -29,7 +39,7 @@ class CoursesController extends Controller
         $courses = \DB::table('courses')->get();
 
         return view('courses.list', [
-            'courses' => $courses
+            'courses' => $courses,
         ]);
 
     }

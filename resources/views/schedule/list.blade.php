@@ -17,8 +17,9 @@
   </tr>
   @foreach ($calendar as $week)
   <tr>
+    {{ count($week)}}
     @foreach ($week as $day)
-    <td>{{ $day->get(date) }}
+    <td>
     </td>
     @endforeach
   </tr>

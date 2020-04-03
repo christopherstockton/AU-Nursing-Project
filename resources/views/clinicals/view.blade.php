@@ -33,7 +33,7 @@
                                             <label style="font-weight:bold;">Course</label>
                                         </div>
                                         <div class="col-md-8 col-6">
-                                        {{ $clinicals->CourseSection}} - {{ $clinicals->CourseName }}
+                                        <a href="/courses/{{ $clinicals->courseID }}">{{ $clinicals->CourseSection}} - {{ $clinicals->CourseName }}</a>
                                         </div>
                                     </div>
                                     <div class="row">
