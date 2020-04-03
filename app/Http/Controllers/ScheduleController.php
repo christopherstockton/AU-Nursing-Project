@@ -35,6 +35,7 @@ class ScheduleController extends Controller
                 $firstWeek = $firstWeek->concat(collect([['date' => "", "ID" => ""]]));
             }
         }
+        dd($firstWeek);
 
         // Create Rest of Month
         $calendar = collect([$firstWeek]);
@@ -51,7 +52,6 @@ class ScheduleController extends Controller
             }
             $calendar = $calendar->concat([$week]);
         }
-        //$calendar = $calendar->chunk(7);
         //dd($calendar);
         return view('schedule.list', ['calendar' => $calendar, 'month' => $month,]);
     }
