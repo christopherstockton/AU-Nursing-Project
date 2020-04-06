@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Courses;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
+use \DateTime;
 
 class CoursesController extends Controller
 {
@@ -12,7 +12,26 @@ class CoursesController extends Controller
 
         $courses = Courses::find($id);
 
-        return view('courses.view', ['courses' => $courses]);
+        $courseStudents = \DB::table('assignments')
+          ->join('clinicals', 'assignments.clinicalID', '=', 'clinicals.id')
+          ->join('people', 'assignments.studentID', '=', 'people.id')
+          ->where('courseID', $id)
+          ->orderBy('section')
+          ->get();
+
+        $units = \DB::table('clinicals')
+          ->select('clinicals.id', 'clinicals.section', 'people.firstName', 'people.lastName', 'sites.siteName', 'clinicals.startTime', 'clinicals.endTime', 'clinicals.days')
+          ->join('sites', 'clinicals.siteID', '=', 'sites.id')
+          ->join('people', 'clinicals.instructorID', '=', 'people.id')
+          ->where('courseID', $id)
+          ->get();
+
+        //dd($courses);
+
+        return view('courses.view', ['courses' => $courses,
+        'courseStudents' => $courseStudents,
+        'units' => $units,
+        ]);
 
     }
     public function listCourses() {
@@ -20,7 +39,7 @@ class CoursesController extends Controller
         $courses = \DB::table('courses')->get();
 
         return view('courses.list', [
-            'courses' => $courses
+            'courses' => $courses,
         ]);
 
     }
@@ -32,18 +51,6 @@ class CoursesController extends Controller
     public function store() {
 
         $courses = new Courses();
-
-        $validator = Validator::make(request()->all(), [
-            'CourseName' => 'required',
-            'CourseSection' => 'required',
-
-        ]);
-
-        if ($validator->fails()) {
-            return redirect('courses/create')
-                ->withErrors($validator)
-                ->withInput();
-        }
 
         $courses->CourseName = request('CourseName');
         $courses->CourseSection = request('CourseSection');

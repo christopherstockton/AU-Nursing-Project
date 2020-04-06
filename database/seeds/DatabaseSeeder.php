@@ -15,16 +15,17 @@ class DatabaseSeeder extends Seeder
         define("STUDENT_COUNT",     200);
         define("INSTRUCTOR_PCT",    5);
         define("SITE_COUNT",        20);
-        define("CLINICAL_COUNT",    60);
+        // Unit count per course, not overall count
+        define("CLINICAL_COUNT",    4);
         define("CLINIC_DOUBLE_PCT", 50);
         define("ASSIGNMENT_COUNT",  120);
         $faker = Faker::create();
 
-        $courseNum = array("NUR3065", "NUR3028", "NUR3125", "NUR3145", "NUR3445", "NUR3165", "NUR4535", "NUR4637", "NUR4257");
-        $courseNames = array('Health Assessment', 'Nursing Practice', 'Pathophysiology', 
-        'Pharmacology', 'Nursing Care of Families', 'Nursing Research', 'Psychiatric Mental Health', 
-        'Public and Community Health Nursing', 'Critical Care Nursing');
+        $courseNum = array("NUR 3102z", "NUR 3101z", "NUR 3261z", "NUR 3112z", "NUR 3111z", "NUR 3402z", "NUR 4202z", "NUR 4302z", "NUR 4502z", "NUR 4503z", "NUR 4802z");
+        $courseNames = array('Clinical 1', 'Clinical 2', 'Lab 1', 'Clinical 3', 'Clinical 4', 'Lab 2', 'Clinical 5', 'Clinical 6', 'Clinical 7', 'Clinical 8', 'Lab 3');
         $courseCount = count($courseNum);
+
+        $clinicalsTotal = $courseCount * CLINICAL_COUNT;
 
         // People Seeder
         foreach (range(1,STUDENT_COUNT) as $index) {
@@ -88,6 +89,7 @@ class DatabaseSeeder extends Seeder
             }
 
         // Clinical Seeder
+        foreach (range (1, $courseCount) as $courseIndex) {
         foreach (range(1, CLINICAL_COUNT) as $index) {
             // Check if clinical is taught by two instructors
             $instructor = $instructor_ids[rand(0, $instructor_qty-1)];
@@ -106,14 +108,14 @@ class DatabaseSeeder extends Seeder
             $enddate = new DateTime("2020-4-27");
             date_modify($startdate, '+'.$days.' day');
             date_modify($enddate, '+'.$days.' day');
-            $timeOffset = rand(0,30);
-            $starttime = new DateTime("6:00:00");
-            $endtime = new DateTime("10:00:00");
+            $timeOffset = rand(0,14);
+            $starttime = new DateTime("7:00:00");
+            $endtime = new DateTime("9:00:00");
             date_modify($starttime, '+'.($timeOffset*30).' minute');
             date_modify($endtime, '+'.($timeOffset*30).' minute');
 
             DB::table('clinicals')->insert([
-                'courseID' => rand(1, $courseCount),
+                'courseID' => $courseIndex,
                 'siteID' => rand(1,SITE_COUNT),
                 'instructorID' => $instructor,
                 'instructorID2' => $instructor2,
@@ -127,14 +129,16 @@ class DatabaseSeeder extends Seeder
                 'roomNumber' => rand(100,150),
                 'created_at' => $created_date,
                 'updated_at' => $created_date,
+                'section' => $index,
             ]);
         }
+    }
 
         // Assignments Seeder
         foreach(range(0,ASSIGNMENT_COUNT) as $index) {
             DB::table('assignments')->insert([
                 'studentID' => $student_ids[rand(0, $student_qty-1)],
-                'clinicalID' => rand(1, CLINICAL_COUNT),
+                'clinicalID' => rand(1, $clinicalsTotal),
             ]);
         }
 
@@ -142,7 +146,7 @@ class DatabaseSeeder extends Seeder
         foreach(range(0,ASSIGNMENT_COUNT) as $index) {
             DB::table('courseAssignments')->insert([
                 'studentID' => $student_ids[rand(0, $student_qty-1)],
-                'courseCount' => rand(1, $courseCount),
+                'courseID' => rand(1, $courseCount),
             ]);
         }
 

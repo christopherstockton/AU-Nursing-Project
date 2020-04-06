@@ -44,6 +44,11 @@
           </select>
         </div>
 
+        <div class="form-group ">
+          <label>Unit No.</label>
+          <input type="text" class="form-control" name="unit">
+        </div>
+
         <div class="form-group lab">
           <label>Room Number</label>
           <input type="text" class="form-control" name="roomNumber">
