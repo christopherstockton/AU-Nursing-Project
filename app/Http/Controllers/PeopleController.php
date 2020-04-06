@@ -92,8 +92,6 @@ class PeopleController extends Controller
         $validator = Validator::make(request()->all(), [
             'firstName' => 'required',
             'lastName' => 'required',
-            'phoneNumber' => 'required',
-            'emailAddress' => 'required'
         ]);
 
         if ($validator->fails()) {

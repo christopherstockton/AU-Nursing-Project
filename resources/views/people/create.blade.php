@@ -35,18 +35,13 @@
 
         <div class="form-group instructor">
           <label>Phone Number</label>
-          <input type="text" class="form-control @error('phoneNumber') is-invalid @enderror" name="phoneNumber">
-            @error('phoneNumber')
-            <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
+          <input type="text" class="form-control" name="phoneNumber">
         </div>
 
         <div class="form-group instructor">
           <label>Email Address</label>
-          <input type="text" class="form-control @error('emailAddress') is-invalid @enderror" name="emailAddress">
-            @error('emailAddress')
-            <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
+          <input type="text" class="form-control" name="emailAddress">
+
         </div>
 
         <div class="form-group">

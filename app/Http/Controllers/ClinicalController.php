@@ -83,12 +83,13 @@ class ClinicalController extends Controller
 //          'capacity' => 'numeric'
 //      ]);
       $validator = Validator::make(request()->all(), [
-          'capacity' => 'numeric|required',
+          'capacity' => 'numeric|min:0|required',
           'startTime' => 'date_format:"H:i:s"|required',
           'endTime' => 'date_format:"H:i:s"|required',
           'days' => 'required',
           'startDate' => 'date_format:"Y-m-d"|required',
-          'endDate' => 'date_format:"Y-m-d"|required'
+          'endDate' => 'date_format:"Y-m-d"|required',
+          'roomNumber' =>'required',
       ]);
 
       if ($validator->fails()) {
