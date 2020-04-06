@@ -11,12 +11,18 @@
 
                     <div class="form-group">
                         <label>Course Name</label>
-                        <input type="text" class="form-control" name="CourseName">
+                        <input type="text" class="form-control @error('CourseName') is-invalid @enderror" name="CourseName">
+                        @error('CourseName')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <div class="form-group">
                         <label>Course Section</label>
-                        <input type="text" class="form-control" name="CourseSection">
+                        <input type="text" class="form-control @error('CourseSection') is-invalid @enderror" name="CourseSection">
+                        @error('CourseSection')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <button type="submit" class="btn btn-primary mb-2">Submit</button>
