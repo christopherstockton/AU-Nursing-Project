@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use App\People;
 use App\Assignment;
+use Illuminate\Support\Facades\Validator;
 
 class PeopleController extends Controller
 {
@@ -87,6 +88,19 @@ class PeopleController extends Controller
     public function store() {
 
       $people = new People();
+
+        $validator = Validator::make(request()->all(), [
+            'firstName' => 'required',
+            'lastName' => 'required',
+            'phoneNumber' => 'required',
+            'emailAddress' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('people/create')
+                ->withErrors($validator)
+                ->withInput();
+        }
 
       $people->firstName = request('firstName');
       $people->lastName = request('lastName');

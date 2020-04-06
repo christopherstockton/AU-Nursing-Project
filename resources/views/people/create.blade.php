@@ -19,22 +19,34 @@
 
         <div class="form-group">
           <label>First Name</label>
-          <input type="text" class="form-control" name="firstName">
+          <input type="text" class="form-control @error('firstName') is-invalid @enderror" name="firstName">
+            @error('firstName')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="form-group">
           <label>Last Name</label>
-          <input type="text" class="form-control" name="lastName">
+          <input type="text" class="form-control @error('lastName') is-invalid @enderror" name="lastName">
+            @error('lastName')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="form-group instructor">
           <label>Phone Number</label>
-          <input type="text" class="form-control" name="phoneNumber">
+          <input type="text" class="form-control @error('phoneNumber') is-invalid @enderror" name="phoneNumber">
+            @error('phoneNumber')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="form-group instructor">
           <label>Email Address</label>
-          <input type="text" class="form-control" name="emailAddress">
+          <input type="text" class="form-control @error('emailAddress') is-invalid @enderror" name="emailAddress">
+            @error('emailAddress')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="form-group">
