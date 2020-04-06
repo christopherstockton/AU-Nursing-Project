@@ -11,7 +11,10 @@
 
         <div class="form-group">
           <label>Site Name</label>
-          <input type="text" class="form-control" name="siteName">
+          <input type="text" class="form-control @error('siteName') is-invalid @enderror" name="siteName">
+            @error('siteName')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="form-group">
@@ -25,12 +28,18 @@
 
         <div class="form-group">
           <label>Site Address</label>
-          <input type="text" class="form-control" name="address">
+          <input type="text" class="form-control @error('address') is-invalid @enderror" name="address">
+            @error('address')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="form-group instructor">
           <label>Unit Tag</label>
-          <input type="text" class="form-control" name="unit">
+          <input type="text" class="form-control @error('unit') is-invalid @enderror" name="unit">
+            @error('unit')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
 
         <button type="submit" class="btn btn-primary mb-2">Submit</button>
