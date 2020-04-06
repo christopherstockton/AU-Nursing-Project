@@ -51,32 +51,50 @@
 
         <div class="form-group ">
           <label>Capacity</label>
-          <input type="text" class="form-control" name="capacity">
+          <input type="text" class="form-control @error('capacity') is-invalid @enderror" name="capacity">
+            @error('capacity')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="form-group ">
           <label>Days</label>
-          <input type="text" class="form-control" name="days" value="0">
+          <input type="text" class="form-control @error('days') is-invalid @enderror" name="days" value="0">
+            @error('days')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="form-group ">
           <label>Start Time</label>
-          <input type="text" class="form-control" name="startTime" value="10:00:00">
+          <input type="text" class="form-control @error('startTime') is-invalid @enderror" name="startTime" value="10:00:00">
+            @error('startTime')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="form-group ">
           <label>End Time</label>
-          <input type="text" class="form-control" name="endTime" value="14:00:00">
+          <input type="text" class="form-control @error('endTime') is-invalid @enderror" name="endTime" value="14:00:00">
+            @error('endTime')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="form-group ">
           <label>Start Date</label>
-          <input type="text" class="form-control" name="startDate" value="2020-01-06">
+          <input type="text" class="form-control @error('startDate') is-invalid @enderror" name="startDate" value="2020-01-06">
+            @error('startDate')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="form-group ">
           <label>End Date</label>
-          <input type="text" class="form-control" name="endDate" value="2020-04-27">
+          <input type="text" class="form-control @error('endDate') is-invalid @enderror" name="endDate" value="2020-04-27">
+            @error('endDate')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
 
         <button type="submit" class="btn btn-primary mb-2">Submit</button>
