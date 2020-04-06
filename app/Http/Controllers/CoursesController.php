@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Courses;
 use Illuminate\Http\Request;
 use \DateTime;
+use Illuminate\Support\Facades\Validator;
 
 class CoursesController extends Controller
 {
@@ -51,6 +52,17 @@ class CoursesController extends Controller
     public function store() {
 
         $courses = new Courses();
+
+        $validator = Validator::make(request()->all(), [
+            'CourseName' => 'required',
+            'CourseSection' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('courses/create')
+                ->withErrors($validator)
+                ->withInput();
+        }
 
         $courses->CourseName = request('CourseName');
         $courses->CourseSection = request('CourseSection');
