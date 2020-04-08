@@ -30,8 +30,9 @@ class AddForeignKeysToAssignmentsTable extends Migration {
 	{
 		Schema::table('assignments', function(Blueprint $table)
 		{
-			$table->dropForeign('FK_298');
-			$table->dropForeign('FK_306');
+			$table->dropForeign('FK_001');
+			$table->dropForeign('FK_002');
+			$table->dropForeign('FK_003');
 		});
 	}
 
