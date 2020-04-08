@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dfbe0364-913b-4a1e-9e7c-a61b2361aade" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/people/bulk.blade.php" afterDir="false" />
+    <list default="true" id="dfbe0364-913b-4a1e-9e7c-a61b2361aade" name="Default Changelist" comment=".">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PeopleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PeopleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/people/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/people/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SitesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SitesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/sites/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/sites/create.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,6 +185,8 @@
       <workItem from="1582745095143" duration="93000" />
       <workItem from="1582745293027" duration="32000" />
       <workItem from="1582903762339" duration="1640000" />
+      <workItem from="1586132611986" duration="1280000" />
+      <workItem from="1586175446783" duration="1803000" />
     </task>
     <task id="LOCAL-00001" summary="password reset function">
       <created>1581701654025</created>
@@ -204,7 +202,28 @@
       <option name="project" value="LOCAL" />
       <updated>1582149073628</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Clinical input validation">
+      <created>1586176564964</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1586176564964</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Course creation form validation">
+      <created>1586176869654</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1586176869654</updated>
+    </task>
+    <task id="LOCAL-00005" summary="people create validation">
+      <created>1586177186596</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1586177186596</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -217,13 +236,20 @@
     <MESSAGE value="password reset function" />
     <MESSAGE value="Layouts combined" />
     <MESSAGE value="." />
-    <option name="LAST_COMMIT_MESSAGE" value="." />
+    <MESSAGE value="Clinical input validation" />
+    <MESSAGE value="Course creation form validation" />
+    <MESSAGE value="people create validation" />
+    <option name="LAST_COMMIT_MESSAGE" value="people create validation" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="293" y="36" key="CommitChangelistDialog2" timestamp="1582149073497">
+    <state x="459" y="200" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1586177255018">
       <screen x="0" y="23" width="1440" height="816" />
     </state>
-    <state x="293" y="36" key="CommitChangelistDialog2/0.23.1440.816@0.23.1440.816" timestamp="1582149073497" />
+    <state x="459" y="200" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.816@0.23.1440.816" timestamp="1586177255018" />
+    <state x="293" y="36" key="CommitChangelistDialog2" timestamp="1586177186457">
+      <screen x="0" y="23" width="1440" height="816" />
+    </state>
+    <state x="293" y="36" key="CommitChangelistDialog2/0.23.1440.816@0.23.1440.816" timestamp="1586177186457" />
     <state x="293" y="36" key="CommitChangelistDialog2/0.23.1440.821@0.23.1440.821" timestamp="1581701653769" />
     <state x="463" y="120" key="FileChooserDialogImpl" timestamp="1581366960688">
       <screen x="0" y="0" width="1366" height="728" />
@@ -298,10 +324,10 @@
       <screen x="0" y="23" width="1440" height="816" />
     </state>
     <state x="349" y="217" key="git4idea.merge.GitPullDialog/0.23.1440.816@0.23.1440.816" timestamp="1581954344152" />
-    <state x="365" y="78" width="709" height="760" key="search.everywhere.popup" timestamp="1582904443317">
+    <state x="365" y="78" width="709" height="760" key="search.everywhere.popup" timestamp="1586132675214">
       <screen x="0" y="23" width="1440" height="816" />
     </state>
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1581367473088" />
-    <state x="365" y="78" width="709" height="760" key="search.everywhere.popup/0.23.1440.816@0.23.1440.816" timestamp="1582904443317" />
+    <state x="365" y="78" width="709" height="760" key="search.everywhere.popup/0.23.1440.816@0.23.1440.816" timestamp="1586132675214" />
   </component>
 </project>

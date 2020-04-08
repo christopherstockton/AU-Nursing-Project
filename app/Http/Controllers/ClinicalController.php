@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Clinical;
 use App\Assignment;
+use Illuminate\Support\Facades\Validator;
 
 class ClinicalController extends Controller
 {
@@ -46,7 +47,7 @@ class ClinicalController extends Controller
     ]);
 
 
-  }  
+  }
   public function delete($id) {
 
     $clinical = Clinical::find($id);
@@ -60,7 +61,7 @@ class ClinicalController extends Controller
     }
 
   }
-  
+
   public function create() {
     $courses = \DB::table('courses')->get();
     $sites = \DB::table('sites')->get();
@@ -76,6 +77,26 @@ class ClinicalController extends Controller
   public function store() {
 
     $clinical = new Clinical();
+
+
+//      $clinical->validate([
+//          'capacity' => 'numeric'
+//      ]);
+      $validator = Validator::make(request()->all(), [
+          'capacity' => 'numeric|min:0|required',
+          'startTime' => 'date_format:"H:i:s"|required',
+          'endTime' => 'date_format:"H:i:s"|required',
+          'days' => 'required',
+          'startDate' => 'date_format:"Y-m-d"|required',
+          'endDate' => 'date_format:"Y-m-d"|required',
+          'roomNumber' =>'required',
+      ]);
+
+      if ($validator->fails()) {
+          return redirect('clinicals/create')
+              ->withErrors($validator)
+              ->withInput();
+      }
 
     $clinical->flag= request('flag');
     $clinical->courseID= request('courseID');
@@ -99,7 +120,7 @@ class ClinicalController extends Controller
     $sites = \DB::table('sites')->get();
     $instructors = \DB::table('people')->where('flag', 0)->get();
     $clinical = Clinical::find($id);
-    
+
     return view('clinicals.edit', [
       'courses' => $courses,
       'sites' => $sites,

@@ -5,19 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Sites;
+use Illuminate\Support\Facades\Validator;
 
 class SitesController extends Controller
 {
-    
+
     //Used for viewing a single 'site'
     public function show($id) {
-        
+
         $sites = Sites::find($id);
 
         return view('sites.view', ['sites' => $sites ]);
 
     }
-    
+
     //Listing all the 'sites' on a single view
     public function listSites() {
 
@@ -25,7 +26,7 @@ class SitesController extends Controller
         ->join('people', 'sites.contactID', '=', 'people.id')
         ->select('sites.*', 'people.firstName', 'people.lastName') //Select only the fields you need otherwise it will be overwritten.
         ->get();
-        
+
         //$instructors = \DB::table('people')->where('flag', 0)->get();
 
         return view('sites.list', [
@@ -39,11 +40,11 @@ class SitesController extends Controller
 
         $sites = DB::table('sites')->where('id',$id)->get();
         DB::table('sites')->where('id', $id)->delete();
-    
+
         return redirect('/sites');
       }
 
-    //Creating a new 'site' by bringing up the 'sites.create' page   
+    //Creating a new 'site' by bringing up the 'sites.create' page
     public function create() {
         $instructors = \DB::table('people')->where('flag', 0)->get();
 
@@ -57,14 +58,26 @@ class SitesController extends Controller
     public function store() {
 
         $sites = new Sites();
-  
+
+        $validator = Validator::make(request()->all(), [
+            'siteName' => 'required',
+            'address' => 'required',
+            'unit' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('sites/create')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
         $sites->siteName = request('siteName');
         $sites->contactID = request('instructorID'); //CHECK HERE
         $sites->address = request('address');
         $sites->unit = request('unit');
 
         $sites->save();
-  
+
         return redirect('/sites');
     }
 
@@ -73,7 +86,7 @@ class SitesController extends Controller
 
         $sites = Sites::find($id);
         $instructors = \DB::table('people')->where('flag', 0)->get();
-      
+
         return view('sites.edit', compact('sites'), [
             'instructors' => $instructors
         ]);
@@ -83,18 +96,18 @@ class SitesController extends Controller
     public function update($id) {
 
         $sites = Sites::find($id);
-  
+
         $sites->siteName = request('siteName');
         $sites->contactID = request('instructorID'); //CHECK HERE
         $sites->address = request('address');
         $sites->unit = request('unit');
-  
+
         //dd($sites);
-  
+
         $sites->save();
-  
+
         return redirect('/sites/' . $sites->id);
-  
+
     }
 
 }

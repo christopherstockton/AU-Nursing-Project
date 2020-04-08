@@ -19,12 +19,18 @@
 
         <div class="form-group">
           <label>First Name</label>
-          <input type="text" class="form-control" name="firstName">
+          <input type="text" class="form-control @error('firstName') is-invalid @enderror" name="firstName">
+            @error('firstName')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="form-group">
           <label>Last Name</label>
-          <input type="text" class="form-control" name="lastName">
+          <input type="text" class="form-control @error('lastName') is-invalid @enderror" name="lastName">
+            @error('lastName')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="form-group instructor">
@@ -35,12 +41,15 @@
         <div class="form-group instructor">
           <label>Email Address</label>
           <input type="text" class="form-control" name="emailAddress">
+
         </div>
 
         <div class="form-group">
           <label>Notes</label>
           <textarea type="text" class="form-control" name="notes"></textarea>
         </div>
+
+        <input type="hidden" name="inputType" value="createPerson">
 
         <button type="submit" class="btn btn-primary mb-2">Submit</button>
 
