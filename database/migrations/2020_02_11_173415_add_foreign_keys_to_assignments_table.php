@@ -14,8 +14,9 @@ class AddForeignKeysToAssignmentsTable extends Migration {
 	{
 		Schema::table('assignments', function(Blueprint $table)
 		{
-			$table->foreign('studentID', 'FK_298')->references('id')->on('people')->onUpdate('NO ACTION')->onDelete('cascade');
-			$table->foreign('clinicalID', 'FK_306')->references('id')->on('clinicals')->onUpdate('NO ACTION')->onDelete('cascade');
+			$table->foreign('studentID', 'FK_001')->references('id')->on('people')->onUpdate('NO ACTION')->onDelete('cascade');
+			$table->foreign('clinicalID', 'FK_002')->references('id')->on('clinicals')->onUpdate('NO ACTION')->onDelete('cascade');
+			$table->foreign('courseID', 'FK_003')->references('id')->on('courses')->onUpdate('NO ACTION')->onDelete('cascade');
 		});
 	}
 
@@ -29,8 +30,9 @@ class AddForeignKeysToAssignmentsTable extends Migration {
 	{
 		Schema::table('assignments', function(Blueprint $table)
 		{
-			$table->dropForeign('FK_298');
-			$table->dropForeign('FK_306');
+			$table->dropForeign('FK_001');
+			$table->dropForeign('FK_002');
+			$table->dropForeign('FK_003');
 		});
 	}
 

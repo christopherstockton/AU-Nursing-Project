@@ -128,19 +128,21 @@ class PeopleController extends Controller
 
     //Upon updating, grab the data again and "re-store" into the DB. Then reload the /people page
     public function update($id) {
+      if (request('inputType' == "createPerson")) {
 
-      $person = People::find($id);
+        $person = People::find($id);
 
-      $person->firstName = request('firstName');
-      $person->lastName = request('lastName');
-      $person->phoneNumber = request('phoneNumber');
-      $person->emailAddress = request('emailAddress');
-      $person->notes = request('notes');
-      $person->flag = request('flag');
+        $person->firstName = request('firstName');
+        $person->lastName = request('lastName');
+        $person->phoneNumber = request('phoneNumber');
+        $person->emailAddress = request('emailAddress');
+        $person->notes = request('notes');
+        $person->flag = request('flag');
 
-      $person->save();
+        $person->save();
 
-      return redirect('/people/' . $person->id);
+        return redirect('/people/' . $person->id);
+      }
 
     }
 

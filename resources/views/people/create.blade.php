@@ -49,6 +49,8 @@
           <textarea type="text" class="form-control" name="notes"></textarea>
         </div>
 
+        <input type="hidden" name="inputType" value="createPerson">
+
         <button type="submit" class="btn btn-primary mb-2">Submit</button>
 
       </form>
