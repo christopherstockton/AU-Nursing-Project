@@ -67,9 +67,11 @@ class PeopleController extends Controller
     }
 
     public function bulk(Request $request) {
+
+        //PhpSpreadsheet Stuff
         $filename = $request->file('bulkData')->getClientOriginalName();
         $file = $request->file('bulkData')->storeAs('people', $filename);
-        $fileLocation = storage_path('app/people/student_list-computer_science (1).xlsx');
+        $fileLocation = storage_path("app/people/") . $filename;
 
         $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
         $reader->setReadDataOnly(true);
@@ -78,8 +80,12 @@ class PeopleController extends Controller
         $worksheet = $spreadsheet->getActiveSheet();
         $rows = $worksheet->toArray();
 
+        //Everything Else
+        $courses = \DB::table('courses')->get();
+
       return view('people.bulk', [
-          'rows' => $rows
+          'rows' => $rows,
+          'courses' => $courses
       ]);
     }
 
