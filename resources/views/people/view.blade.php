@@ -74,14 +74,14 @@
                                     @if ($people->flag == 1)
                                     <div class="row">
                                         <div class="col-sm-3 col-md-2 col-5">
-                                            <label style="font-weight:bold;">Registered Clinicals</label>
+                                            <label style="font-weight:bold;">Registered Courses</label>
                                         </div>
                                         <div class="col-md-8 col-6">
                                         @if ($assignments->isEmpty($people->id) == true)
                                         N/A
                                         @else
                                         @foreach ($assignments->retrieve($people->id) as $assignment)
-                                            <a href="../clinicals/{{$assignment->id}}">{{$assignment->courseName}}</a>
+                                            <a href="../clinicals/{{$assignment->id}}">{{$assignment->courseSection}} - {{$assignment->courseName}}</a>
                                             <br>
                                         @endforeach
                                         @endif

@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
         $faker = Faker::create();
 
         $courseNum = array("NUR 3102z", "NUR 3101z", "NUR 3261z", "NUR 3112z", "NUR 3111z", "NUR 3402z", "NUR 4202z", "NUR 4302z", "NUR 4502z", "NUR 4503z", "NUR 4802z");
-        $courseNames = array('Clinical 1', 'Clinical 2', 'Lab 1', 'Clinical 3', 'Clinical 4', 'Lab 2', 'Clinical 5', 'Clinical 6', 'Clinical 7', 'Clinical 8', 'Lab 3');
+        $courseNames = array('Clinical 1', 'Lab 1', 'Lab 2', 'Clinical 2', 'Lab 3', 'Clinical 3', 'Clinical 4', 'Clinical 5', 'Clinical 6', 'Clinical 7', 'Clinical 8');
         $courseCount = count($courseNum);
 
         $clinicalsTotal = $courseCount * CLINICAL_COUNT;
