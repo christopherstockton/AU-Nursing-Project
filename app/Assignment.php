@@ -8,19 +8,18 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id
  * @property int $studentID
  * @property int $clinicalID
+ * @property int $courseID
  * @property Person $person
  * @property Clinical $clinical
+ * @property Course $course
  */
 class Assignment extends Model
 {
     /**
      * @var array
      */
-    protected $fillable = ['studentID', 'clinicalID'];
+    protected $fillable = ['studentID', 'clinicalID', 'courseID'];
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
     public function retrieve($id)
     {
         return $this
@@ -54,8 +53,24 @@ class Assignment extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
+    public function person()
+    {
+        return $this->belongsTo('App\Person', 'studentID');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function clinical()
     {
         return $this->belongsTo('App\Clinical', 'clinicalID');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function course()
+    {
+        return $this->belongsTo('App\Course', 'courseID');
     }
 }

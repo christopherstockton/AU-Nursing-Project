@@ -18,6 +18,7 @@ class CreateAssignmentsTable extends Migration {
 			$table->integer('studentID')->index('fkIdx_001');
 			$table->integer('clinicalID')->index('fkIdx_002')->nullable();
 			$table->integer('courseID')->index('fkIdx_003')->nullable();
+			$table->timestamps();
 		});
 	}
 
