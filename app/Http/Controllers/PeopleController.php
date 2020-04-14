@@ -76,6 +76,8 @@ class PeopleController extends Controller
 
         $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
         $reader->setReadDataOnly(true);
+        //disables empty cells
+        $reader->setReadEmptyCells(false);
         $spreadsheet = $reader->load($fileLocation);
 
         $worksheet = $spreadsheet->getActiveSheet();
@@ -88,6 +90,40 @@ class PeopleController extends Controller
           'rows' => $rows,
           'courses' => $courses
       ]);
+    }
+
+    public function bulkUpload(Request $request) {
+
+      $input = $request->all();
+      //\Log::info($input);
+ 
+      $list = $input['names'];
+      $courseID = $input['courseID'];
+      $size = sizeof($list);
+
+      
+      for ($i=0; $i<$size; $i+=2) {
+          $person = new People;
+          $person->firstName =  $list[$i];
+          $person->lastName =   $list[$i+1];
+          $person->flag =       1;
+          $person->created_at = \Carbon\Carbon::now();
+          $person->updated_at = \Carbon\Carbon::now();
+          $person->save();
+
+          $assignment = new Assignment;
+          $assignment->studentID = $person->id;
+          $assignment->courseID =  $courseID;
+          $assignment->created_at = \Carbon\Carbon::now();
+          $assignment->updated_at = \Carbon\Carbon::now();
+          $assignment->save();
+    }
+    
+
+    //get last person->id, courseid
+
+      return "PeopleController@BulkUpload Success";
+
     }
 
     //Creates a new people object using this function.
