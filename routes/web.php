@@ -42,7 +42,8 @@ Route::put('/sites/{ID}',               'SitesController@update')->middleware('a
 
 //People Routes
 Route::get('/people/create',             'PeopleController@create')->middleware('auth');
-Route::post('/people/bulk',               'PeopleController@bulk')->middleware('auth');
+Route::post('/people/bulk',              'PeopleController@bulk')->middleware('auth');
+Route::post('/people/bulk/upload',       'PeopleController@bulkUpload')->middleware('auth');
 Route::post('/people',                   'PeopleController@store')->middleware('auth');
 Route::get('/people/{ID}',               'PeopleController@show')->middleware('auth');
 Route::get('/people/delete/{ID}',        'PeopleController@delete')->middleware('auth');

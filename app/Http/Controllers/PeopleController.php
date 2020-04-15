@@ -68,20 +68,62 @@ class PeopleController extends Controller
     }
 
     public function bulk(Request $request) {
+
+        //PhpSpreadsheet Stuff
         $filename = $request->file('bulkData')->getClientOriginalName();
         $file = $request->file('bulkData')->storeAs('people', $filename);
-        $fileLocation = storage_path('app/people/student_list-computer_science (1).xlsx');
+        $fileLocation = storage_path("app/people/") . $filename;
 
         $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
         $reader->setReadDataOnly(true);
+        //disables empty cells
+        $reader->setReadEmptyCells(false);
         $spreadsheet = $reader->load($fileLocation);
 
         $worksheet = $spreadsheet->getActiveSheet();
         $rows = $worksheet->toArray();
 
+        //Everything Else
+        $courses = \DB::table('courses')->get();
+
       return view('people.bulk', [
-          'rows' => $rows
+          'rows' => $rows,
+          'courses' => $courses
       ]);
+    }
+
+    public function bulkUpload(Request $request) {
+
+      $input = $request->all();
+      //\Log::info($input);
+ 
+      $list = $input['names'];
+      $courseID = $input['courseID'];
+      $size = sizeof($list);
+
+      
+      for ($i=0; $i<$size; $i+=2) {
+          $person = new People;
+          $person->firstName =  $list[$i];
+          $person->lastName =   $list[$i+1];
+          $person->flag =       1;
+          $person->created_at = \Carbon\Carbon::now();
+          $person->updated_at = \Carbon\Carbon::now();
+          $person->save();
+
+          $assignment = new Assignment;
+          $assignment->studentID = $person->id;
+          $assignment->courseID =  $courseID;
+          $assignment->created_at = \Carbon\Carbon::now();
+          $assignment->updated_at = \Carbon\Carbon::now();
+          $assignment->save();
+    }
+    
+
+    //get last person->id, courseid
+
+      return "PeopleController@BulkUpload Success";
+
     }
 
     //Creates a new people object using this function.

@@ -16,7 +16,7 @@ class CoursesController extends Controller
         $courseStudents = \DB::table('assignments')
           ->join('clinicals', 'assignments.clinicalID', '=', 'clinicals.id')
           ->join('people', 'assignments.studentID', '=', 'people.id')
-          ->where('courseID', $id)
+          ->where('clinicals.courseID', $id)
           ->orderBy('section')
           ->get();
 
