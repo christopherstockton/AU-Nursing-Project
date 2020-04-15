@@ -122,7 +122,8 @@ class PeopleController extends Controller
 
     //get last person->id, courseid
 
-      return "PeopleController@BulkUpload Success";
+      return "Bulk Upload Success";
+
 
     }
 

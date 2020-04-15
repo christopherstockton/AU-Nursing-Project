@@ -28,7 +28,7 @@
 
                     @foreach($rows as $row)
                         <tr>
-                        <td><input type="checkbox" class="checkbox"/></td>
+                        <td><input type="checkbox" class="checkbox" style="width: 30px; height: 30px;"/></td>
                             @foreach($row as $col)
                                 <td><input value={{$col}} type="text" class="form-control"></td>
                             @endforeach
@@ -39,6 +39,7 @@
                 </table>
             </form>
             <button onclick="checkboxes()" class="btn btn-primary mb-2">Upload</button>
+            <p class="text-success" id="results"></p>
           </div>
         @endsection
       </div>
@@ -79,7 +80,8 @@
             //dataType:'json',
             //contentType: 'application/json',
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-            success: function(response){console.log(response);},
+            success: function(response){$('#results').replaceWith(response);},
+            error: function(response){$('#results').replaceWith(response);},
 
             data: {names : names, courseID : courseID}
         });
