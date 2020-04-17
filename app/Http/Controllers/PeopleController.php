@@ -99,6 +99,8 @@ class PeopleController extends Controller
  
       $list = $input['names'];
       $courseID = $input['courseID'];
+      $courseID2 = $input['courseID2'];
+      $courseID3 = $input['courseID3'];
       $size = sizeof($list);
 
       
@@ -117,6 +119,24 @@ class PeopleController extends Controller
           $assignment->created_at = \Carbon\Carbon::now();
           $assignment->updated_at = \Carbon\Carbon::now();
           $assignment->save();
+
+          if ($courseID2 != "none") {
+            $assignment2 = new Assignment;
+            $assignment2->studentID = $person->id;
+            $assignment2->courseID =  $courseID2;
+            $assignment2->created_at = \Carbon\Carbon::now();
+            $assignment2->updated_at = \Carbon\Carbon::now();
+            $assignment2->save();
+          }
+          if ($courseID3 != "none") {
+            $assignment3 = new Assignment;
+            $assignment3->studentID = $person->id;
+            $assignment3->courseID =  $courseID3;
+            $assignment3->created_at = \Carbon\Carbon::now();
+            $assignment3->updated_at = \Carbon\Carbon::now();
+            $assignment3->save();
+          }
+
     }
     
 
