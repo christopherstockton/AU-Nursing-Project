@@ -54,6 +54,7 @@ Route::get('/people/{ID}',               'PeopleController@show')->middleware('a
 Route::get('/people/delete/{ID}',        'PeopleController@delete')->middleware('auth');
 Route::get('/people/{ID}/edit',          'PeopleController@edit')->middleware('auth');
 Route::put('/people/{ID}',               'PeopleController@update')->middleware('auth');
+Route::post('/newstud',                   'PeopleController@studentCourse')->middleware('auth');
 
 //Clinicals Routes
 Route::get('/clinicals/create',          'ClinicalController@create')->middleware('auth');

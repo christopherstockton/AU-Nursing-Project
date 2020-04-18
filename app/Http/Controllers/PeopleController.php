@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Course;
 use Illuminate\Http\Request;
 use DB;
 use App\People;
@@ -96,14 +97,14 @@ class PeopleController extends Controller
 
       $input = $request->all();
       //\Log::info($input);
- 
+
       $list = $input['names'];
       $courseID = $input['courseID'];
       $courseID2 = $input['courseID2'];
       $courseID3 = $input['courseID3'];
       $size = sizeof($list);
 
-      
+
       for ($i=0; $i<$size; $i+=2) {
           $person = new People;
           $person->firstName =  $list[$i];
@@ -138,12 +139,55 @@ class PeopleController extends Controller
           }
 
     }
-    
+
 
     //get last person->id, courseid
 
       return "Bulk Upload Success";
 
+
+    }
+
+    //Creates a new student and assigns them to respective course
+    public function studentCourse(Request $request) {
+
+      $people = new People();
+
+
+        $validator = Validator::make(request()->all(), [
+            'firstName' => 'required',
+            'lastName' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('people/create')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $people->firstName = request('firstName');
+        $people->lastName = request('lastName');
+        $people->phoneNumber = request('phoneNumber');
+        $people->emailAddress = request('emailAddress');
+        $people->notes = request('notes');
+        $people->flag = request('flag');
+
+        $flag = request('flag');
+
+        $people->save();
+        $assign = new Assignment();
+
+        $assign->studentID = $people->id;
+        $assign->courseID =  request('courseID');
+        $assign->created_at = \Carbon\Carbon::now();
+        $assign->updated_at = \Carbon\Carbon::now();
+        $assign->save();
+
+        if ($flag == 0) {
+            return redirect('/instructors');
+        } else {
+            return redirect('/students');
+        }
 
     }
 
