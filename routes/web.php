@@ -21,6 +21,12 @@ Route::get('/welcome', function () {
     return view('/welcome');
 });
 
+Route::get('registers', function() {
+    return view('/auth/register');
+});
+
+Route::post('/reg', 'CreateUser@createUser')->middleware('auth');
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/students',                  'PeopleController@listStudents')->middleware('auth');
 Route::get('/instructors',               'PeopleController@listInstructors')->middleware('auth');
