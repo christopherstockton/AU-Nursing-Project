@@ -138,7 +138,7 @@ class DatabaseSeeder extends Seeder
         foreach(range(0,ASSIGNMENT_COUNT) as $index) {
             DB::table('assignments')->insert([
                 'studentID' => $student_ids[rand(0, $student_qty-1)],
-                'clinicalID' => rand(1, $clinicalsTotal),
+                'courseID' => rand(1, $courseCount),
             ]);
         }
 
