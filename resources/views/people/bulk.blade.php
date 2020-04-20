@@ -16,6 +16,20 @@
                         <option value="{{$course->id}}">{{$course->CourseSection}}</option>
                         @endforeach
                     </select>
+                    <br>
+                    <select id="course2" name="course2" class="form-control">
+                        <option value="none"></option>
+                        @foreach ($courses as $course)
+                        <option value="{{$course->id}}">{{$course->CourseSection}}</option>
+                        @endforeach
+                    </select>
+                    <br>
+                    <select id="course3" name="course3" class="form-control">
+                        <option value="none"></option>
+                        @foreach ($courses as $course)
+                        <option value="{{$course->id}}">{{$course->CourseSection}}</option>
+                        @endforeach
+                    </select>
                 </p>
                 <table id="table1" class="table table-bordered">
 
@@ -28,7 +42,7 @@
 
                     @foreach($rows as $row)
                         <tr>
-                        <td><input type="checkbox" class="checkbox"/></td>
+                        <td><input type="checkbox" class="checkbox" style="width: 30px; height: 30px;"/></td>
                             @foreach($row as $col)
                                 <td><input value={{$col}} type="text" class="form-control"></td>
                             @endforeach
@@ -39,6 +53,7 @@
                 </table>
             </form>
             <button onclick="checkboxes()" class="btn btn-primary mb-2">Upload</button>
+            <p class="text-success" id="results"></p>
           </div>
         @endsection
       </div>
@@ -69,6 +84,10 @@
         //get checkbox value
         var e = document.getElementById("course");
         var courseID = e.options[e.selectedIndex].value;
+        var f = document.getElementById("course2");
+        var courseID2 = f.options[f.selectedIndex].value;
+        var g = document.getElementById("course3");
+        var courseID3 = g.options[g.selectedIndex].value;
 
         //Display selected Row data in Alert Box.
         console.log(names);
@@ -79,9 +98,10 @@
             //dataType:'json',
             //contentType: 'application/json',
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-            success: function(response){console.log(response);},
+            success: function(response){$('#results').replaceWith(response);},
+            error: function(response){$('#results').replaceWith(response);},
 
-            data: {names : names, courseID : courseID}
+            data: {names : names, courseID : courseID, courseID2 : courseID2, courseID3 : courseID3}
         });
 }
 
