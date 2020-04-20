@@ -21,6 +21,10 @@ Route::get('/welcome', function () {
     return view('/welcome');
 });
 
+Route::get('/help', function() {
+    return view('/help');
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/students',                  'PeopleController@listStudents')->middleware('auth');
 Route::get('/instructors',               'PeopleController@listInstructors')->middleware('auth');
@@ -29,6 +33,7 @@ Route::get('/clinicals',                 'ClinicalController@listClinicals')->mi
 Route::get('/sites',                  'SitesController@listSites')->middleware('auth');
 Route::get('/courses',                   'CoursesController@listCourses')->middleware('auth');
 Route::get('/schedule',                   'ScheduleController@listSchedule')->middleware('auth');
+Route::get('/settings',                 'SettingsController@listSettings')->middleware('auth');
 
 //Sites Routes
 Route::get('/sites/create',             'SitesController@create')->middleware('auth');
@@ -64,4 +69,4 @@ Route::get('/courses/delete/{ID}',     'CoursesController@delete')->middleware('
 Route::get('/courses/{ID}/edit',       'CoursesController@edit')->middleware('auth');
 Route::put('/courses/{ID}',            'CoursesController@update')->middleware('auth');
 
-//Schedule Route
+Route::get('/settings/clear',           'SettingsController@clear')->middleware('auth');
