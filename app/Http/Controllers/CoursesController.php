@@ -13,12 +13,18 @@ class CoursesController extends Controller
 
         $courses = Courses::find($id);
 
-        $courseStudents = \DB::table('assignments')
-          ->join('clinicals', 'assignments.clinicalID', '=', 'clinicals.id')
-          ->join('people', 'assignments.studentID', '=', 'people.id')
-          ->where('clinicals.courseID', $id)
-          ->orderBy('section')
-          ->get();
+//        $courseStudents = \DB::table('assignments')
+//          ->join('clinicals', 'assignments.clinicalID', '=', 'clinicals.id')
+//          ->join('people', 'assignments.studentID', '=', 'people.id')
+//          ->where('clinicals.courseID', $id)
+//          ->orderBy('section')
+//          ->get();
+
+        $courseStudents = \DB::table('people')
+            ->select('people.firstName', 'people.lastName', 'people.id')
+            ->join('assignments', 'people.id', '=', 'assignments.studentID')
+            ->where('assignments.courseID', $id)
+            ->get();
 
         $units = \DB::table('clinicals')
           ->select('clinicals.id', 'clinicals.section', 'people.firstName', 'people.lastName', 'sites.siteName', 'clinicals.startTime', 'clinicals.endTime', 'clinicals.days')
