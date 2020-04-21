@@ -10,7 +10,7 @@
         @csrf
 
         <div class="form-group">
-          <label>Site Name</label>
+          <label>Site Name<span style="color: red">*</span></label>
           <input type="text" class="form-control @error('siteName') is-invalid @enderror" name="siteName">
             @error('siteName')
             <div class="alert alert-danger">{{ $message }}</div>
@@ -27,7 +27,7 @@
         </div>
 
         <div class="form-group">
-          <label>Site Address</label>
+          <label>Site Address<span style="color: red">*</span></label>
           <input type="text" class="form-control @error('address') is-invalid @enderror" name="address">
             @error('address')
             <div class="alert alert-danger">{{ $message }}</div>
@@ -35,7 +35,7 @@
         </div>
 
         <div class="form-group instructor">
-          <label>Unit Tag</label>
+          <label>Unit Tag<span style="color: red">*</span></label>
           <input type="text" class="form-control @error('unit') is-invalid @enderror" name="unit">
             @error('unit')
             <div class="alert alert-danger">{{ $message }}</div>
