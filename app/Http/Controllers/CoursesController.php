@@ -21,7 +21,7 @@ class CoursesController extends Controller
 //          ->get();
 
         $courseStudents = \DB::table('people')
-            ->select('people.firstName', 'people.lastName', 'people.id')
+            ->select('people.firstName', 'people.lastName', 'people.id', 'assignments.clinicalID')
             ->join('assignments', 'people.id', '=', 'assignments.studentID')
             ->where('assignments.courseID', $id)
             ->get();

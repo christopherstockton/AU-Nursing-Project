@@ -24,8 +24,13 @@
 {{--                                    <h6 class="d-block"><a href="/people/{{ $student->studentID }}">{{ $student->firstName }} {{ $student->lastName }}</a></h6>--}}
 {{--                                    @endforeach--}}
                                     @foreach ($courseStudents as $student)
-                                    <h6 class="d-block"><a href="/people/{{ $student->id }}">{{ $student->firstName }} {{ $student->lastName }}</a></h6>
+                                        @if(!is_null($student->clinicalID))
+                                            <h6 class="d-block"><a href="/people/{{ $student->id }}">{{ $student->firstName }} {{ $student->lastName }}</a></h6>
+                                        @else
+                                            <h6 class="d-block"><a href="/people/{{ $student->id }}">{{ $student->firstName }} {{ $student->lastName }}(Unassigned)</a></h6>
+                                        @endif
                                     @endforeach
+
                                 </div>
                             </div>
                         </div>
