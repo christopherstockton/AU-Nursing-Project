@@ -77,3 +77,4 @@ Route::get('/courses/{ID}/edit',       'CoursesController@edit')->middleware('au
 Route::put('/courses/{ID}',            'CoursesController@update')->middleware('auth');
 
 Route::get('/settings/clear',           'SettingsController@clear')->middleware('auth');
+Route::get('/test',                    'ClinicalController@test')->middleware('auth'); 

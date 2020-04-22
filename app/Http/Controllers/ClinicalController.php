@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Clinical;
 use App\Assignment;
+use App\Courses;
 use Illuminate\Support\Facades\Validator;
 
 class ClinicalController extends Controller
@@ -100,6 +101,7 @@ class ClinicalController extends Controller
 
     $clinical->flag= request('flag');
     $clinical->courseID= request('courseID');
+    $clinical->section= request('section');
     $clinical->siteID= request('siteID');
     $clinical->instructorID= request('instructorID');
     $clinical->roomNumber= request('roomNumber');
@@ -134,7 +136,7 @@ class ClinicalController extends Controller
       ->join('courses', 'clinicals.courseID', '=', 'courses.id')
       ->join('sites', 'clinicals.siteID', '=', 'sites.id')
       ->join('people', 'clinicals.instructorID', '=', 'people.id')
-      ->select('clinicals.*', 'courses.CourseName', 'courses.CourseSection', 'sites.siteName', 'people.firstName', 'people.lastName')
+      ->select('clinicals.*', 'courses.CourseName', 'courses.CourseSection', 'sites.siteName', 'people.firstName', 'people.lastName', 'people.id as personID', 'sites.id as siteID')
       ->where('clinicals.id', $id)
       ->orderBy('id')
       ->first();
@@ -166,4 +168,17 @@ class ClinicalController extends Controller
 
     return redirect('/clinicals/' . $id);
   }
+
+  public function test() {
+
+
+    $assignments = new Assignment;
+    $clinicals = new Clinical;
+    //$clinicals = Clinical::all();
+    $courses = Courses::all();
+
+    return view('clinicals.test', compact('clinicals', 'assignments', 'courses'));
+    
+  }
+
 }

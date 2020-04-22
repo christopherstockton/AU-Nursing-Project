@@ -18,7 +18,7 @@
         </div>
 
         <div class="form-group">
-          <label>First Name</label>
+          <label>First Name<span style="color: red">*</span></label>
           <input type="text" class="form-control @error('firstName') is-invalid @enderror" name="firstName">
             @error('firstName')
             <div class="alert alert-danger">{{ $message }}</div>
@@ -26,7 +26,7 @@
         </div>
 
         <div class="form-group">
-          <label>Last Name</label>
+          <label>Last Name<span style="color: red">*</span></label>
           <input type="text" class="form-control @error('lastName') is-invalid @enderror" name="lastName">
             @error('lastName')
             <div class="alert alert-danger">{{ $message }}</div>

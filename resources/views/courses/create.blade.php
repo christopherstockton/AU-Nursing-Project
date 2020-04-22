@@ -10,7 +10,7 @@
                     @csrf
 
                     <div class="form-group">
-                        <label>Course Name</label>
+                        <label>Course Name<span style="color: red">*</span></label>
                         <input type="text" class="form-control @error('CourseName') is-invalid @enderror" name="CourseName">
                         @error('CourseName')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -18,7 +18,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Course Section</label>
+                        <label>Course Section<span style="color: red">*</span></label>
                         <input type="text" class="form-control @error('CourseSection') is-invalid @enderror" name="CourseSection">
                         @error('CourseSection')
                         <div class="alert alert-danger">{{ $message }}</div>
