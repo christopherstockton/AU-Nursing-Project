@@ -26,6 +26,14 @@
           </select>
         </div>
 
+        <div class="form-group ">
+          <label>Course Section</label>
+          <input type="text" class="form-control @error('unit') is-invalid @enderror" name="section">
+            @error('capacity')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+        </div>
+
         <div class="form-group clinical">
           <label>Site</label>
           <select class="form-control" name="siteID" id="siteID">
@@ -42,14 +50,6 @@
             <option class="instructorID" value={{ $instructor->id }}>{{ $instructor->firstName }} {{ $instructor->lastName }}</option>
           @endforeach
           </select>
-        </div>
-
-        <div class="form-group ">
-          <label>Unit No.</label>
-          <input type="text" class="form-control @error('unit') is-invalid @enderror" name="unit">
-            @error('capacity')
-            <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
         </div>
 
         <div class="form-group lab">
@@ -116,6 +116,7 @@
 </div>
 
 <script>
+/*
 
 $( document ).ready(function() {
   if ( ($('#flag').val()) == 1 ) {
@@ -147,7 +148,7 @@ $( document ).ready(function() {
 
 
   });
-
+*/
 </script>
 
 @endsection
