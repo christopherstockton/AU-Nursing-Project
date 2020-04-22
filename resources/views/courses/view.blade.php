@@ -120,6 +120,28 @@
                 $(".flag").text("Instructor");
             }
         });
+
+        var display = false;
+        $(".controls").hide(0);
+
+        function showControls() {
+            display = !display;
+
+            if (display == true) {
+                $(".controls").show(300);
+            } else if (display == false) {
+                $(".controls").hide(300);
+            }
+        }
+
+        function del(e, id) {
+            $.ajax({
+                url:'/people/delete/'+id,
+                type: 'GET',
+                //headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                success: function(){e.parentNode.parentNode.removeChild(e.parentNode);}
+            });
+        }
     </script>
 
 
