@@ -64,4 +64,4 @@ Route::get('/courses/delete/{ID}',     'CoursesController@delete')->middleware('
 Route::get('/courses/{ID}/edit',       'CoursesController@edit')->middleware('auth');
 Route::put('/courses/{ID}',            'CoursesController@update')->middleware('auth');
 
-//Schedule Route
+Route::get('/test',                    'ClinicalController@test')->middleware('auth'); 

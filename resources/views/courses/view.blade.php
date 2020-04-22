@@ -15,13 +15,19 @@
                                     <h6 class="d-block">Name: {{$courses->CourseName}}</h6>
                                     <h6 class="d-block">Created: {{$courses->created_at}}</h6>
                                     <h6 class="d-block">Updated: {{$courses->updated_at}}</h6><br/>
-                                    <h5 class="d-block">Course Sections</h5>
+                                    <h5 class="d-block">Labs and Clinicals</h5>
                                     @foreach ($units as $unit)
                                     <h6 class="d-block"><a href="/clinicals/{{ $unit->id }}">{{ $courses->CourseSection }}-0{{ $unit->section }}</a> - {{ $unit->firstName }} {{ $unit->lastName }} at {{ $unit->siteName }}, {{ date_format(date_create($unit->startTime), "g:iA") }}-{{ date_format(date_create($unit->endTime), "g:iA") }}</h6>
                                     @endforeach
-                                    <h5 class="d-block">Registered Students</h5>
+                                    <h5 class="d-block">
+                                        Registered Students
+                                        <button onclick=showControls() class="btn btn-outline-warning btn-sm">Delete Students</a>
+                                    </h5>
                                     @foreach ($courseStudents as $student)
-                                    <h6 class="d-block"><a href="/people/{{ $student->studentID }}">{{ $student->firstName }} {{ $student->lastName }}</a></h6>
+                                    <h6 class="d-block student">
+                                        <a onclick="del(this, {{$student->id}})" style="color:red" class="controls">&#10006</a> 
+                                        <a href="/people/{{ $student->studentID }}">{{ $student->firstName }} {{ $student->lastName }}</a>
+                                    </h6>
                                     @endforeach
                                 </div>
                             </div>
@@ -50,7 +56,32 @@
             else if ( ($(".flag").text()) === "0") {
                 $(".flag").text("Instructor");
             }
+
+
+
         });
+
+        var display = false;
+        $(".controls").hide(0);
+
+        function showControls() {
+            display = !display;
+
+            if (display == true) {
+                $(".controls").show(300);
+            } else if (display == false) {
+                $(".controls").hide(300);
+            }
+        }
+
+        function del(e, id) {
+            $.ajax({
+                url:'/people/delete/'+id,
+                type: 'GET',
+                //headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                success: function(){e.parentNode.parentNode.removeChild(e.parentNode);}
+            });
+        }
     </script>
 
 

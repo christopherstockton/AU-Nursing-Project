@@ -33,6 +33,18 @@ class Clinical extends Model
      */
     protected $fillable = ['courseID', 'siteID', 'instructorID', 'instructorID2', 'startDate', 'endDate', 'startTime', 'endTime', 'days', 'capacity', 'flag', 'roomNumber', 'created_at', 'updated_at'];
 
+
+    public function retrieveClinicals($id) {
+        return $this
+        ->select('courses.CourseSection', 'clinicals.id', 'clinicals.section', 'people.firstName', 'people.lastName', 'sites.siteName', 'clinicals.startTime', 'clinicals.endTime', 'clinicals.days')
+        ->join('sites', 'clinicals.siteID', '=', 'sites.id')
+        ->join('people', 'clinicals.instructorID', '=', 'people.id')
+        ->join('courses', 'clinicals.courseID', '=', 'courses.id')
+        ->where('courseID', $id)
+        ->get();
+    }
+
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

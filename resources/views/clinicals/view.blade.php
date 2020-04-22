@@ -41,7 +41,7 @@
                                             <label style="font-weight:bold;">Instructor</label>
                                         </div>
                                         <div class="col-md-8 col-6">
-                                        {{ $clinicals->firstName }} {{ $clinicals->lastName}}
+                                        <a href="/people/{{$clinicals->personID}}">{{ $clinicals->firstName }} {{ $clinicals->lastName}}</a>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -49,7 +49,7 @@
                                             <label style="font-weight:bold;">Site Name</label>
                                         </div>
                                         <div class="col-md-8 col-6">
-                                        {{ $clinicals->siteName}}
+                                        <a href="/sites/{{$clinicals->siteID}}">{{ $clinicals->siteName}}</a>
                                         </div>
                                     </div>
                                     <div class="row">
