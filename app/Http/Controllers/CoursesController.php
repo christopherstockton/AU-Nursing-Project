@@ -30,7 +30,7 @@ class CoursesController extends Controller
             ->where('assignments.courseID', $id)
             ->get();
 
-        $units = \DB::table('clinicals')
+        $sections = \DB::table('clinicals')
           ->select('clinicals.id', 'clinicals.section', 'people.firstName', 'people.lastName', 'sites.siteName', 'clinicals.startTime', 'clinicals.endTime', 'clinicals.days')
           ->join('sites', 'clinicals.siteID', '=', 'sites.id')
           ->join('people', 'clinicals.instructorID', '=', 'people.id')
@@ -41,7 +41,7 @@ class CoursesController extends Controller
 
         return view('courses.view', ['courses' => $courses,
         'courseStudents' => $courseStudents,
-        'units' => $units,
+        'sections' => $sections,
         ]);
 
     }

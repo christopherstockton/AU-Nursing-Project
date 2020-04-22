@@ -16,10 +16,9 @@
                                     <h6 class="d-block">Created: {{$courses->created_at}}</h6>
                                     <h6 class="d-block">Updated: {{$courses->updated_at}}</h6><br/>
                                     <h5 class="d-block">Labs and Clinicals</h5>
-                                    @foreach ($units as $unit)
-                                    <h6 class="d-block"><a href="/clinicals/{{ $unit->id }}">{{ $courses->CourseSection }}-0{{ $unit->section }}</a> - {{ $unit->firstName }} {{ $unit->lastName }} at {{ $unit->siteName }}, {{ date_format(date_create($unit->startTime), "g:iA") }}-{{ date_format(date_create($unit->endTime), "g:iA") }}</h6>
+                                    @foreach ($sections as $section)
+                                    <h6 class="d-block"><a href="/clinicals/{{ $section->id }}">{{ $courses->CourseSection }}-0{{ $section->section }}</a> - {{ $section->firstName }} {{ $section->lastName }} at {{ $section->siteName }}, {{ date_format(date_create($section->startTime), "g:iA") }}-{{ date_format(date_create($section->endTime), "g:iA") }}</h6>
                                     @endforeach
-<<<<<<< HEAD
                                     <h5 class="d-block">
                                         Registered Students
                                         <button onclick=showControls() class="btn btn-outline-warning btn-sm">Delete Students</a>
@@ -33,14 +32,6 @@
                                             <a href="/people/{{ $student->id }}"><span style="color: red">*</span>{{ $student->firstName }} {{ $student->lastName }}</a>
                                         @endif
                                     </h6>
-=======
-                                    <h5 class="d-block">Registered Students</h5>
-{{--                                    @foreach ($courseStudents as $student)--}}
-{{--                                    <h6 class="d-block"><a href="/people/{{ $student->studentID }}">{{ $student->firstName }} {{ $student->lastName }}</a></h6>--}}
-{{--                                    @endforeach--}}
-                                    @foreach ($courseStudents as $student)
-                                    <h6 class="d-block"><a href="/people/{{ $student->id }}">{{ $student->firstName }} {{ $student->lastName }}</a></h6>
->>>>>>> chris2
                                     @endforeach
 
                                 </div>

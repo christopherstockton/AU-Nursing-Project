@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
 
         $courseNum = array("NUR 3102z", "NUR 3101z", "NUR 3261z", "NUR 3112z", "NUR 3111z", "NUR 3402z", "NUR 4202z", "NUR 4302z", "NUR 4502z", "NUR 4503z", "NUR 4802z");
         $courseNames = array('Clinical 1', 'Lab 1', 'Lab 2', 'Clinical 2', 'Lab 3', 'Clinical 3', 'Clinical 4', 'Clinical 5', 'Clinical 6', 'Clinical 7', 'Clinical 8');
+        $courseType = array('0', '1', '1', '0', '1', '0', '0', '0', '0', '0', '0');
         $courseCount = count($courseNum);
 
         $clinicalsTotal = $courseCount * CLINICAL_COUNT;
@@ -125,7 +126,7 @@ class DatabaseSeeder extends Seeder
                 'endTime' => $endtime,
                 'days' => $days,
                 'capacity' => rand(8,15),
-                'flag' => rand(0, 1),
+                'flag' => $courseType[$courseIndex - 1],
                 'roomNumber' => rand(100,150),
                 'created_at' => $created_date,
                 'updated_at' => $created_date,
@@ -139,6 +140,7 @@ class DatabaseSeeder extends Seeder
             DB::table('assignments')->insert([
                 'studentID' => $student_ids[rand(0, $student_qty-1)],
                 'courseID' => rand(1, $courseCount),
+                //'clinicalID' => rand(1,$clinicalsTotal),
             ]);
         }
 

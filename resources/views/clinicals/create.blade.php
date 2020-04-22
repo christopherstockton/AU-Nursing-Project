@@ -77,9 +77,15 @@
         <div class="form-group ">
           <label>Days<span style="color: red">*</span></label>
           <input type="text" class="form-control @error('days') is-invalid @enderror" name="days" value="0">
-            @error('days')
-            <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
+            <select class="form-control" name="days" id="days">
+              <option class="flag" value="0">Monday</option>
+              <option class="flag" value="1">Tuesday</option>
+              <option class="flag" value="2">Wednesday</option>
+              <option class="flag" value="3">Thursday</option>
+              <option class="flag" value="4">Friday</option>
+              <option class="flag" value="5">Saturday</option>
+              <option class="flag" value="6">Sunday</option>
+            </select>
         </div>
 
         <div class="form-group ">
