@@ -21,7 +21,11 @@ class CoursesController extends Controller
 //          ->get();
 
         $courseStudents = \DB::table('people')
+<<<<<<< HEAD
             ->select('people.firstName', 'people.lastName', 'people.id', 'assignments.clinicalID')
+=======
+            ->select('people.firstName', 'people.lastName', 'people.id')
+>>>>>>> chris2
             ->join('assignments', 'people.id', '=', 'assignments.studentID')
             ->where('assignments.courseID', $id)
             ->get();
