@@ -52,16 +52,22 @@
           </select>
         </div>
 
-        <div class="form-group lab">
-          <label>Room Number</label>
-          <input type="text" class="form-control @error('roomNumber') is-invalid @enderror" name="roomNumber">
+        <div class="form-group ">
+          <label>Unit No.</label>
+          <input type="text" class="form-control @error('unit') is-invalid @enderror" name="unit">
             @error('capacity')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
 
+        <div class="form-group lab">
+          <label>Room Number<span style="color: red">*</span></label>
+          <input type="text" class="form-control" name="roomNumber">
+
+        </div>
+
         <div class="form-group ">
-          <label>Capacity</label>
+          <label>Capacity<span style="color: red">*</span></label>
           <input type="text" class="form-control @error('capacity') is-invalid @enderror" name="capacity">
             @error('capacity')
             <div class="alert alert-danger">{{ $message }}</div>
@@ -69,7 +75,7 @@
         </div>
 
         <div class="form-group ">
-          <label>Days</label>
+          <label>Days<span style="color: red">*</span></label>
           <input type="text" class="form-control @error('days') is-invalid @enderror" name="days" value="0">
             @error('days')
             <div class="alert alert-danger">{{ $message }}</div>
@@ -77,7 +83,7 @@
         </div>
 
         <div class="form-group ">
-          <label>Start Time</label>
+          <label>Start Time<span style="color: red">*</span></label>
           <input type="text" class="form-control @error('startTime') is-invalid @enderror" name="startTime" value="10:00:00">
             @error('startTime')
             <div class="alert alert-danger">{{ $message }}</div>
@@ -85,7 +91,7 @@
         </div>
 
         <div class="form-group ">
-          <label>End Time</label>
+          <label>End Time<span style="color: red">*</span></label>
           <input type="text" class="form-control @error('endTime') is-invalid @enderror" name="endTime" value="14:00:00">
             @error('endTime')
             <div class="alert alert-danger">{{ $message }}</div>
@@ -93,7 +99,7 @@
         </div>
 
         <div class="form-group ">
-          <label>Start Date</label>
+          <label>Start Date<span style="color: red">*</span></label>
           <input type="text" class="form-control @error('startDate') is-invalid @enderror" name="startDate" value="2020-01-06">
             @error('startDate')
             <div class="alert alert-danger">{{ $message }}</div>
@@ -101,7 +107,7 @@
         </div>
 
         <div class="form-group ">
-          <label>End Date</label>
+          <label>End Date<span style="color: red">*</span></label>
           <input type="text" class="form-control @error('endDate') is-invalid @enderror" name="endDate" value="2020-04-27">
             @error('endDate')
             <div class="alert alert-danger">{{ $message }}</div>

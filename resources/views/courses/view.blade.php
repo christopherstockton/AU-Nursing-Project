@@ -25,10 +25,15 @@
                                     </h5>
                                     @foreach ($courseStudents as $student)
                                     <h6 class="d-block student">
-                                        <a onclick="del(this, {{$student->id}})" style="color:red" class="controls">&#10006</a> 
+                                        <a onclick="del(this, {{$student->id}})" style="color:red" class="controls">&#10006</a>
+                                        @if(!is_null($student->clinicalID))
                                         <a href="/people/{{ $student->studentID }}">{{ $student->firstName }} {{ $student->lastName }}</a>
+                                        @else
+                                            <a href="/people/{{ $student->id }}"><span style="color: red">*</span>{{ $student->firstName }} {{ $student->lastName }}</a>
+                                        @endif
                                     </h6>
                                     @endforeach
+
                                 </div>
                             </div>
                         </div>
@@ -114,32 +119,7 @@
             else if ( ($(".flag").text()) === "0") {
                 $(".flag").text("Instructor");
             }
-
-
-
         });
-
-        var display = false;
-        $(".controls").hide(0);
-
-        function showControls() {
-            display = !display;
-
-            if (display == true) {
-                $(".controls").show(300);
-            } else if (display == false) {
-                $(".controls").hide(300);
-            }
-        }
-
-        function del(e, id) {
-            $.ajax({
-                url:'/people/delete/'+id,
-                type: 'GET',
-                //headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                success: function(){e.parentNode.parentNode.removeChild(e.parentNode);}
-            });
-        }
     </script>
 
 
