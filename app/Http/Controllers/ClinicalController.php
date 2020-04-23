@@ -133,18 +133,32 @@ class ClinicalController extends Controller
   }
 
   public function show($id) {
-    $clinicals = \DB::table('clinicals')
-      ->join('courses', 'clinicals.courseID', '=', 'courses.id')
-      ->join('sites', 'clinicals.siteID', '=', 'sites.id')
-      ->join('people', 'clinicals.instructorID', '=', 'people.id')
-      ->select('clinicals.*', 'courses.CourseName', 'courses.CourseSection', 'sites.siteName', 'people.firstName', 'people.lastName', 'people.id as personID', 'sites.id as siteID')
-      ->where('clinicals.id', $id)
-      ->orderBy('id')
-      ->first();
+
+    $c = Clinical::find($id);
+    if ($c->flag == 0) {
+      $clinicals = \DB::table('clinicals')
+        ->join('courses', 'clinicals.courseID', '=', 'courses.id')
+        ->join('sites', 'clinicals.siteID', '=', 'sites.id')
+        ->join('people', 'clinicals.instructorID', '=', 'people.id')
+        ->select('clinicals.*', 'courses.CourseName', 'courses.CourseSection', 'sites.siteName', 'people.firstName', 'people.lastName', 'people.id as personID', 'sites.id as siteID')
+        ->where('clinicals.id', $id)
+        ->orderBy('id')
+        ->first();
+    } else {
+        $clinicals = \DB::table('clinicals')
+        ->join('courses', 'clinicals.courseID', '=', 'courses.id')
+        ->join('people', 'clinicals.instructorID', '=', 'people.id')
+        ->select('clinicals.*', 'courses.CourseName', 'courses.CourseSection',  'people.firstName', 'people.lastName', 'people.id as personID')
+        ->where('clinicals.id', $id)
+        ->orderBy('id')
+        ->first();
+    }
 
     $assignments = new Assignment;
 
     //$clinicals = Clinical::find($id);
+
+    //dd($clinicals);
 
     return view('clinicals.view', compact('clinicals', 'assignments'));
   }
@@ -167,7 +181,7 @@ class ClinicalController extends Controller
 
     $clinical->save();
 
-    return redirect('/clinicals/' . $id);
+    return $this->show($id);
   }
 
   public function test() {

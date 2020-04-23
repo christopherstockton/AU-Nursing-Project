@@ -48,9 +48,11 @@
                                         <div class="col-sm-3 col-md-2 col-5">
                                             <label style="font-weight:bold;">Site Name</label>
                                         </div>
+                                        @if ($clinicals->flag == 0)
                                         <div class="col-md-8 col-6">
                                         <a href="/sites/{{$clinicals->siteID}}">{{ $clinicals->siteName}}</a>
                                         </div>
+                                        @endif
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-3 col-md-2 col-5">
