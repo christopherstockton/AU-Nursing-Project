@@ -70,6 +70,14 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-3 col-md-2 col-5">
+                                            <label style="font-weight:bold;">Enrolled</label>
+                                        </div>
+                                        <div class="col-md-8 col-6">
+                                            {{ $clinicals->enrolled }}
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-3 col-md-2 col-5">
                                             <label style="font-weight:bold;">Day</label>
                                         </div>
                                         <div class="col-md-8 col-6">

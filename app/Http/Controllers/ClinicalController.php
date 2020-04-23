@@ -106,6 +106,7 @@ class ClinicalController extends Controller
     $clinical->instructorID= request('instructorID');
     $clinical->roomNumber= request('roomNumber');
     $clinical->capacity= request('capacity');
+    $clinical->enrolled = 0;
     $clinical->days= request('days');
     $clinical->startTime= request('startTime');
     $clinical->endTime= request('endTime');
@@ -178,7 +179,7 @@ class ClinicalController extends Controller
     $courses = Courses::all();
 
     return view('clinicals.test', compact('clinicals', 'assignments', 'courses'));
-    
+
   }
 
 }

@@ -27,7 +27,7 @@
                                     <h6 class="d-block student">
                                         <a onclick="del(this, {{$student->id}})" style="color:red" class="controls">&#10006</a>
                                         @if(!is_null($student->clinicalID))
-                                        <a href="/people/{{ $student->studentID }}">{{ $student->firstName }} {{ $student->lastName }}</a>
+                                        <a href="/people/{{ $student->id }}">{{ $student->firstName }} {{ $student->lastName }}</a>
                                         @else
                                             <a href="/people/{{ $student->id }}"><span style="color: red">*</span>{{ $student->firstName }} {{ $student->lastName }}</a>
                                         @endif
@@ -41,6 +41,7 @@
                         <a class="btn btn-danger" href="/courses/delete/{{$courses->id}}">DELETE</a>
                         <a class="btn btn-primary" href="/courses/{{$courses->id}}/edit">EDIT</a>
                         <a class="btn btn-primary" href="/courses/">BACK</a>
+                        <a class="btn btn-primary" href="/courses/{{$courses->id}}/assign">Assign All</a>
                             <!-- Trigger Button HTML -->
                             <input type="button" class="btn btn-primary" data-toggle="collapse" data-target="#myCollapsible" value="Add New Person">
                             <!-- Collapsible Element HTML -->

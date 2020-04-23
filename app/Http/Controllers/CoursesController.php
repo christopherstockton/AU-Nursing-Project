@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Assignment;
 use App\Courses;
 use Illuminate\Http\Request;
 use \DateTime;
@@ -21,11 +22,7 @@ class CoursesController extends Controller
 //          ->get();
 
         $courseStudents = \DB::table('people')
-<<<<<<< HEAD
             ->select('people.firstName', 'people.lastName', 'people.id', 'assignments.clinicalID')
-=======
-            ->select('people.firstName', 'people.lastName', 'people.id')
->>>>>>> chris2
             ->join('assignments', 'people.id', '=', 'assignments.studentID')
             ->where('assignments.courseID', $id)
             ->get();
@@ -44,6 +41,44 @@ class CoursesController extends Controller
         'sections' => $sections,
         ]);
 
+    }
+
+    public function assign($id) {
+//        $courseStudents = \DB::table('assignments')
+//            ->select('assignments.studentID', 'assignments.clinicalID', 'assignments.courseID')
+//            ->where('assignments.courseID', $id)
+//            ->get();
+
+        $clinicals = \DB::table('clinicals')
+            ->select('clinicals.id', 'clinicals.courseID', 'clinicals.section', 'clinicals.capacity', 'clinicals.enrolled', \DB::raw("clinicals.capacity - clinicals.enrolled AS ava"))
+            ->where('clinicals.courseID', $id)
+            ->get();
+        $nullassign = \DB::table('assignments')
+            ->select('assignments.clinicalID')
+            ->where('assignments.courseID', $id)
+            ->get();
+        $amt = $nullassign->count();
+
+        print_r($amt);
+        foreach($clinicals as $clinical) {
+            while($clinical->ava > 0 && $amt > 0) {
+                //print_r($clinical->ava);
+                \DB::table('assignments')
+                    ->where([['assignments.courseID', $clinical->courseID], ['assignments.clinicalID', null]])
+                    ->limit(1)
+                    ->update(['assignments.clinicalID' => $clinical->id]);
+                $clinical->ava -= 1;
+                $amt -= 1;
+                $clinical->enrolled += 1;
+            }
+            \DB::table('clinicals')
+                ->where([['clinicals.courseID', $clinical->courseID], ['clinicals.id', $clinical->id]])
+                ->limit(1)
+                ->update(['clinicals.enrolled' => $clinical->enrolled]);
+        }
+
+        //dd($nullassign);
+        return redirect('/courses/' . $id);
     }
     public function listCourses() {
 

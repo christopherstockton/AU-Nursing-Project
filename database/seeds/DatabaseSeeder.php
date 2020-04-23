@@ -126,6 +126,7 @@ class DatabaseSeeder extends Seeder
                 'endTime' => $endtime,
                 'days' => $days,
                 'capacity' => rand(8,15),
+                'enrolled' => 0,
                 'flag' => $courseType[$courseIndex - 1],
                 'roomNumber' => rand(100,150),
                 'created_at' => $created_date,

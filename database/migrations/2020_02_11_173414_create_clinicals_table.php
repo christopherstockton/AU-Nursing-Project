@@ -26,6 +26,7 @@ class CreateClinicalsTable extends Migration {
 			$table->time('endTime');
 			$table->string('days', 45);
 			$table->boolean('capacity');
+			$table->integer('enrolled');
 			// Flag: 0 = Clinical, 1 = Lab
 			$table->boolean('flag');
 			$table->integer('roomNumber')->nullable();

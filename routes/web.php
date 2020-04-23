@@ -74,10 +74,10 @@ Route::post('/courses',                'CoursesController@store')->middleware('a
 Route::get('/courses/{ID}',            'CoursesController@show')->middleware('auth');
 Route::get('/courses/delete/{ID}',     'CoursesController@delete')->middleware('auth');
 Route::get('/courses/{ID}/edit',       'CoursesController@edit')->middleware('auth');
+Route::get('/courses/{ID}/assign',     'CoursesController@assign')->middleware('auth');
 Route::put('/courses/{ID}',            'CoursesController@update')->middleware('auth');
 
 Route::get('/settings/clear',           'SettingsController@clear')->middleware('auth');
-<<<<<<< HEAD
-Route::get('/test',                    'ClinicalController@test')->middleware('auth'); 
-=======
->>>>>>> chris2
+
+Route::get('/test',                    'ClinicalController@test')->middleware('auth');
+
