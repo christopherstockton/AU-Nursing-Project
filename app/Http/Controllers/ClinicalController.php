@@ -35,9 +35,8 @@ class ClinicalController extends Controller
 
     $clinicals = \DB::table('clinicals')
       ->join('courses', 'clinicals.courseID', '=', 'courses.id')
-      ->join('sites', 'clinicals.siteID', '=', 'sites.id')
       ->join('people', 'clinicals.instructorID', '=', 'people.id')
-      ->select('clinicals.*', 'courses.CourseName', 'courses.CourseSection', 'sites.siteName', 'people.firstName', 'people.lastName')
+      ->select('clinicals.*', 'courses.CourseName', 'courses.CourseSection', 'people.firstName', 'people.lastName')
       ->where('clinicals.flag', 1)
       ->orderBy('id')
       ->get();
