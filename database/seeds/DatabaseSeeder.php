@@ -86,6 +86,7 @@ class DatabaseSeeder extends Seeder
                 'coursename' => $courseNames[$index],
                 'created_at' => $created_date,
                 'updated_at' => $created_date,
+                'flag'       => $courseType[$index]
                 ]);
             }
 

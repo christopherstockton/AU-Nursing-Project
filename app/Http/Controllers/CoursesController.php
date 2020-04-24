@@ -27,12 +27,20 @@ class CoursesController extends Controller
             ->where('assignments.courseID', $id)
             ->get();
 
-        $sections = \DB::table('clinicals')
-          ->select('clinicals.id', 'clinicals.section', 'people.firstName', 'people.lastName', 'sites.siteName', 'clinicals.startTime', 'clinicals.endTime', 'clinicals.days')
-          ->join('sites', 'clinicals.siteID', '=', 'sites.id')
-          ->join('people', 'clinicals.instructorID', '=', 'people.id')
-          ->where('courseID', $id)
-          ->get();
+        if ($courses->flag == 0) {
+            $sections = \DB::table('clinicals')
+            ->select('clinicals.id', 'clinicals.section', 'people.firstName', 'people.lastName', 'sites.siteName', 'clinicals.startTime', 'clinicals.endTime', 'clinicals.days')
+            ->join('sites', 'clinicals.siteID', '=', 'sites.id')
+            ->join('people', 'clinicals.instructorID', '=', 'people.id')
+            ->where('courseID', $id)
+            ->get();
+        } else if ($courses->flag == 1) {
+            $sections = \DB::table('clinicals')
+            ->select('clinicals.id', 'clinicals.section', 'people.firstName', 'people.lastName', 'clinicals.startTime', 'clinicals.endTime', 'clinicals.days')
+            ->join('people', 'clinicals.instructorID', '=', 'people.id')
+            ->where('courseID', $id)
+            ->get();
+        }
 
         //dd($courses);
 
@@ -59,22 +67,34 @@ class CoursesController extends Controller
             ->get();
         $amt = $nullassign->count();
 
+        $even = ceil($amt/sizeof($clinicals));
+        //dd($even);
+
+
         print_r($amt);
+        for ($i = 0; $i < $even; $i++) {
         foreach($clinicals as $clinical) {
-            while($clinical->ava > 0 && $amt > 0) {
-                //print_r($clinical->ava);
-                \DB::table('assignments')
-                    ->where([['assignments.courseID', $clinical->courseID], ['assignments.clinicalID', null]])
-                    ->limit(1)
-                    ->update(['assignments.clinicalID' => $clinical->id]);
-                $clinical->ava -= 1;
-                $amt -= 1;
-                $clinical->enrolled += 1;
+
+                //select count(id) from assignments where clinicalId = 1;
+                $e = \DB::table("assignments")
+                    ->select('*')
+                    ->where('clinicalID', '=', $clinical->id)
+                    ->count();
+                
+                if ($clinical->capacity - $e > 0) {
+                    \DB::table('assignments')
+                        ->where([['assignments.courseID', $clinical->courseID], ['assignments.clinicalID', null]])
+                        ->limit(1)
+                        ->update(['assignments.clinicalID' => $clinical->id]);
+                }
+
             }
+            /*
             \DB::table('clinicals')
                 ->where([['clinicals.courseID', $clinical->courseID], ['clinicals.id', $clinical->id]])
                 ->limit(1)
                 ->update(['clinicals.enrolled' => $clinical->enrolled]);
+            */
         }
 
         //dd($nullassign);

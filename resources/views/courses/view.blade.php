@@ -17,7 +17,11 @@
                                     <h6 class="d-block">Updated: {{$courses->updated_at}}</h6><br/>
                                     <h5 class="d-block">Labs and Clinicals</h5>
                                     @foreach ($sections as $section)
+                                    @if ($courses->flag == 0)
                                     <h6 class="d-block"><a href="/clinicals/{{ $section->id }}">{{ $courses->CourseSection }}-0{{ $section->section }}</a> - {{ $section->firstName }} {{ $section->lastName }} at {{ $section->siteName }}, {{ date_format(date_create($section->startTime), "g:iA") }}-{{ date_format(date_create($section->endTime), "g:iA") }}</h6>
+                                    @else
+                                    <h6 class="d-block"><a href="/clinicals/{{ $section->id }}">{{ $courses->CourseSection }}-0{{ $section->section }}</a> - {{ $section->firstName }} {{ $section->lastName }}, {{ date_format(date_create($section->startTime), "g:iA") }}-{{ date_format(date_create($section->endTime), "g:iA") }}</h6>
+                                    @endif
                                     @endforeach
                                     <h5 class="d-block">
                                         Registered Students
@@ -25,7 +29,7 @@
                                     </h5>
                                     @foreach ($courseStudents as $student)
                                     <h6 class="d-block student">
-                                        <a onclick="del(this, {{$student->id}})" style="color:red" class="controls">&#10006</a>
+                                        <a href="javascript:void(0);" onclick="del(this, {{$student->id}})" style="color:red" class="controls">&#10006</a>
                                         @if(!is_null($student->clinicalID))
                                         <a href="/people/{{ $student->id }}">{{ $student->firstName }} {{ $student->lastName }}</a>
                                         @else
