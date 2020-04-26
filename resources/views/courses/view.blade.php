@@ -104,6 +104,37 @@
                                 </form>
                             </div>
 
+                        <input type="button" class="btn btn-primary" data-toggle="collapse" data-target="#assignsingle" value="Assign student">
+                        <!-- Collapsible Element HTML -->
+                        <div id="assignsingle" class="collapse">
+                            <form method='post' action='/singleAssign'>
+                                @csrf
+
+                                <div class="form-group">
+                                    <select class="form-control" name="flag" id="flag">
+                                        @foreach ($courseStudents as $student)
+                                            @if(is_null($student->clinicalID))
+                                                <option value="{{$student->id}}">{{ $student->firstName }} {{ $student->lastName }}</option>
+                                            @endif
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <select class="form-control" name="section" id="section">
+                                        @foreach ($sections as $section)
+                                                <option value="{{$section->id}}">{{ $courses->CourseSection }}-0{{ $section->section }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                <input type="hidden" name="courseID" value="{{$courses->id}}">
+
+                                <button type="submit" class="btn btn-primary mb-2">Submit</button>
+
+                            </form>
+                        </div>
+
                     </div>
                 </div>
 

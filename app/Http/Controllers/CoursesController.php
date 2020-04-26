@@ -51,6 +51,19 @@ class CoursesController extends Controller
 
     }
 
+    public function singleAssign(Request $request) {
+        $personid = request('flag');
+        $sectionid = request('section');
+        $courseid = request('courseID');
+        \DB::table('assignments')
+            ->where([['assignments.studentID', $personid]])
+            ->limit(1)
+            ->update(['assignments.clinicalID' => $sectionid]);
+
+        //return $this->listCourses();
+        return redirect('/courses/' . $courseid);
+    }
+
     public function assign($id) {
 //        $courseStudents = \DB::table('assignments')
 //            ->select('assignments.studentID', 'assignments.clinicalID', 'assignments.courseID')
@@ -80,7 +93,7 @@ class CoursesController extends Controller
                     ->select('*')
                     ->where('clinicalID', '=', $clinical->id)
                     ->count();
-                
+
                 if ($clinical->capacity - $e > 0) {
                     \DB::table('assignments')
                         ->where([['assignments.courseID', $clinical->courseID], ['assignments.clinicalID', null]])
