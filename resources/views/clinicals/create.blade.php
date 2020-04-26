@@ -52,14 +52,6 @@
           </select>
         </div>
 
-        <div class="form-group ">
-          <label>Unit No.</label>
-          <input type="text" class="form-control @error('unit') is-invalid @enderror" name="unit">
-            @error('capacity')
-            <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
-        </div>
-
         <div class="form-group lab">
           <label>Room Number<span style="color: red">*</span></label>
           <input type="text" class="form-control" name="roomNumber">

@@ -28,6 +28,7 @@
             <th scope="col">Capacity</th>
             <th scope="col">Time</th>
             <th scope="col">Dates</th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
