@@ -5,7 +5,7 @@
     <div class="container">
         <div class="mb-4 col-md-12">
                 <a class="btn btn-primary" href="/courses/create">New Course</a>
-                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Course Section">
+                <input type="text" id="myInput" style="width: 200px;height:38px;padding-bottom: 3px;font-size:12pt;" onkeyup="myFunction()" placeholder="Search for Course Section #">
         </div>
         <div class="row">
             <table class="table table-striped table-hover" id="myTable2">
@@ -35,7 +35,8 @@
         </div>
     </div>
 
-    <script>
+<script>
+//Table sorting script
 function sortTable(n) {
   var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
   table = document.getElementById("myTable2");
@@ -90,7 +91,7 @@ function sortTable(n) {
     }
   }
 }
-
+//Table filter script
 function myFunction() {
   // Declare variables
   var input, filter, table, tr, td, i, txtValue;
