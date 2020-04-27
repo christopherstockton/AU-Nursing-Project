@@ -86,3 +86,5 @@ Route::get('/settings/clear',          'SettingsController@clear')->middleware('
 
 Route::get('/test',                    'ClinicalController@test')->middleware('auth');
 
+Route::get('/settings/clear',           'SettingsController@clear')->middleware('auth');
+Route::get('/test',                    'ClinicalController@test')->middleware('auth');

@@ -6,6 +6,7 @@
     <div class="mb-4 col-md-12">
     @if ($flag == 0)
       <a class="btn btn-primary" href="/people/create">New Instructor</a>
+      <input type="text" id="myInput" style="width: 200px;height:35px;padding-bottom: 5px;font-size:14pt;" onkeyup="myFunction()" placeholder="Search for first name...">
     @else
       <a class="btn btn-primary" href="/people/create">New Student</a>
 {{--      <a class="btn btn-primary" href="/people/bulk">Bulk Students</a>--}}
@@ -15,7 +16,7 @@
                     <input type='file' name='bulkData' id="bulkData" />
 
                     <button type="submit" class="btn btn-primary mb-2">Submit</button>
-                    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+                    <input type="text" id="myInput" style="width: 200px;height:35px;padding-top: 5px;font-size:14pt;" onkeyup="myFunction()" placeholder="Search for first name...">
                 </form>
             </div>
     @endif
@@ -28,7 +29,7 @@
             <th scope="col">ID</th>
             <th scope="col" onclick="sortTable(0)">First Name</th>
             <th scope="col" onclick="sortTable(1)">Last Name</th>
-            <th scope="col">view</th>
+            <th scope="col">View</th>
           </tr>
         </thead>
         <tbody>
@@ -50,6 +51,8 @@
 </div>
 
 <script>
+
+//Table sort scripts
 function sortTable(n) {
   var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
   table = document.getElementById("myTable2");
@@ -105,6 +108,7 @@ function sortTable(n) {
   }
 }
 
+//Table filter script
 function myFunction() {
   // Declare variables
   var input, filter, table, tr, td, i, txtValue;
