@@ -14,6 +14,8 @@ https://laravel.com/docs/4.2/quick#installation
 1. Run `composer install`
 2. Edit local .env file for your specific database information
 3. Run `php artisan key:generate`
+4. run `php artisan serve`
+5. go to 127.0.0.1:8000
 
 
 
