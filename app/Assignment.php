@@ -34,7 +34,7 @@ class Assignment extends Model
         return $this
         ->join('people', 'assignments.studentID', '=', 'people.id')
         ->where('assignments.clinicalID', $id)
-        ->select('people.firstName', 'people.lastName', 'assignments.Studentid')
+        ->select('people.firstName', 'people.lastName', 'people.id', 'assignments.Studentid')
         ->get();
     }
 

@@ -29,7 +29,7 @@
                                     </h5>
                                     @foreach ($courseStudents as $student)
                                     <h6 class="d-block student">
-                                        <a href="javascript:void(0);" onclick="del(this, {{$student->id}})" style="color:red" class="controls">&#10006</a>
+                                        <a href="javascript:void(0);" onclick="del(this, {{$student->id}}, {{$courses->id}})" style="color:red" class="controls">&#10006</a>
                                         @if(!is_null($student->clinicalID))
                                         <a href="/people/{{ $student->id }}">{{ $student->firstName }} {{ $student->lastName }}</a>
                                         @else
@@ -139,12 +139,13 @@
             }
         }
 
-        function del(e, id) {
+        function del(e, studentID, courseID) {
             $.ajax({
-                url:'/people/delete/'+id,
-                type: 'GET',
-                //headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                success: function(){e.parentNode.parentNode.removeChild(e.parentNode);}
+                url:'/courses/unregister/'+studentID,
+                type: 'POST',
+                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                success: function(){e.parentNode.parentNode.removeChild(e.parentNode);},
+                data: { courseID : courseID }
             });
         }
     </script>

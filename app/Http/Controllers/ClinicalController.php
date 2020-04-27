@@ -139,7 +139,7 @@ class ClinicalController extends Controller
         ->join('courses', 'clinicals.courseID', '=', 'courses.id')
         ->join('sites', 'clinicals.siteID', '=', 'sites.id')
         ->join('people', 'clinicals.instructorID', '=', 'people.id')
-        ->select('clinicals.*', 'courses.CourseName', 'courses.CourseSection', 'sites.siteName', 'people.firstName', 'people.lastName', 'people.id as personID', 'sites.id as siteID')
+        ->select('clinicals.*', 'courses.id as courseID', 'courses.CourseName', 'courses.CourseSection', 'sites.siteName', 'people.firstName', 'people.lastName', 'people.id as personID', 'sites.id as siteID')
         ->where('clinicals.id', $id)
         ->orderBy('id')
         ->first();
@@ -147,7 +147,7 @@ class ClinicalController extends Controller
         $clinicals = \DB::table('clinicals')
         ->join('courses', 'clinicals.courseID', '=', 'courses.id')
         ->join('people', 'clinicals.instructorID', '=', 'people.id')
-        ->select('clinicals.*', 'courses.CourseName', 'courses.CourseSection',  'people.firstName', 'people.lastName', 'people.id as personID')
+        ->select('clinicals.*', 'courses.id as courseID', 'courses.CourseName', 'courses.CourseSection',  'people.firstName', 'people.lastName', 'people.id as personID')
         ->where('clinicals.id', $id)
         ->orderBy('id')
         ->first();
@@ -194,5 +194,22 @@ class ClinicalController extends Controller
     return view('clinicals.test', compact('clinicals', 'assignments', 'courses'));
 
   }
+
+  public function unregister($id, Request $request) { 
+    
+    $input = $request->all();
+    $courseID = $input['courseID'];
+    $clinicalID = $input['clinicalID'];
+
+    \DB::table('assignments')
+      ->where([
+        ['studentID',  '=', $id],
+        ['courseID',   '=', $courseID],
+        ['clinicalID', '=', $clinicalID]])
+      ->update(['clinicalID' => null]);
+
+    //return($clinicalID);
+  }
+
 
 }

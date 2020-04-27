@@ -164,4 +164,18 @@ class CoursesController extends Controller
             'courses' => $courses
         ]);
     }
+
+    public function unregister($id, Request $request) { 
+    
+        $input = $request->all();
+        $courseID = $input['courseID'];
+    
+        \DB::table('assignments')
+          ->where([
+            ['studentID',  '=', $id],
+            ['courseID',   '=', $courseID]])
+          ->delete();
+    
+        //return($clinicalID);
+      }
 }

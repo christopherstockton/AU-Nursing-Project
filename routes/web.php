@@ -68,7 +68,9 @@ Route::get('/clinicals/{ID}',            'ClinicalController@show')->middleware(
 Route::get('/clinicals/delete/{ID}',     'ClinicalController@delete')->middleware('auth');
 Route::get('/clinicals/{ID}/edit',       'ClinicalController@edit')->middleware('auth');
 Route::put('/clinicals/{ID}',            'ClinicalController@update')->middleware('auth');
+Route::post('/clinicals/unregister/{ID}', 'ClinicalController@unregister')->middleware('auth');
 
+//Courses Routes
 Route::get('/courses/create',          'CoursesController@create')->middleware('auth');
 Route::post('/courses',                'CoursesController@store')->middleware('auth');
 Route::get('/courses/{ID}',            'CoursesController@show')->middleware('auth');
@@ -76,8 +78,10 @@ Route::get('/courses/delete/{ID}',     'CoursesController@delete')->middleware('
 Route::get('/courses/{ID}/edit',       'CoursesController@edit')->middleware('auth');
 Route::get('/courses/{ID}/assign',     'CoursesController@assign')->middleware('auth');
 Route::put('/courses/{ID}',            'CoursesController@update')->middleware('auth');
+Route::post('/courses/unregister/{ID}','CoursesController@unregister')->middleware('auth');
 
-Route::get('/settings/clear',           'SettingsController@clear')->middleware('auth');
+
+Route::get('/settings/clear',          'SettingsController@clear')->middleware('auth');
 
 Route::get('/test',                    'ClinicalController@test')->middleware('auth');
 

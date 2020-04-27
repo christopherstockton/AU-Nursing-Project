@@ -105,10 +105,14 @@
                                     <div class="row">
                                         <div class="col-sm-3 col-md-2 col-5">
                                             <label style="font-weight:bold;">Registered Students</label>
+                                            <button onclick=showControls() class="btn btn-outline-warning btn-sm">Delete Students</a>
                                         </div>
                                         <div class="col-md-8 col-6">
                                         @foreach ($assignments->retrieveStudents($clinicals->id) as $assignment)
-                                        <a href ="../people/{{$assignment->Studentid}}"> {{$assignment->firstName}} {{$assignment->lastName}} </a> <br>
+                                        <span>
+                                            <a href="javascript:void(0);" onclick="del(this, {{$assignment->id}}, {{$clinicals->id}}, {{$clinicals->courseID}})" style="color:red" class="controls">&#10006</a>
+                                            <a href ="../people/{{$assignment->Studentid}}"> {{$assignment->firstName}} {{$assignment->lastName}} </a> <br>
+                                        </span>
                                         @endforeach
                                         </div>
                                     </div>
@@ -123,5 +127,31 @@
 
             </div>
         </div>
+
+    <script>
+        var display = false;
+        $(".controls").hide(0);
+
+        function showControls() {
+            display = !display;
+
+            if (display == true) {
+                $(".controls").show(300);
+            } else if (display == false) {
+                $(".controls").hide(300);
+            }
+        }
+
+        function del(e, studentID,  clinicalID, courseID) {
+            $.ajax({
+                url:'/clinicals/unregister/'+studentID,
+                type: 'POST',
+                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                success: function(){e.parentNode.parentNode.removeChild(e.parentNode);},
+                data: {clinicalID : clinicalID, courseID : courseID}
+
+            });
+        }
+    </script>
 
 @endsection
