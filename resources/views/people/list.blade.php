@@ -29,7 +29,11 @@
             <th scope="col">ID</th>
             <th scope="col" onclick="sortTable(0)">First Name</th>
             <th scope="col" onclick="sortTable(1)">Last Name</th>
+<<<<<<< HEAD
             <th scope="col">View</th>
+=======
+            <th scope="col"></th>
+>>>>>>> matt
           </tr>
         </thead>
         <tbody>

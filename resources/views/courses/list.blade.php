@@ -14,7 +14,7 @@
                     <th scope="col">ID</th>
                     <th scope="col" onclick="sortTable(0)">Course Section</th>
                     <th scope="col" onclick="sortTable(1)">Course Name</th>
-                    <th scope="col">view</th>
+                    <th scope="col"></th>
                 </tr>
                 </thead>
                 <tbody>
