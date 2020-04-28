@@ -88,3 +88,6 @@ Route::get('/test',                    'ClinicalController@test')->middleware('a
 
 Route::get('/settings/clear',           'SettingsController@clear')->middleware('auth');
 Route::get('/test',                    'ClinicalController@test')->middleware('auth');
+
+Route::get('deleteuser', 'auth\UserDeletionController@index')->middleware('auth');
+Route::get('deleteuser/{ID}', 'auth\UserDeletionController@delete')->middleware('auth');
