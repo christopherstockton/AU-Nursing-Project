@@ -10,6 +10,14 @@
                     @csrf
 
                     <div class="form-group">
+                        <label>Select Type:</label>
+                          <select class="form-control" name="flag" id="flag">
+                            <option class="flag" value="0">Clinical</option>
+                            <option class="flag" value="1">Lab</option>
+                          </select>
+                    </div>
+
+                    <div class="form-group">
                         <label>Course Name<span style="color: red">*</span></label>
                         <input type="text" class="form-control @error('CourseName') is-invalid @enderror" name="CourseName">
                         @error('CourseName')

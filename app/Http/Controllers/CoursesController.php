@@ -144,6 +144,7 @@ class CoursesController extends Controller
 
         $courses->CourseName = request('CourseName');
         $courses->CourseSection = request('CourseSection');
+        $courses->flag = request('flag');
 
         $courses->save();
 

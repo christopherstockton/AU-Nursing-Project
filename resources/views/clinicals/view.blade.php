@@ -41,7 +41,7 @@
                                             <label style="font-weight:bold;">Instructor</label>
                                         </div>
                                         <div class="col-md-8 col-6">
-                                        <a href="/people/{{$clinicals->personID}}">{{ $clinicals->firstName }} {{ $clinicals->lastName}}</a>
+                                        <a href="/people/{{$clinicals->personID}}">{{ $clinicals->firstName }} {{ $clinicals->lastName}}</a>@if ($instructor2 != NULL) and <a href="/people/{{$instructor2->id}}">{{ $instructor2->firstName }} {{ $instructor2->lastName }}</a>@endif
                                         </div>
                                     </div>
                                     <div class="row">

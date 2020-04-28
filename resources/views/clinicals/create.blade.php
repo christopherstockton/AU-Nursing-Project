@@ -52,6 +52,16 @@
           </select>
         </div>
 
+        <div class="form-group">
+          <label>Instructor 2</label>
+          <select class="form-control" name="instructorID2" id="instructorID2">
+            <option class="instructorID2" value=NULL>NONE</option>
+          @foreach ($instructors as $instructor)
+            <option class="instructorID2" value={{ $instructor->id }}>{{ $instructor->firstName }} {{ $instructor->lastName }}</option>
+          @endforeach
+          </select>
+        </div>
+
         <div class="form-group lab">
           <label>Room Number<span style="color: red">*</span></label>
           <input type="text" class="form-control" name="roomNumber">
@@ -68,7 +78,6 @@
 
         <div class="form-group ">
           <label>Days<span style="color: red">*</span></label>
-          <input type="text" class="form-control @error('days') is-invalid @enderror" name="days" value="0">
             <select class="form-control" name="days" id="days">
               <option class="flag" value="0">Monday</option>
               <option class="flag" value="1">Tuesday</option>

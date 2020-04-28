@@ -103,6 +103,10 @@ class ClinicalController extends Controller
     $clinical->section= request('section');
     $clinical->siteID= request('siteID');
     $clinical->instructorID= request('instructorID');
+    $clinical->instructorID2= request('instructorID2');
+    if ($clinical->instructorID2 == "NULL") {
+      $clinical->instructorID2 = NULL;
+    }
     $clinical->roomNumber= request('roomNumber');
     $clinical->capacity= request('capacity');
     $clinical->enrolled = 0;
@@ -153,13 +157,19 @@ class ClinicalController extends Controller
         ->first();
     }
 
+    $instructor2 = \DB::table('clinicals')
+      ->join('people', 'clinicals.instructorID2', '=', 'people.id')
+      ->select('firstName', 'lastName', 'people.id')
+      ->where('clinicals.id', $id)
+      ->first();
+
     $assignments = new Assignment;
 
     //$clinicals = Clinical::find($id);
 
     //dd($clinicals);
 
-    return view('clinicals.view', compact('clinicals', 'assignments'));
+    return view('clinicals.view', compact('clinicals', 'assignments', 'instructor2'));
   }
 
   public function update($id) {

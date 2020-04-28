@@ -104,8 +104,8 @@
                             Assignments <span class="caret"></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/labs">Labs</a>
                             <a class="dropdown-item" href="/clinicals">Clinicals</a>
+                            <a class="dropdown-item" href="/labs">Labs</a>
                         </div>
                     </li>
                 </li>

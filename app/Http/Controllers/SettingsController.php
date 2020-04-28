@@ -41,6 +41,12 @@ class SettingsController extends Controller
         \DB::table('people')->delete();
         \DB::table('courses')->delete();
 
+        \DB::statement("ALTER TABLE assignments AUTO_INCREMENT = 1;");
+        \DB::statement("ALTER TABLE clinicals AUTO_INCREMENT = 1;");
+        \DB::statement("ALTER TABLE sites AUTO_INCREMENT = 1;");
+        \DB::statement("ALTER TABLE people AUTO_INCREMENT = 1;");
+        \DB::statement("ALTER TABLE courses AUTO_INCREMENT = 1;");
+
         return view('settings.list');
     }
 }
