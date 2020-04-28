@@ -16,7 +16,7 @@
 
                     Step 6: Assign students to course sections <br/>
 
-                    Step 7: Export schedule <br/>
+                    Step 7: <a href="/settings">Export schedule</a> <br/>
 
             </div>
         </div>

@@ -81,10 +81,6 @@ Route::put('/courses/{ID}',            'CoursesController@update')->middleware('
 Route::post('/singleAssign',            'CoursesController@singleAssign')->middleware('auth');
 Route::post('/courses/unregister/{ID}','CoursesController@unregister')->middleware('auth');
 
-
+//Settings Routes
 Route::get('/settings/clear',          'SettingsController@clear')->middleware('auth');
-
-Route::get('/test',                    'ClinicalController@test')->middleware('auth');
-
-Route::get('/settings/clear',           'SettingsController@clear')->middleware('auth');
 Route::get('/test',                    'ClinicalController@test')->middleware('auth');
