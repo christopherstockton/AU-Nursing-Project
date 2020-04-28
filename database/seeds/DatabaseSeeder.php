@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
         define("STUDENT_COUNT",     200);
         define("INSTRUCTOR_PCT",    5);
         define("SITE_COUNT",        20);
-        // Unit count per course, not overall count
+        // Section count per course, not overall count
         define("CLINICAL_COUNT",    4);
         define("CLINIC_DOUBLE_PCT", 50);
         define("ASSIGNMENT_COUNT",  120);

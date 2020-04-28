@@ -83,7 +83,7 @@
                                             <label style="font-weight:bold;">Day</label>
                                         </div>
                                         <div class="col-md-8 col-6">
-                                        {{ $clinicals->days }}
+                                        {{ date('l', strtotime("Sunday +{$clinicals->days} days")) }}
                                         </div>
                                     </div>
                                     <div class="row">

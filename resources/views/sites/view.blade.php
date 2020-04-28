@@ -16,7 +16,7 @@
                             <div class="userData ml-3">
                                 <h2 class="d-block" style="font-size: 1.5rem; font-weight: bold">Site Name: {{$sites->siteName}}</h2>
                                 <h6 class="d-block">Site ID: {{$sites->id}}</h6>
-                                <h6 class="d-block">Contact ID: {{$sites->contactID}}</h6>
+                                <h6 class="d-block">Contact ID: <a href="/people/{{$sites->contactID}}"> {{ $sites->firstName }} {{ $sites->lastName }}</a></h6>
                                 <h6 class="d-block">Address: {{$sites->address}}</h6>
                                 <h6 class="d-block">Unit Tag: {{$sites->unit}}</h6>
                             </div>

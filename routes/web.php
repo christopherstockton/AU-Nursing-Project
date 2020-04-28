@@ -29,7 +29,7 @@ Route::post('/reg', 'CreateUser@createUser')->middleware('auth');
 
 Route::get('/help', function() {
     return view('/help');
-});
+})->middleware('auth');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/students',                  'PeopleController@listStudents')->middleware('auth');

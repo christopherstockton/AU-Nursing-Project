@@ -14,6 +14,11 @@ class SitesController extends Controller
     public function show($id) {
 
         $sites = Sites::find($id);
+        $sites = \DB::table('sites')
+        ->join('people', 'sites.contactID', '=', 'people.id')
+        ->select('sites.*', 'people.firstName', 'people.lastName') //Select only the fields you need otherwise it will be overwritten.
+        ->where('sites.id', $id)
+        ->first();
 
         return view('sites.view', ['sites' => $sites ]);
 

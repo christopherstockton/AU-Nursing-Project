@@ -38,7 +38,7 @@
           <label>Site</label>
           <select class="form-control" name="siteID" id="siteID">
           @foreach ($sites as $site)
-            <option class="siteID" value={{ $site->id }}>{{ $site->address }}</option>
+            <option class="siteID" value={{ $site->id }}>{{ $site->siteName }}</option>
           @endforeach
           </select>
         </div>
@@ -64,13 +64,13 @@
 
         <div class="form-group lab">
           <label>Room Number<span style="color: red">*</span></label>
-          <input type="text" class="form-control" name="roomNumber">
+          <input type="text" class="form-control" name="roomNumber" placeholder="101">
 
         </div>
 
         <div class="form-group ">
           <label>Capacity<span style="color: red">*</span></label>
-          <input type="text" class="form-control @error('capacity') is-invalid @enderror" name="capacity">
+          <input type="text" class="form-control @error('capacity') is-invalid @enderror" name="capacity" placeholder="8">
             @error('capacity')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
@@ -79,13 +79,13 @@
         <div class="form-group ">
           <label>Days<span style="color: red">*</span></label>
             <select class="form-control" name="days" id="days">
-              <option class="flag" value="0">Monday</option>
-              <option class="flag" value="1">Tuesday</option>
-              <option class="flag" value="2">Wednesday</option>
-              <option class="flag" value="3">Thursday</option>
-              <option class="flag" value="4">Friday</option>
-              <option class="flag" value="5">Saturday</option>
-              <option class="flag" value="6">Sunday</option>
+              <option class="flag" value="0">Sunday</option>
+              <option class="flag" value="1">Monday</option>
+              <option class="flag" value="2">Tuesday</option>
+              <option class="flag" value="3">Wednesday</option>
+              <option class="flag" value="4">Thursday</option>
+              <option class="flag" value="5">Friday</option>
+              <option class="flag" value="6">Saturday</option>
             </select>
         </div>
 
@@ -129,7 +129,6 @@
 </div>
 
 <script>
-/*
 
 $( document ).ready(function() {
   if ( ($('#flag').val()) == 1 ) {
@@ -161,7 +160,6 @@ $( document ).ready(function() {
 
 
   });
-*/
 </script>
 
 @endsection
