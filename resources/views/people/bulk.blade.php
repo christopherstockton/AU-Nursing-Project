@@ -98,7 +98,8 @@
             //dataType:'json',
             //contentType: 'application/json',
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-            success: function(response){$('#results').replaceWith(response);},
+            //success: function(response){$('#results').replaceWith(response);},
+            success: function(response){window.location.replace("/students")},
             error: function(response){$('#results').replaceWith(response);},
 
             data: {names : names, courseID : courseID, courseID2 : courseID2, courseID3 : courseID3}

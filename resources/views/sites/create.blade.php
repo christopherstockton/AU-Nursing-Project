@@ -36,7 +36,7 @@
 
         <div class="form-group instructor">
           <label>Unit Tag<span style="color: red">*</span></label>
-          <input type="text" class="form-control @error('unit') is-invalid @enderror" name="unit">
+          <input type="text" class="form-control @error('unit') is-invalid @enderror" name="unit" placeholder="Enter Unit Tag if multiple units">
             @error('unit')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror

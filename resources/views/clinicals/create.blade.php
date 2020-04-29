@@ -34,15 +34,6 @@
             @enderror
         </div>
 
-        <div class="form-group clinical">
-          <label>Site</label>
-          <select class="form-control" name="siteID" id="siteID">
-          @foreach ($sites as $site)
-            <option class="siteID" value={{ $site->id }}>{{ $site->siteName }}</option>
-          @endforeach
-          </select>
-        </div>
-
         <div class="form-group">
           <label>Instructor</label>
           <select class="form-control" name="instructorID" id="instructorID">
@@ -62,15 +53,25 @@
           </select>
         </div>
 
+        <div class="form-group clinical">
+          <label>Site</label>
+          <select class="form-control" name="siteID" id="siteID">
+            <option class="siteID" selected disabled value>Select a site</option>
+          @foreach ($sites as $site)
+            <option class="siteID" value={{ $site->id }}>{{ $site->siteName }}</option>
+          @endforeach
+          </select>
+        </div>
+
         <div class="form-group lab">
           <label>Room Number<span style="color: red">*</span></label>
-          <input type="text" class="form-control" name="roomNumber" placeholder="101">
+          <input type="text" class="form-control" name="roomNumber">
 
         </div>
 
         <div class="form-group ">
           <label>Capacity<span style="color: red">*</span></label>
-          <input type="text" class="form-control @error('capacity') is-invalid @enderror" name="capacity" placeholder="8">
+          <input type="text" class="form-control @error('capacity') is-invalid @enderror" name="capacity">
             @error('capacity')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
@@ -132,13 +133,13 @@
 
 $( document ).ready(function() {
   if ( ($('#flag').val()) == 1 ) {
-      $(".clinical").hide(1000);
-      $(".lab").show(1000);
+      $(".clinical").hide(0);
+      $(".lab").show(0);
       $(".top").text("New Lab");
     }
     else if ( ($('#flag').val()) == 0 ) {
-      $(".clinical").show(1000);
-      $(".lab").hide(1000);
+      $(".clinical").show(0);
+      $(".lab").hide(0);
       $(".top").text("New Clinical");
     }
 });
@@ -148,13 +149,13 @@ $( document ).ready(function() {
     console.log($('#flag').val());
 
     if ( ($('#flag').val()) == 1 ) {
-      $(".clinical").hide(1000);
-      $(".lab").show(1000);
+      $(".clinical").hide(0);
+      $(".lab").show(0);
       $(".top").text("New Lab");
     }
     else if ( ($('#flag').val()) == 0 ) {
-      $(".clinical").show(1000);
-      $(".lab").hide(1000);
+      $(".clinical").show(0);
+      $(".lab").hide(0);
       $(".top").text("New Clinical");
     }
 

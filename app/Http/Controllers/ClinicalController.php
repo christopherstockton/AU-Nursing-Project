@@ -193,7 +193,7 @@ class ClinicalController extends Controller
     return $this->show($id);
   }
 
-  public function test() {
+  public function export() {
 
 
     $assignments = new Assignment;
@@ -201,7 +201,7 @@ class ClinicalController extends Controller
     //$clinicals = Clinical::all();
     $courses = Courses::all();
 
-    return view('clinicals.test', compact('clinicals', 'assignments', 'courses'));
+    return view('clinicals.export', compact('clinicals', 'assignments', 'courses'));
 
   }
 

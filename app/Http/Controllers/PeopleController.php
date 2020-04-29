@@ -22,7 +22,7 @@ class PeopleController extends Controller
 
   }
 
-  //Listing all students
+  //List all students
   public function listStudents() {
 
   $people = new People;
@@ -119,7 +119,7 @@ class PeopleController extends Controller
           $assignment->courseID =  $courseID;
           $assignment->created_at = \Carbon\Carbon::now();
           $assignment->updated_at = \Carbon\Carbon::now();
-          $assignment->save();
+          $assignmentasdf->save();
 
           if ($courseID2 != "none") {
             $assignment2 = new Assignment;
@@ -142,8 +142,9 @@ class PeopleController extends Controller
 
 
     //get last person->id, courseid
-
-      return "Bulk Upload Success";
+    return "Error";
+      //return redirect('/students');
+      //return "Bulk Upload Success";
 
 
     }

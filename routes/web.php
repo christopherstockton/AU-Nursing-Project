@@ -83,4 +83,4 @@ Route::post('/courses/unregister/{ID}','CoursesController@unregister')->middlewa
 
 //Settings Routes
 Route::get('/settings/clear',          'SettingsController@clear')->middleware('auth');
-Route::get('/test',                    'ClinicalController@test')->middleware('auth');
+Route::get('/export',                    'ClinicalController@export')->middleware('auth');
