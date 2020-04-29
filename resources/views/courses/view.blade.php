@@ -14,24 +14,16 @@
                                     <h6 class="d-block">Name: {{$courses->CourseName}}</h6>
                                     <h6 class="d-block">Created: {{$courses->created_at}}</h6>
                                     <h6 class="d-block">Updated: {{$courses->updated_at}}</h6><br/>
-                                    <h5 class="d-block">New Sections</h5>
+                                    <h4 class="d-block">Course Sections</h4>
                                     @foreach ($clinicals->retrieveClinicals($courses->id) as $clinical)
                                     @if ($courses->flag == 0)
-                                    <h6 class="d-block"><a href="/clinicals/{{ $clinical->id }}">{{ $courses->CourseSection }}-0{{ $clinical->section }}</a> - {{ $clinical->firstName }} {{ $clinical->lastName }} at {{ $clinical->siteName }}, {{ date_format(date_create($clinical->startTime), "g:iA") }}-{{ date_format(date_create($clinical->endTime), "g:iA") }}</h6>
+                                    <h5 class="d-block"><a href="/clinicals/{{ $clinical->id }}">{{ $courses->CourseSection }}-0{{ $clinical->section }}</a> - {{ $clinical->firstName }} {{ $clinical->lastName }} at {{ $clinical->siteName }}, {{ date_format(date_create($clinical->startTime), "g:iA") }}-{{ date_format(date_create($clinical->endTime), "g:iA") }}</h6>
                                     @else
                                     <h6 class="d-block"><a href="/clinicals/{{ $clinical->id }}">{{ $clinical->CourseSection }}-0{{ $clinical->section }}</a> - {{ $clinical->firstName }} {{ $clinical->lastName }}, {{ date_format(date_create($clinical->startTime), "g:iA") }}-{{ date_format(date_create($clinical->endTime), "g:iA") }}</h6>
                                     @endif
                                             @foreach ($assignments->retrieveStudents($clinical->id) as $assignment)
                                                 <a href="/people/{{ $assignment->id }}">{{$assignment->firstName}} {{$assignment->lastName}}</a><br>
                                             @endforeach
-                                    @endforeach
-                                    <h5 class="d-block">Labs and Clinicals</h5>
-                                    @foreach ($sections as $section)
-                                    @if ($courses->flag == 0)
-                                    <h6 class="d-block"><a href="/clinicals/{{ $section->id }}">{{ $courses->CourseSection }}-0{{ $section->section }}</a> - {{ $section->firstName }} {{ $section->lastName }} at {{ $section->siteName }}, {{ date_format(date_create($section->startTime), "g:iA") }}-{{ date_format(date_create($section->endTime), "g:iA") }}</h6>
-                                    @else
-                                    <h6 class="d-block"><a href="/clinicals/{{ $section->id }}">{{ $courses->CourseSection }}-0{{ $section->section }}</a> - {{ $section->firstName }} {{ $section->lastName }}, {{ date_format(date_create($section->startTime), "g:iA") }}-{{ date_format(date_create($section->endTime), "g:iA") }}</h6>
-                                    @endif
                                     @endforeach
                                     <h5 class="d-block">
                                         Registered Students
