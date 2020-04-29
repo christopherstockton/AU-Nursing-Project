@@ -5,10 +5,10 @@
   <div class="container">
     <div class="mb-4 col-md-12">
     @if ($flag == 0)
-      <a class="btn btn-primary" href="/instructor/create">New Instructor</a>
+      <a class="btn btn-primary" href="/people/create">New Instructor</a>
       <input type="text" id="myInput" style="width: 200px;height:35px;padding-bottom: 5px;font-size:14pt;" onkeyup="myFunction()" placeholder="Search for first name...">
     @else
-      <a class="btn btn-primary" href="/student/create">New Student</a>
+      <a class="btn btn-primary" href="/people/create">New Student</a>
 {{--      <a class="btn btn-primary" href="/people/bulk">Bulk Students</a>--}}
             <div class="border-dark">
                 <form action='/people/bulk' enctype="multipart/form-data" method="post">

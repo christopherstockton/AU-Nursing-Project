@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Assignment;
+use App\Clinical;
 use App\Courses;
 use Illuminate\Http\Request;
 use \DateTime;
@@ -12,6 +13,8 @@ class CoursesController extends Controller
 {
     public function show($id) {
 
+        $assignments = new Assignment();
+        $clinicals = new Clinical();
         $courses = Courses::find($id);
 
 //        $courseStudents = \DB::table('assignments')
@@ -51,6 +54,8 @@ class CoursesController extends Controller
         'courseStudents' => $courseStudents,
         'sections' => $sections,
         'nonCourseStudents' => $nonCourseStudents,
+        'assignments' => $assignments,
+        'clinicals' => $clinicals,
         ]);
 
     }
