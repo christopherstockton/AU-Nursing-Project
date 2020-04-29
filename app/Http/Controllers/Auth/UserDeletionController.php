@@ -21,9 +21,16 @@ class UserDeletionController extends Controller
     public function delete($id) {
 
         $user = User::find($id);
-        $user->delete();
+        $useramt = \DB::table('users')->count();
+        $currentUser = auth()->user();
 
-        return redirect('/deleteuser');
 
+        print($user->email);
+        if($id != $currentUser->id) {
+            $user->delete();
+            return redirect('/deleteuser');
+        } else {
+            return redirect()->back()->with('alert', 'Unable to delete Logged in account!');
+        }
     }
 }
