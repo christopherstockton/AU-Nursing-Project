@@ -24,3 +24,11 @@ https://laravel.com/docs/4.2/quick#installation
 Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
 If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+
+## Support Documentation & Additional Support Documents
+
+This link directs you towards official documentation files for this project. The content within the Google drive is only viewable using this link. 
+
+ATTENTION: Anyone attempting further work or changes on this project who wish to make changes to the documentation should reach out to Chris Stockton via email: stocktonc16@gmail.com
+
+Documentation Link: https://drive.google.com/drive/folders/16i55weBEAIJD_lJFZBPYg91PRJnSe0ny?usp=sharing
