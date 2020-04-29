@@ -119,7 +119,7 @@ class PeopleController extends Controller
           $assignment->courseID =  $courseID;
           $assignment->created_at = \Carbon\Carbon::now();
           $assignment->updated_at = \Carbon\Carbon::now();
-          $assignmentasdf->save();
+          $assignment->save();
 
           if ($courseID2 != "none") {
             $assignment2 = new Assignment;
@@ -236,7 +236,7 @@ class PeopleController extends Controller
 
     //Upon updating, grab the data again and "re-store" into the DB. Then reload the /people page
     public function update($id) {
-      if (request('inputType' == "createPerson")) {
+      //if (request('inputType' == "createPerson")) {
 
         $person = People::find($id);
 
@@ -250,7 +250,7 @@ class PeopleController extends Controller
         $person->save();
 
         return redirect('/people/' . $person->id);
-      }
+      //}
 
     }
 
