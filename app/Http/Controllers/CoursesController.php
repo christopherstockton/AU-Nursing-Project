@@ -192,4 +192,12 @@ class CoursesController extends Controller
     
         //return($clinicalID);
       }
+
+      public function clearAssign($id) {
+          \DB::table('assignments')
+            ->where('courseID', '=', $id)
+            ->delete();
+
+        return redirect('/courses/' . $id);
+      }
 }

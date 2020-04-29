@@ -52,6 +52,8 @@ Route::put('/sites/{ID}',               'SitesController@update')->middleware('a
 
 //People Routes
 Route::get('/people/create',             'PeopleController@create')->middleware('auth');
+Route::get('/student/create',            'PeopleController@createStudent')->middleware('auth');
+Route::get('/instructor/create',          'PeopleController@createInstructor')->middleware('auth');
 Route::post('/people/bulk',              'PeopleController@bulk')->middleware('auth');
 Route::post('/people/bulk/upload',       'PeopleController@bulkUpload')->middleware('auth');
 Route::post('/people',                   'PeopleController@store')->middleware('auth');
@@ -80,6 +82,7 @@ Route::get('/courses/{ID}/assign',     'CoursesController@assign')->middleware('
 Route::put('/courses/{ID}',            'CoursesController@update')->middleware('auth');
 Route::post('/singleAssign',            'CoursesController@singleAssign')->middleware('auth');
 Route::post('/courses/unregister/{ID}','CoursesController@unregister')->middleware('auth');
+Route::get('/courses/clearAssignments/{ID}', 'CoursesController@clearAssign')->middleware('auth');
 
 //Settings Routes
 Route::get('/settings/clear',          'SettingsController@clear')->middleware('auth');

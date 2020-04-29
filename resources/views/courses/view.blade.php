@@ -25,7 +25,8 @@
                                     @endforeach
                                     <h5 class="d-block">
                                         Registered Students
-                                        <button onclick=showControls() class="btn btn-outline-warning btn-sm">Delete Students</a>
+                                        <button onclick=showControls() class="btn btn-outline-warning btn-sm">Delete Assignments</a>
+                                        <button onclick=deleteAll() class="btn btn-outline-danger btn-sm">Delete All</a>
                                     </h5>
                                     @foreach ($courseStudents as $student)
                                     <h6 class="d-block student">
@@ -45,9 +46,10 @@
                         <a class="btn btn-danger" href="/courses/delete/{{$courses->id}}">DELETE</a>
                         <a class="btn btn-primary" href="/courses/{{$courses->id}}/edit">EDIT</a>
                         <a class="btn btn-primary" href="/courses/">BACK</a>
+                        <div class="container"></div>
                         <a class="btn btn-primary" href="/courses/{{$courses->id}}/assign">Assign All</a>
                             <!-- Trigger Button HTML -->
-                            <input type="button" class="btn btn-primary" data-toggle="collapse" data-target="#myCollapsible" value="Add New Person">
+                            <input type="button" class="btn btn-primary" data-toggle="collapse" data-target="#myCollapsible" value="Assign Section">
                             <!-- Collapsible Element HTML -->
                             <div id="myCollapsible" class="collapse">
                                 <form method='post' action='/newstud'>
@@ -55,7 +57,7 @@
 
                                     <div class="form-group">
                                         <select class="form-control" name="flag" id="flag">
-                                            <option class="flag" value="1">Student</option>
+                                            <option class="flag" value="1">Student</option
                                         </select>
                                     </div>
 
@@ -167,6 +169,12 @@
                 $(".controls").show(300);
             } else if (display == false) {
                 $(".controls").hide(300);
+            }
+        }
+
+        function deleteAll() {
+            if (confirm("Hey")) {
+                window.location.replace("/courses/clearAssignments/{{ $courses->id }}");
             }
         }
 

@@ -178,6 +178,10 @@ class ClinicalController extends Controller
       ->select('firstName', 'lastName', 'people.id')
       ->where('clinicals.id', $id)
       ->first();
+    
+    $enrolled = \DB::table('assignments')
+      ->where('clinicalID', $id)
+      ->count();
 
     $assignments = new Assignment;
 
@@ -185,7 +189,7 @@ class ClinicalController extends Controller
 
     //dd($clinicals);
 
-    return view('clinicals.view', compact('clinicals', 'assignments', 'instructor2'));
+    return view('clinicals.view', compact('clinicals', 'assignments', 'instructor2', 'enrolled'));
   }
 
   public function update($id) {
