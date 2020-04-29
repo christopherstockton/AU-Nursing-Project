@@ -4,12 +4,11 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-12">
+            <div class="col-8">
                 <div class="card">
                     <div class="card-body">
                         <div class="card-title mb-4">
                             <div class="d-flex justify-content-start">
-
                                 <div class="userData ml-3">
                                     <h2 class="d-block" style="font-size: 1.5rem; font-weight: bold">{{$courses->CourseSection}}</h2>
                                     <h6 class="d-block">Name: {{$courses->CourseName}}</h6>
@@ -55,13 +54,17 @@
                         </div>
 
                         <a class="btn btn-danger" href="/courses/delete/{{$courses->id}}">DELETE</a>
-                        <a class="btn btn-primary" href="/courses/{{$courses->id}}/edit">EDIT</a>
-                        <a class="btn btn-primary" href="/courses/">BACK</a>
-                        <a class="btn btn-primary" href="/courses/{{$courses->id}}/assign">Automatically Assign All</a>
+                        <a class="btn btn-info" href="/courses/{{$courses->id}}/edit">EDIT</a>
+                        <a class="btn btn-secondary" href="/courses/">BACK</a>
+                        <br><br>
+                        <a class="btn btn-success" href="/courses/{{$courses->id}}/assign">Automatically Assign All</a>
                             <!-- Trigger Button HTML -->
                             <input type="button" class="btn btn-primary" data-toggle="collapse" data-target="#myCollapsible" value="Assign to Course">
+                            <input type="button" class="btn btn-primary" data-toggle="collapse" data-target="#assignsingle" value="Assign to Section">
+
                             <!-- Collapsible Element HTML -->
-                            <div id="myCollapsible" class="collapse">
+                            <br><br>
+                            <div id="myCollapsible" class="collapse col-6">
                                 <form method='post' action='/courseAssign'>
                                     @csrf
 
@@ -80,7 +83,6 @@
                                 </form>
                             </div>
 
-                        <input type="button" class="btn btn-primary" data-toggle="collapse" data-target="#assignsingle" value="Assign to Section">
                         <!-- Collapsible Element HTML -->
                         <div id="assignsingle" class="collapse col-6">
                             <form method='post' action='/singleAssign'>
@@ -97,7 +99,7 @@
                                     </select>
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-group ">
                                     <select class="form-control" name="section" id="section">
                                         @foreach ($sections as $section)
                                                 <option value="{{$section->id}}">{{ $courses->CourseSection }}-0{{ $section->section }}</option>
@@ -117,6 +119,7 @@
 
 
             </div>
+
 
         </div>
     </div>

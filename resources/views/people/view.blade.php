@@ -29,11 +29,11 @@
                     </div>
 
                     <a class="btn btn-danger" href="/people/delete/{{$people->id}}">DELETE</a>
-                    <a class="btn btn-primary" href="/people/{{$people->id}}/edit">EDIT</a>
+                    <a class="btn btn-info" href="/people/{{$people->id}}/edit">EDIT</a>
                     @if ($people->flag == 0)
-                    <a class="btn btn-primary" href="/instructors/">BACK</a>
+                    <a class="btn btn-secondary" href="/instructors/">BACK</a>
                     @else
-                    <a class="btn btn-primary" href="/students/">BACK</a>
+                    <a class="btn btn-secondary" href="/students/">BACK</a>
                     @endif
 
                     <div class="row mt-3">

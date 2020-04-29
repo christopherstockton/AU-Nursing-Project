@@ -24,8 +24,8 @@
                     </div>
 
                     <a class="btn btn-danger" href="/sites/delete/{{$sites->id}}">DELETE</a>
-                    <a class="btn btn-primary" href="/sites/{{$sites->id}}/edit">EDIT</a>
-                    <a class="btn btn-primary" href="/sites/">BACK</a>
+                    <a class="btn btn-info" href="/sites/{{$sites->id}}/edit">EDIT</a>
+                    <a class="btn btn-secondary" href="/sites/">BACK</a>
 
                 </div>
 

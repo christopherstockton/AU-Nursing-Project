@@ -23,8 +23,8 @@
                     </div>
 
                     <a class="btn btn-danger" href="/clinicals/delete/{{$clinicals->id}}">DELETE</a>
-                    <a class="btn btn-primary" href="/clinicals/{{$clinicals->id}}/edit">EDIT</a>
-                    <a class="btn btn-primary" href="/clinicals/">BACK</a>
+                    <a class="btn btn-info" href="/clinicals/{{$clinicals->id}}/edit">EDIT</a>
+                    <a class="btn btn-secondary" href="/clinicals/">BACK</a>
 
                     <div class="row mt-3">
                         <div class="col-12">
