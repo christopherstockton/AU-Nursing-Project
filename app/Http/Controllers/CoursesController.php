@@ -27,6 +27,9 @@ class CoursesController extends Controller
             ->where('assignments.courseID', $id)
             ->get();
 
+        $nonCourseStudents = \DB::table('people')
+            ->get();
+
         if ($courses->flag == 0) {
             $sections = \DB::table('clinicals')
             ->select('clinicals.id', 'clinicals.section', 'people.firstName', 'people.lastName', 'sites.siteName', 'clinicals.startTime', 'clinicals.endTime', 'clinicals.days')
@@ -47,6 +50,7 @@ class CoursesController extends Controller
         return view('courses.view', ['courses' => $courses,
         'courseStudents' => $courseStudents,
         'sections' => $sections,
+        'nonCourseStudents' => $nonCourseStudents,
         ]);
 
     }
@@ -62,6 +66,19 @@ class CoursesController extends Controller
 
         //return $this->listCourses();
         return redirect('/courses/' . $courseid);
+    }
+
+    public function courseAssign(Request $request) {
+        $assignment = new Assignment();
+        $assignment->studentID = request('studentID');
+        $assignment->courseID = request('courseID');
+
+        //dd($assignment);
+
+        $assignment->save();
+
+        //return $this->listCourses();
+        return redirect('/courses/' . $assignment->courseID);
     }
 
     public function assign($id) {

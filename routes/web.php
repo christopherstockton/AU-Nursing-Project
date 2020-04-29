@@ -61,7 +61,6 @@ Route::get('/people/{ID}',               'PeopleController@show')->middleware('a
 Route::get('/people/delete/{ID}',        'PeopleController@delete')->middleware('auth');
 Route::get('/people/{ID}/edit',          'PeopleController@edit')->middleware('auth');
 Route::put('/people/{ID}',               'PeopleController@update')->middleware('auth');
-Route::post('/newstud',                   'PeopleController@studentCourse')->middleware('auth');
 
 //Clinicals Routes
 Route::get('/clinicals/create',          'ClinicalController@create')->middleware('auth');
@@ -81,6 +80,7 @@ Route::get('/courses/{ID}/edit',       'CoursesController@edit')->middleware('au
 Route::get('/courses/{ID}/assign',     'CoursesController@assign')->middleware('auth');
 Route::put('/courses/{ID}',            'CoursesController@update')->middleware('auth');
 Route::post('/singleAssign',            'CoursesController@singleAssign')->middleware('auth');
+Route::post('/courseAssign',            'CoursesController@courseAssign')->middleware('auth');
 Route::post('/courses/unregister/{ID}','CoursesController@unregister')->middleware('auth');
 Route::get('/courses/clearAssignments/{ID}', 'CoursesController@clearAssign')->middleware('auth');
 

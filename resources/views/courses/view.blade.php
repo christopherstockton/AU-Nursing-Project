@@ -46,67 +46,30 @@
                         <a class="btn btn-danger" href="/courses/delete/{{$courses->id}}">DELETE</a>
                         <a class="btn btn-primary" href="/courses/{{$courses->id}}/edit">EDIT</a>
                         <a class="btn btn-primary" href="/courses/">BACK</a>
-                        <div class="container"></div>
-                        <a class="btn btn-primary" href="/courses/{{$courses->id}}/assign">Assign All</a>
+                        <a class="btn btn-primary" href="/courses/{{$courses->id}}/assign">Automatically Assign All</a>
                             <!-- Trigger Button HTML -->
-                            <input type="button" class="btn btn-primary" data-toggle="collapse" data-target="#myCollapsible" value="Assign Section">
+                            <input type="button" class="btn btn-primary" data-toggle="collapse" data-target="#myCollapsible" value="Assign to Course">
                             <!-- Collapsible Element HTML -->
                             <div id="myCollapsible" class="collapse">
-                                <form method='post' action='/newstud'>
+                                <form method='post' action='/courseAssign'>
                                     @csrf
 
                                     <div class="form-group">
-                                        <select class="form-control" name="flag" id="flag">
-                                            <option class="flag" value="1">Student</option
+                                        <select class="form-control" name="studentID" id="studentID">
+                                        @foreach ($nonCourseStudents as $student)
+                                                <option value="{{$student->id}}">{{ $student->firstName }} {{ $student->lastName }}</option>
+                                        @endforeach
                                         </select>
                                     </div>
 
-                                    <div class="form-group">
-                                        <label>First Name</label>
-                                        <input type="text" class="form-control @error('firstName') is-invalid @enderror" name="firstName">
-                                        @error('firstName')
-                                        <div class="alert alert-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Last Name</label>
-                                        <input type="text" class="form-control @error('lastName') is-invalid @enderror" name="lastName">
-                                        @error('lastName')
-                                        <div class="alert alert-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-
-                                    <div class="form-group instructor">
-                                        <label>Phone Number</label>
-                                        <input type="text" class="form-control" name="phoneNumber">
-                                    </div>
-
-                                    <div class="form-group instructor">
-                                        <label>Email Address</label>
-                                        <input type="text" class="form-control" name="emailAddress">
-
-                                    </div>
-
-                                    <div class="form-group instructor">
-                                        <input type="hidden" class="form-control" name="courseID" value="{{$courses->id}}">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>Notes</label>
-                                        <textarea type="text" class="form-control" name="notes"></textarea>
-                                    </div>
-
-
-
-                                    <input type="hidden" name="inputType" value="createPerson">
+                                    <input type="hidden" name="courseID" value="{{$courses->id}}">
 
                                     <button type="submit" class="btn btn-primary mb-2">Submit</button>
 
                                 </form>
                             </div>
 
-                        <input type="button" class="btn btn-primary" data-toggle="collapse" data-target="#assignsingle" value="Assign student">
+                        <input type="button" class="btn btn-primary" data-toggle="collapse" data-target="#assignsingle" value="Assign to Section">
                         <!-- Collapsible Element HTML -->
                         <div id="assignsingle" class="collapse">
                             <form method='post' action='/singleAssign'>
@@ -173,7 +136,7 @@
         }
 
         function deleteAll() {
-            if (confirm("Hey")) {
+            if (confirm("Are you sure you want to delete all students assigned to this course?")) {
                 window.location.replace("/courses/clearAssignments/{{ $courses->id }}");
             }
         }
