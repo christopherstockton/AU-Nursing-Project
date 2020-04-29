@@ -21,7 +21,6 @@ class UserDeletionController extends Controller
     public function delete($id) {
 
         $user = User::find($id);
-        $useramt = \DB::table('users')->count();
         $currentUser = auth()->user();
 
 

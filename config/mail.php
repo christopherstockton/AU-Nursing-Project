@@ -57,7 +57,7 @@ return [
 
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', 'aunursing2020@gmail.com'),
-        'name' => env('MAIL_FROM_NAME', 'aunursing2020@gmail.com'),
+        'name' => env('MAIL_FROM_NAME', 'AU Nursing Tool'),
     ],
 
     /*
