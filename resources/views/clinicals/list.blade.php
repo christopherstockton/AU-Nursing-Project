@@ -16,11 +16,11 @@
         <thead>
           <tr>
             <th scope="col">ID</th>
-            <th scope="col" onclick="sortTable(0)">Course Section</th>
-            <th scope="col" onclick="sortTable(1)">Course Name</th>
-            <th scope="col" onclick="sortTable(2)">Instructor</th>
+            <th scope="col" onclick="sortTable(0)"><a href="javascript:void(0);">Course Section</a></th>
+            <th scope="col" onclick="sortTable(1)"><a href="javascript:void(0);">Course Name</a></th>
+            <th scope="col" onclick="sortTable(2)"><a href="javascript:void(0);">Instructor</a></th>
             @if ($flag == 0)
-            <th scope="col" onclick="sortTable(3)">Site Name</th>
+            <th scope="col" onclick="sortTable(3)"><a href="javascript:void(0);">Site Name</a></th>
             @endif
             @if ($flag == 1)
             <th scope="col">Room Number</th>

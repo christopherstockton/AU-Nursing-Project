@@ -27,8 +27,8 @@
         <thead>
           <tr>
             <th scope="col">ID</th>
-            <th scope="col" onclick="sortTable(0)">First Name</th>
-            <th scope="col" onclick="sortTable(1)">Last Name</th>
+            <th scope="col" onclick="sortTable(0)"><a href="javascript:void(0);">First Name</a></th>
+            <th scope="col" onclick="sortTable(1)"><a href="javascript:void(0);">Last Name</a></th>
             <th scope="col">View</th>
           </tr>
         </thead>

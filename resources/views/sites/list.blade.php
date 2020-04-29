@@ -13,7 +13,7 @@
           <tr>
             <th scope="col">ID</th>
             <th scope="col">Instructor</th>
-            <th scope="col" onclick="sortTable(0)">Site Name</th>
+            <th scope="col" onclick="sortTable(0)"><a href="javascript:void(0);">Site Name</a></th>
             <th scope="col">Address</th>
             <th scope="col">Unit Tag</th>
             <th scope="col">View</th>
