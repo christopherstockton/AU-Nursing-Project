@@ -11,7 +11,7 @@
             <br><br>
             <a class ="btn btn-warning" href="">Manage User Accounts</a>
             <br><br>
-            <a class = "btn btn-danger" href='/settings/clear'>Clear All Data?</a>
+            <a class = "btn btn-danger" href='/settings/clear' onclick="return confirm('Are you sure you want to clear all data?')">Clear All Data?</a>
 
         </div>
     </div>

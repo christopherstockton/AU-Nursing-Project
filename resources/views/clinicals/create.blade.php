@@ -28,8 +28,8 @@
 
         <div class="form-group ">
           <label>Course Section</label>
-          <input type="text" class="form-control @error('unit') is-invalid @enderror" name="section">
-            @error('capacity')
+          <input type="text" class="form-control @error('section') is-invalid @enderror" name="section">
+            @error('section')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
@@ -46,7 +46,7 @@
         <div class="form-group">
           <label>Instructor 2</label>
           <select class="form-control" name="instructorID2" id="instructorID2">
-            <option class="instructorID2" value=NULL>NONE</option>
+            <option class="instructorID2" value>NONE</option>
           @foreach ($instructors as $instructor)
             <option class="instructorID2" value={{ $instructor->id }}>{{ $instructor->firstName }} {{ $instructor->lastName }}</option>
           @endforeach
@@ -56,7 +56,6 @@
         <div class="form-group clinical">
           <label>Site</label>
           <select class="form-control" name="siteID" id="siteID">
-            <option class="siteID" selected disabled value>Select a site</option>
           @foreach ($sites as $site)
             <option class="siteID" value={{ $site->id }}>{{ $site->siteName }}</option>
           @endforeach
@@ -65,8 +64,10 @@
 
         <div class="form-group lab">
           <label>Room Number<span style="color: red">*</span></label>
-          <input type="text" class="form-control" name="roomNumber">
-
+          <input type="text" class="form-control @error('roomNumber') is-invalid @enderror" name="roomNumber">
+            @error('roomNumber')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="form-group ">

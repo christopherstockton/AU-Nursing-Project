@@ -82,21 +82,6 @@ class ClinicalController extends Controller
 //      $clinical->validate([
 //          'capacity' => 'numeric'
 //      ]);
-      $validator = Validator::make(request()->all(), [
-          'capacity' => 'numeric|min:0|required',
-          'startTime' => 'date_format:"H:i:s"|required',
-          'endTime' => 'date_format:"H:i:s"|required',
-          'days' => 'required',
-          'startDate' => 'date_format:"Y-m-d"|required',
-          'endDate' => 'date_format:"Y-m-d"|required',
-          'roomNumber' =>'required',
-      ]);
-
-      if ($validator->fails()) {
-          return redirect('clinicals/create')
-              ->withErrors($validator)
-              ->withInput();
-      }
 
     $clinical->flag= request('flag');
     $clinical->courseID= request('courseID');
@@ -104,9 +89,9 @@ class ClinicalController extends Controller
     $clinical->siteID= request('siteID');
     $clinical->instructorID= request('instructorID');
     $clinical->instructorID2= request('instructorID2');
-    if ($clinical->instructorID2 == "NULL") {
-      $clinical->instructorID2 = NULL;
-    }
+    //if ($clinical->instructorID2 == "NULL") {
+    //  $clinical->instructorID2 = NULL;
+    //}
     $clinical->roomNumber= request('roomNumber');
     $clinical->capacity= request('capacity');
     $clinical->enrolled = 0;
@@ -115,6 +100,37 @@ class ClinicalController extends Controller
     $clinical->endTime= request('endTime');
     $clinical->startDate= request('startDate');
     $clinical->endDate= request('endDate');
+
+    if ($clinical->flag == 0) {
+      $validator = Validator::make(request()->all(), [
+          'capacity' => 'numeric|min:0|required',
+          'startTime' => 'date_format:"H:i:s"|required',
+          'endTime' => 'date_format:"H:i:s"|required',
+          'days' => 'required',
+          'startDate' => 'date_format:"Y-m-d"|required',
+          'endDate' => 'date_format:"Y-m-d"|required',
+          'section' => 'required|min:0|numeric',
+      ]);
+  } else {
+      $validator = Validator::make(request()->all(), [
+          'capacity' => 'numeric|min:0|required',
+          'startTime' => 'date_format:"H:i:s"|required',
+          'endTime' => 'date_format:"H:i:s"|required',
+          'days' => 'required',
+          'startDate' => 'date_format:"Y-m-d"|required',
+          'endDate' => 'date_format:"Y-m-d"|required',
+          'roomNumber' =>'required|numeric',
+          'section' => 'required|min:0|numeric',
+      ]);
+
+  }
+
+
+      if ($validator->fails()) {
+          return redirect('clinicals/create')
+              ->withErrors($validator)
+              ->withInput();
+      }
 
     $clinical->save();
 
