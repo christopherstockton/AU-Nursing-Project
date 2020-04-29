@@ -14,6 +14,12 @@
             <a class = "btn btn-danger" href='/settings/clear'>Clear All Data?</a>
             <br><br>
             <a class="btn btn-primary" href="/deleteuser" role="button">Delete User</a>
+            <br><br>
+            @if (Route::has('password.request'))
+                <a class="btn btn-primary" href="{{ route('password.request') }}">
+                    {{ __('Change Password') }}
+                </a>
+            @endif
 
         </div>
     </div>
