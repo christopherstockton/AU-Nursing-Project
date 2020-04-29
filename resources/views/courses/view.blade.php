@@ -17,14 +17,17 @@
                                     <h4 class="d-block">Course Sections</h4>
                                     @foreach ($clinicals->retrieveClinicals($courses->id) as $clinical)
                                     @if ($courses->flag == 0)
-                                    <h5 class="d-block"><a href="/clinicals/{{ $clinical->id }}">{{ $courses->CourseSection }}-0{{ $clinical->section }}</a> - {{ $clinical->firstName }} {{ $clinical->lastName }} at {{ $clinical->siteName }}, {{ date_format(date_create($clinical->startTime), "g:iA") }}-{{ date_format(date_create($clinical->endTime), "g:iA") }}</h6>
+                                    <h6 class="d-block"><a href="/clinicals/{{ $clinical->id }}">{{ $courses->CourseSection }}-0{{ $clinical->section }}</a> - {{ $clinical->firstName }} {{ $clinical->lastName }} at {{ $clinical->siteName }}, {{ date_format(date_create($clinical->startTime), "g:iA") }}-{{ date_format(date_create($clinical->endTime), "g:iA") }}</h6>
                                     @else
                                     <h6 class="d-block"><a href="/clinicals/{{ $clinical->id }}">{{ $clinical->CourseSection }}-0{{ $clinical->section }}</a> - {{ $clinical->firstName }} {{ $clinical->lastName }}, {{ date_format(date_create($clinical->startTime), "g:iA") }}-{{ date_format(date_create($clinical->endTime), "g:iA") }}</h6>
                                     @endif
+                                        <ul>
                                             @foreach ($assignments->retrieveStudents($clinical->id) as $assignment)
-                                                <a href="/people/{{ $assignment->id }}">{{$assignment->firstName}} {{$assignment->lastName}}</a><br>
+                                                <li><a href="/people/{{ $assignment->id }}">{{$assignment->firstName}} {{$assignment->lastName}}</a></li>
                                             @endforeach
+                                        </ul>
                                     @endforeach
+
                                     <h5 class="d-block">
                                         Registered Students
                                         <button onclick=showControls() class="btn btn-outline-warning btn-sm">Delete Assignments</a>
