@@ -87,3 +87,5 @@ Route::get('/courses/clearAssignments/{ID}', 'CoursesController@clearAssign')->m
 //Settings Routes
 Route::get('/settings/clear',          'SettingsController@clear')->middleware('auth');
 Route::get('/export',                    'ClinicalController@export')->middleware('auth');
+Route::get('deleteuser', 'auth\UserDeletionController@index')->middleware('auth');
+Route::get('deleteuser/{ID}', 'auth\UserDeletionController@delete')->middleware('auth');

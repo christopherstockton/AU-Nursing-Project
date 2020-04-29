@@ -82,12 +82,13 @@
 
                         <input type="button" class="btn btn-primary" data-toggle="collapse" data-target="#assignsingle" value="Assign to Section">
                         <!-- Collapsible Element HTML -->
-                        <div id="assignsingle" class="collapse">
+                        <div id="assignsingle" class="collapse col-6">
                             <form method='post' action='/singleAssign'>
                                 @csrf
 
+                                <br>
                                 <div class="form-group">
-                                    <select class="form-control" name="flag" id="flag">
+                                    <select id="DD" class="form-control" name="flag" id="flag">
                                         @foreach ($courseStudents as $student)
                                             @if(is_null($student->clinicalID))
                                                 <option value="{{$student->id}}">{{ $student->firstName }} {{ $student->lastName }}</option>
@@ -157,7 +158,15 @@
                 url:'/courses/unregister/'+studentID,
                 type: 'POST',
                 headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                success: function(){e.parentNode.parentNode.removeChild(e.parentNode);},
+                success: function(){
+                    e.parentNode.parentNode.removeChild(e.parentNode);
+                    var select=document.getElementById('DD');
+                    for (i=0;i<select.length;  i++) {
+                        if (select.options[i].value==studentID) {
+                            select.remove(i);
+                        }
+                    }
+                },
                 data: { courseID : courseID }
             });
         }
